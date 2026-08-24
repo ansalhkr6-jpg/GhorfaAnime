@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>غرفة الأنمي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <button class="icon" onclick="showMessage('القائمة')">☰</button>
+
+  <h1>غرفة <span>الأنمي</span></h1>
+
+  <button class="premium" onclick="showMessage('الاشتراك المميز')">♛</button>
+</header>
+
+<main>
+
+  <div class="search">
+    <span>⌕</span>
+    <input id="searchInput" type="search" placeholder="ابحث عن أنمي...">
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <small>الحلقة الجديدة</small>
+      <h2>اكتشف عالم الأنمي</h2>
+      <p>شاهد، تابع، واستمتع</p>
+
+      <button onclick="watchNow()">
+        ▶ شاهد الآن
+      </button>
+    </div>
+  </section>
+
+  <div class="quick">
+
+    <button onclick="showMessage('الأكثر مشاهدة')">
+      🔥
+      <b>الأكثر مشاهدة</b>
+    </button>
+
+    <button onclick="showMessage('الأنميات الجديدة')">
+      ✨
+      <b>الأنميات الجديدة</b>
+    </button>
+
+    <button onclick="showMessage('أكمل المشاهدة')">
+      ▶
+      <b>أكمل المشاهدة</b>
+    </button>
+
+    <button onclick="showMessage('التصنيفات')">
+      ▦
+      <b>التصنيفات</b>
+    </button>
+
+  </div>
+
+  <section>
+
+    <div class="section-header">
+      <a href="#" onclick="return false;">عرض الكل</a>
+      <h2>الأكثر مشاهدة</h2>
+    </div>
+
+    <div id="animeGrid" class="anime-grid"></div>
+
+  </section>
+
+  <section>
+
+    <div class="section-header">
+      <a href="#" onclick="return false;">عرض الكل</a>
+      <h2>الأنميات الجديدة</h2>
+    </div>
+
+    <div id="newGrid" class="anime-grid"></div>
+
+  </section>
+
+</main>
+
+<nav class="bottom-nav">
+
+  <button class="active" onclick="location.reload()">
+    ⌂
+    <small>الرئيسية</small>
+  </button>
+
+  <button onclick="document.getElementById('searchInput').focus()">
+    ⌕
+    <small>بحث</small>
+  </button>
+
+  <button onclick="myList()">
+    ♡
+    <small>قائمتي</small>
+  </button>
+
+  <button onclick="showMessage('الحساب')">
+    ♙
+    <small>حسابي</small>
+  </button>
+
+</nav>
+
+<div id="message"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
