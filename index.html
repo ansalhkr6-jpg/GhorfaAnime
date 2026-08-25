@@ -1,206 +1,621 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#b747dc">
-  <meta name="description" content="غرفة الأنمي - شاهد وتابع أنمياتك المفضلة">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta
+    name="theme-color"
+    content="#b747dc"
+  >
+
+  <meta
+    name="description"
+    content="غرفة الأنمي - شاهد وتابع الأنمي بطريقة سهلة."
+  >
+
+  <meta
+    name="mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
 
   <title>غرفة الأنمي</title>
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="icon-512.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="icon-512.png"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 <body>
 
-<header class="topbar">
-  <button class="icon-btn" onclick="showMessage('القائمة')">☰</button>
 
-  <div class="logo">
-    <span>غرفة</span>
-    <strong>الأنمي</strong>
-  </div>
+<!-- =====================================================
+     التطبيق
+===================================================== -->
 
-  <button class="premium-btn" onclick="showMessage('الاشتراك المميز')">♛</button>
-</header>
+<div class="app">
 
-<main>
 
-  <div class="search-box">
-    <span>⌕</span>
-    <input id="searchInput" type="search" placeholder="ابحث عن أنمي...">
-  </div>
+  <!-- ===================================================
+       الشريط العلوي
+  ==================================================== -->
 
-  <section class="hero">
-    <div class="hero-content">
-      <span class="badge">أنمي أصلي</span>
-      <h1>Gang</h1>
-      <p>طالب غامض يبدأ رحلة جديدة بقوة لا يعرف حدودها.</p>
+  <header class="topbar">
 
-      <div class="hero-buttons">
-        <button class="watch-btn" onclick="openAnime('gang')">▶ شاهد الآن</button>
-        <button class="info-btn" onclick="openAnime('gang')">＋ التفاصيل</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="quick-menu">
-
-    <button onclick="scrollToSection('popular')">
-      <span>🔥</span>
-      <small>الأكثر مشاهدة</small>
+    <button
+      class="icon-button"
+      onclick="showMessage('القائمة ستكون متاحة قريبًا')"
+      aria-label="القائمة"
+    >
+      ☰
     </button>
 
-    <button onclick="scrollToSection('new')">
-      <span>✨</span>
-      <small>الجديدة</small>
-    </button>
 
-    <button onclick="showMyList()">
-      <span>♡</span>
-      <small>قائمتي</small>
-    </button>
+    <div class="logo">
 
-    <button onclick="showMessage('التصنيفات')">
-      <span>▦</span>
-      <small>التصنيفات</small>
-    </button>
+      <span>غرفة</span>
+      <strong>الأنمي</strong>
 
-  </section>
-
-  <section class="anime-section" id="popular">
-    <div class="section-title">
-      <h2>🔥 الأكثر مشاهدة</h2>
-      <button onclick="showMessage('عرض الكل')">عرض الكل</button>
     </div>
 
-    <div id="animeGrid" class="anime-grid"></div>
-  </section>
 
-  <section class="anime-section" id="new">
-    <div class="section-title">
-      <h2>✨ الأنميات الجديدة</h2>
-      <button onclick="showMessage('عرض الكل')">عرض الكل</button>
+    <button
+      class="premium"
+      onclick="showMessage('Premium سيكون متاحًا قريبًا')"
+    >
+      ♛
+    </button>
+
+  </header>
+
+
+
+  <!-- ===================================================
+       المحتوى الرئيسي
+  ==================================================== -->
+
+  <main>
+
+
+    <!-- =================================================
+         البحث
+    ================================================== -->
+
+    <div class="search-box">
+
+      <span class="search-icon">
+        ⌕
+      </span>
+
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="ابحث عن أنمي..."
+        autocomplete="off"
+      >
+
     </div>
 
-    <div id="newGrid" class="anime-grid"></div>
-  </section>
 
-  <section id="animePage" class="anime-page hidden">
 
-    <button class="back-btn" onclick="closeAnime()">→ العودة</button>
+    <!-- =================================================
+         Hero
+    ================================================== -->
 
-    <div class="anime-detail">
+    <section class="hero">
 
-      <div class="detail-cover">
-        <div class="gang-cover">GANG</div>
-      </div>
+      <div class="hero-overlay"></div>
 
-      <div class="detail-info">
+      <div class="hero-content">
 
-        <span class="badge">أنمي أصلي</span>
+        <small>
+          مرحبًا بك في
+        </small>
 
-        <h1 id="animeTitle">Gang</h1>
+        <h2>
+          اكتشف عالم الأنمي
+        </h2>
 
-        <p id="animeDescription">
-          طالب غامض يبدأ رحلة جديدة ويكتشف أن حياته لن تبقى كما كانت.
+        <p>
+          شاهد، تابع، واستمتع
         </p>
 
-        <div class="tags">
-          <span>أكشن</span>
-          <span>شونين</span>
-          <span>غموض</span>
-        </div>
-
-        <button class="watch-btn" onclick="playEpisode(1)">
-          ▶ الحلقة 1
-        </button>
-
-        <button id="favoriteBtn" class="favorite-btn" onclick="toggleFavorite()">
-          ♡ أضف إلى قائمتي
+        <button
+          class="watch-button"
+          onclick="watchNow()"
+        >
+          ▶ شاهد الآن
         </button>
 
       </div>
 
-    </div>
+    </section>
 
-    <div class="episodes">
-      <h2>الحلقات</h2>
-      <div id="episodeList"></div>
-    </div>
 
-  </section>
 
-  <section id="playerPage" class="player-page hidden">
+    <!-- =================================================
+         الأزرار السريعة
+    ================================================== -->
 
-    <button class="back-btn" onclick="closePlayer()">→ العودة</button>
+    <section class="quick-menu">
 
-    <h2 id="playerTitle">Gang - الحلقة 1</h2>
+      <button onclick="showPopular()">
 
-    <div class="video-container">
+        <span class="quick-icon">
+          🔥
+        </span>
 
-      <video id="videoPlayer" controls playsinline preload="metadata">
-        <p>متصفحك لا يدعم تشغيل الفيديو.</p>
-      </video>
+        <b>
+          الأكثر مشاهدة
+        </b>
 
-    </div>
+      </button>
 
-    <p class="video-note">
-      يمكنك لاحقًا وضع رابط فيديو تملك حق استخدامه داخل script.js.
-    </p>
 
-  </section>
+      <button onclick="showNewAnime()">
 
-  <section id="myListPage" class="my-list-page hidden">
+        <span class="quick-icon">
+          ✨
+        </span>
 
-    <button class="back-btn" onclick="closeMyList()">→ العودة</button>
+        <b>
+          الكلاسيكيات
+        </b>
 
-    <h2>♡ قائمتي</h2>
+      </button>
 
-    <div id="myListContent"></div>
 
-  </section>
+      <button onclick="focusSearch()">
 
-</main>
+        <span class="quick-icon">
+          🔍
+        </span>
 
-<nav class="bottom-nav">
+        <b>
+          بحث
+        </b>
 
-  <button class="active" onclick="goHome()">
-    <span>⌂</span>
-    <small>الرئيسية</small>
-  </button>
+      </button>
 
-  <button onclick="focusSearch()">
-    <span>⌕</span>
-    <small>بحث</small>
-  </button>
 
-  <button onclick="showMyList()">
-    <span>♡</span>
-    <small>قائمتي</small>
-  </button>
+      <button onclick="showCategories()">
 
-  <button onclick="showMessage('الحساب')">
-    <span>♙</span>
-    <small>حسابي</small>
-  </button>
+        <span class="quick-icon">
+          ▦
+        </span>
 
-</nav>
+        <b>
+          التصنيفات
+        </b>
 
-<div id="message"></div>
+      </button>
+
+    </section>
+
+
+
+    <!-- =================================================
+         الأكثر مشاهدة
+    ================================================== -->
+
+    <section
+      class="content-section"
+      id="popularSection"
+    >
+
+      <div class="section-header">
+
+        <h2>
+          الأكثر مشاهدة
+        </h2>
+
+        <button
+          onclick="showPopular()"
+          class="view-all"
+        >
+          عرض الكل
+        </button>
+
+      </div>
+
+
+      <div
+        id="animeGrid"
+        class="anime-grid"
+      ></div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         Public Domain
+    ================================================== -->
+
+    <section
+      class="content-section"
+      id="publicDomainSection"
+    >
+
+      <div class="section-header">
+
+        <h2>
+          🎞️ كلاسيكيات Public Domain
+        </h2>
+
+        <button
+          onclick="showPublicDomain()"
+          class="view-all"
+        >
+          عرض الكل
+        </button>
+
+      </div>
+
+
+      <div class="legal-notice">
+
+        <span>
+          ℹ️
+        </span>
+
+        <p>
+          هذا القسم مخصص للأعمال التي نتحقق من
+          حالة ترخيصها قبل إضافتها إلى التطبيق.
+        </p>
+
+      </div>
+
+
+      <div
+        id="newGrid"
+        class="anime-grid"
+      ></div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         صفحة تفاصيل الأنمي
+    ================================================== -->
+
+    <section
+      id="animePage"
+      class="page anime-page hidden"
+    >
+
+      <button
+        class="back-button"
+        onclick="closeAnime()"
+      >
+        → العودة
+      </button>
+
+
+      <div class="anime-detail">
+
+
+        <!-- الغلاف -->
+
+        <div class="detail-cover">
+
+          <div class="fallback-cover">
+            غرفة الأنمي
+          </div>
+
+        </div>
+
+
+        <!-- المعلومات -->
+
+        <div class="detail-info">
+
+          <div class="detail-badge">
+            غرفة الأنمي
+          </div>
+
+
+          <h2 id="animeTitle">
+            اسم الأنمي
+          </h2>
+
+
+          <div class="tags"></div>
+
+
+          <p id="animeDescription">
+            وصف الأنمي
+          </p>
+
+
+          <button
+            id="favoriteBtn"
+            class="favorite-button"
+            onclick="toggleFavorite()"
+          >
+            ♡ أضف إلى قائمتي
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- الحلقات -->
+
+      <div class="episodes-section">
+
+        <div class="section-header">
+
+          <h2>
+            الحلقات
+          </h2>
+
+        </div>
+
+
+        <div
+          id="episodeList"
+          class="episode-list"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         صفحة مشغل الفيديو
+    ================================================== -->
+
+    <section
+      id="playerPage"
+      class="page player-page hidden"
+    >
+
+      <button
+        class="back-button"
+        onclick="closePlayer()"
+      >
+        → العودة
+      </button>
+
+
+      <div class="player-container">
+
+        <video
+          id="videoPlayer"
+          class="video-player"
+          controls
+          playsinline
+          preload="metadata"
+        >
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+
+      </div>
+
+
+      <h2
+        id="playerTitle"
+        class="player-title"
+      >
+        الحلقة
+      </h2>
+
+
+      <p class="player-note">
+        يتم عرض الفيديوهات التي نملك حق بثها أو
+        استخدامها قانونيًا فقط.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         صفحة قائمتي
+    ================================================== -->
+
+    <section
+      id="myListPage"
+      class="page my-list-page hidden"
+    >
+
+      <button
+        class="back-button"
+        onclick="closeMyList()"
+      >
+        → العودة
+      </button>
+
+
+      <div class="section-header">
+
+        <h2>
+          ❤️ قائمتي
+        </h2>
+
+      </div>
+
+
+      <div
+        id="myListContent"
+        class="anime-grid"
+      ></div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ===================================================
+       التنقل السفلي
+  ==================================================== -->
+
+  <nav class="bottom-nav">
+
+
+    <button
+      class="nav-button active"
+      onclick="goHome()"
+    >
+
+      <span>
+        ⌂
+      </span>
+
+      <small>
+        الرئيسية
+      </small>
+
+    </button>
+
+
+    <button
+      class="nav-button"
+      onclick="focusSearch()"
+    >
+
+      <span>
+        ⌕
+      </span>
+
+      <small>
+        بحث
+      </small>
+
+    </button>
+
+
+    <button
+      class="nav-button"
+      onclick="myList()"
+    >
+
+      <span>
+        ♡
+      </span>
+
+      <small>
+        قائمتي
+      </small>
+
+    </button>
+
+
+    <button
+      class="nav-button"
+      onclick="showAccount()"
+    >
+
+      <span>
+        ♙
+      </span>
+
+      <small>
+        حسابي
+      </small>
+
+    </button>
+
+  </nav>
+
+
+
+  <!-- ===================================================
+       رسالة
+  ==================================================== -->
+
+  <div
+    id="message"
+    class="message"
+  ></div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JavaScript
+===================================================== -->
 
 <script src="script.js"></script>
 
+
+<!-- =====================================================
+     Service Worker
+===================================================== -->
+
 <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js")
-      .then(() => console.log("Service Worker registered"))
-      .catch(error => console.log("Service Worker error:", error));
-  });
-}
+
+  if ("serviceWorker" in navigator) {
+
+    window.addEventListener(
+      "load",
+      function () {
+
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .catch(
+            function (error) {
+
+              console.log(
+                "Service Worker error:",
+                error
+              );
+
+            }
+          );
+
+      }
+    );
+
+  }
+
 </script>
+
 
 </body>
 </html>
