@@ -1,558 +1,1824 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* =====================================================
+   غرفة الأنمي
+   GhorfaAnime
+===================================================== */
+
+
+/* =====================================================
+   المتغيرات
+===================================================== */
 
 :root {
-  --bg: #08070c;
-  --card: #121019;
-  --card2: #1a1622;
+
   --purple: #b747dc;
-  --purple-dark: #7d2caf;
+  --purple-dark: #7b269b;
+  --purple-light: #d978f0;
+
+  --background: #08070c;
+  --surface: #121018;
+  --surface-2: #191520;
+  --surface-3: #211b29;
+
   --text: #ffffff;
-  --muted: #a9a3b1;
+  --text-soft: #bdb7c5;
   --border: rgba(255,255,255,.08);
+
+  --danger: #ff4d6d;
+
+  --radius: 18px;
+
 }
+
+
+/* =====================================================
+   إعادة الضبط
+===================================================== */
+
+* {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
 
 html {
+
   scroll-behavior: smooth;
+
 }
+
 
 body {
+
+  font-family:
+    Arial,
+    "Tahoma",
+    sans-serif;
+
   background:
-    radial-gradient(circle at 80% 0%, rgba(183,71,220,.13), transparent 35%),
-    var(--bg);
+    radial-gradient(
+      circle at top right,
+      rgba(183,71,220,.12),
+      transparent 35%
+    ),
+    var(--background);
+
   color: var(--text);
-  font-family: Arial, Tahoma, sans-serif;
+
   min-height: 100vh;
-  padding-bottom: 82px;
+
+  direction: rtl;
+
 }
+
+
+/* =====================================================
+   التطبيق
+===================================================== */
+
+.app {
+
+  width: 100%;
+
+  max-width: 700px;
+
+  min-height: 100vh;
+
+  margin: auto;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.015),
+      transparent
+    );
+
+  padding-bottom: 90px;
+
+}
+
+
+/* =====================================================
+   الشريط العلوي
+===================================================== */
 
 .topbar {
+
   height: 70px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
-  padding: 0 18px;
+
+  padding:
+    0 18px;
+
   position: sticky;
+
   top: 0;
-  z-index: 50;
-  background: rgba(8,7,12,.88);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border);
+
+  z-index: 100;
+
+  background:
+    rgba(8,7,12,.88);
+
+  backdrop-filter:
+    blur(18px);
+
+  border-bottom:
+    1px solid var(--border);
+
 }
+
 
 .logo {
+
   font-size: 22px;
-  font-weight: 700;
+
+  font-weight: 900;
+
+  letter-spacing: -.5px;
+
 }
+
+
+.logo span {
+
+  color: #fff;
+
+}
+
 
 .logo strong {
+
   color: var(--purple);
+
 }
 
-.icon-btn,
-.premium-btn {
-  border: 0;
-  color: #fff;
-  cursor: pointer;
+
+.icon-button,
+.premium {
+
   width: 42px;
+
   height: 42px;
+
+  border: 0;
+
   border-radius: 14px;
-  font-size: 22px;
-  background: var(--card2);
+
+  background:
+    var(--surface-2);
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition:
+    .2s ease;
+
 }
 
-.premium-btn {
-  color: #ffd76a;
+
+.icon-button:hover,
+.premium:hover {
+
+  background:
+    var(--purple);
+
+  transform:
+    translateY(-2px);
+
 }
+
+
+.premium {
+
+  color:
+    var(--purple-light);
+
+  font-size: 22px;
+
+}
+
+
+/* =====================================================
+   المحتوى
+===================================================== */
+
+main {
+
+  padding:
+    18px;
+
+}
+
+
+/* =====================================================
+   البحث
+===================================================== */
 
 .search-box {
-  margin: 18px;
-  height: 50px;
-  border-radius: 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
+
+  width: 100%;
+
+  height: 52px;
+
   display: flex;
+
   align-items: center;
-  padding: 0 15px;
+
   gap: 10px;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    16px;
+
+  padding:
+    0 16px;
+
+  margin-bottom:
+    18px;
+
 }
 
-.search-box span {
-  color: var(--purple);
-  font-size: 26px;
+
+.search-icon {
+
+  color:
+    var(--purple-light);
+
+  font-size: 25px;
+
 }
+
 
 .search-box input {
-  width: 100%;
-  background: transparent;
+
+  flex: 1;
+
+  background:
+    transparent;
+
   border: 0;
+
   outline: 0;
-  color: white;
+
+  color:
+    white;
+
   font-size: 15px;
+
+  text-align:
+    right;
+
 }
+
 
 .search-box input::placeholder {
-  color: #77717f;
+
+  color:
+    #77717e;
+
 }
+
+
+/* =====================================================
+   Hero
+===================================================== */
 
 .hero {
-  min-height: 370px;
-  margin: 0 14px;
-  border-radius: 25px;
-  overflow: hidden;
+
+  min-height:
+    300px;
+
   position: relative;
+
+  overflow: hidden;
+
+  border-radius:
+    24px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  margin-bottom:
+    20px;
+
   background:
-    linear-gradient(90deg, rgba(8,7,12,.98), rgba(8,7,12,.55), rgba(8,7,12,.1)),
-    linear-gradient(135deg, #34134d, #111018 60%, #09080c);
-  border: 1px solid var(--border);
+
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(183,71,220,.65),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      #24112e,
+      #0b0810 70%
+    );
+
+  border:
+    1px solid
+    rgba(183,71,220,.2);
+
 }
 
-.hero::after {
-  content: "GANG";
+
+.hero::before {
+
+  content: "";
+
   position: absolute;
-  left: 20px;
-  bottom: 15px;
-  font-size: 100px;
-  font-weight: 900;
-  color: rgba(255,255,255,.025);
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      transparent 25%,
+      rgba(183,71,220,.12)
+    );
+
 }
+
+
+.hero-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.9),
+      rgba(0,0,0,.1)
+    );
+
+}
+
 
 .hero-content {
+
   position: relative;
+
   z-index: 2;
-  padding: 65px 25px 30px;
-  max-width: 500px;
+
+  padding:
+    28px;
+
 }
 
-.badge {
-  display: inline-block;
-  padding: 7px 12px;
-  border-radius: 20px;
-  background: rgba(183,71,220,.18);
-  color: #d88af0;
-  border: 1px solid rgba(183,71,220,.35);
-  font-size: 12px;
-  margin-bottom: 14px;
+
+.hero-content small {
+
+  color:
+    var(--purple-light);
+
+  font-weight:
+    bold;
+
 }
 
-.hero h1 {
-  font-size: 58px;
-  margin-bottom: 10px;
+
+.hero-content h2 {
+
+  font-size:
+    clamp(28px, 7vw, 46px);
+
+  margin:
+    8px 0;
+
 }
 
-.hero p {
-  color: #c1bac9;
-  line-height: 1.8;
-  font-size: 15px;
+
+.hero-content p {
+
+  color:
+    #c7c0cc;
+
+  margin-bottom:
+    20px;
+
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 25px;
-}
 
-.watch-btn,
-.info-btn,
-.favorite-btn {
+.watch-button {
+
   border: 0;
-  cursor: pointer;
-  border-radius: 13px;
-  padding: 13px 18px;
-  color: white;
-  font-weight: 700;
+
+  background:
+    var(--purple);
+
+  color:
+    white;
+
+  padding:
+    13px 22px;
+
+  border-radius:
+    13px;
+
+  font-weight:
+    bold;
+
+  cursor:
+    pointer;
+
+  box-shadow:
+    0 8px 25px
+    rgba(183,71,220,.3);
+
+  transition:
+    .2s ease;
+
 }
 
-.watch-btn {
-  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-  box-shadow: 0 8px 25px rgba(183,71,220,.25);
+
+.watch-button:hover {
+
+  background:
+    var(--purple-light);
+
+  transform:
+    translateY(-2px);
+
 }
 
-.info-btn,
-.favorite-btn {
-  background: rgba(255,255,255,.08);
-  border: 1px solid var(--border);
-}
+
+/* =====================================================
+   القائمة السريعة
+===================================================== */
 
 .quick-menu {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 9px;
-  padding: 18px 14px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap:
+    9px;
+
+  margin-bottom:
+    28px;
+
 }
+
 
 .quick-menu button {
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: white;
-  border-radius: 15px;
-  min-height: 78px;
-  cursor: pointer;
+
+  border:
+    1px solid var(--border);
+
+  background:
+    var(--surface);
+
+  color:
+    white;
+
+  border-radius:
+    15px;
+
+  min-height:
+    82px;
+
+  padding:
+    10px 5px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    7px;
+
+  cursor:
+    pointer;
+
+  transition:
+    .2s ease;
+
 }
 
-.quick-menu span {
-  display: block;
-  font-size: 23px;
-  margin-bottom: 6px;
+
+.quick-menu button:hover {
+
+  border-color:
+    rgba(183,71,220,.5);
+
+  background:
+    var(--surface-2);
+
+  transform:
+    translateY(-2px);
+
 }
 
-.quick-menu small {
-  color: var(--muted);
-  font-size: 10px;
+
+.quick-icon {
+
+  font-size:
+    23px;
+
 }
 
-.anime-section {
-  padding: 8px 14px 22px;
+
+.quick-menu b {
+
+  font-size:
+    11px;
+
 }
 
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
+
+/* =====================================================
+   عناوين الأقسام
+===================================================== */
+
+.content-section {
+
+  margin-bottom:
+    32px;
+
 }
 
-.section-title h2 {
-  font-size: 19px;
+
+.section-header {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  margin-bottom:
+    14px;
+
 }
 
-.section-title button {
-  border: 0;
-  background: transparent;
-  color: var(--purple);
-  cursor: pointer;
+
+.section-header h2 {
+
+  font-size:
+    20px;
+
 }
+
+
+.view-all {
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    var(--purple-light);
+
+  cursor:
+    pointer;
+
+  font-size:
+    13px;
+
+}
+
+
+/* =====================================================
+   شبكة الأنمي
+===================================================== */
 
 .anime-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 13px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap:
+    13px;
+
 }
+
+
+/* =====================================================
+   بطاقة الأنمي
+===================================================== */
 
 .anime-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: .2s;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    var(--radius);
+
+  overflow:
+    hidden;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease;
+
 }
+
 
 .anime-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(183,71,220,.4);
+
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(183,71,220,.45);
+
 }
+
 
 .anime-cover {
-  aspect-ratio: 2 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  position:
+    relative;
+
+  width:
+    100%;
+
+  aspect-ratio:
+    3 / 4;
+
+  overflow:
+    hidden;
+
   background:
-    radial-gradient(circle at 50% 35%, rgba(183,71,220,.5), transparent 28%),
-    linear-gradient(145deg, #271134, #0c0b10);
+    linear-gradient(
+      135deg,
+      #2a1532,
+      #100c14
+    );
+
 }
 
-.anime-cover span {
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  transform: rotate(-8deg);
-}
-
-.anime-info {
-  padding: 11px;
-}
-
-.anime-info h3 {
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.anime-info p {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.anime-page,
-.player-page,
-.my-list-page {
-  padding: 18px 14px;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.back-btn {
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: white;
-  padding: 10px 15px;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.anime-detail {
-  display: flex;
-  gap: 18px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 15px;
-}
-
-.detail-cover {
-  width: 125px;
-  min-width: 125px;
-  height: 185px;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.gang-cover {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(circle, rgba(183,71,220,.65), transparent 35%),
-    #15101c;
-  font-size: 26px;
-  font-weight: 900;
-}
-
-.detail-info h1 {
-  font-size: 25px;
-  margin: 8px 0;
-}
-
-.detail-info p {
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 12px;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 12px 0;
-}
-
-.tags span {
-  font-size: 10px;
-  padding: 5px 8px;
-  border-radius: 8px;
-  background: rgba(183,71,220,.12);
-  color: #d89aeb;
-}
-
-.favorite-btn {
-  margin-top: 8px;
-  width: 100%;
-}
-
-.episodes {
-  margin-top: 25px;
-}
-
-.episodes h2 {
-  margin-bottom: 12px;
-}
-
-.episode {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px;
-  margin-bottom: 9px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  cursor: pointer;
-}
-
-.episode-number {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 11px;
-  background: rgba(183,71,220,.15);
-  color: var(--purple);
-  font-weight: bold;
-}
-
-.episode-info {
-  flex: 1;
-}
-
-.episode-info strong {
-  display: block;
-  margin-bottom: 4px;
-}
-
-.episode-info small {
-  color: var(--muted);
-}
-
-.video-container {
-  background: #000;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.video-container video {
-  width: 100%;
-  display: block;
-  max-height: 70vh;
-}
-
-.video-note {
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 12px;
-}
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 70px;
-  z-index: 100;
-  background: rgba(12,10,16,.94);
-  backdrop-filter: blur(18px);
-  border-top: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.bottom-nav button {
-  border: 0;
-  background: transparent;
-  color: #77717f;
-  cursor: pointer;
-}
-
-.bottom-nav button.active,
-.bottom-nav button:hover {
-  color: var(--purple);
-}
-
-.bottom-nav span {
-  display: block;
-  font-size: 22px;
-}
-
-.bottom-nav small {
-  font-size: 10px;
-}
-
-#message {
-  position: fixed;
-  left: 50%;
-  bottom: 90px;
-  transform: translateX(-50%) translateY(20px);
-  background: #201a28;
-  border: 1px solid rgba(183,71,220,.35);
-  color: white;
-  padding: 12px 18px;
-  border-radius: 13px;
-  opacity: 0;
-  pointer-events: none;
-  transition: .25s;
-  z-index: 200;
-}
-
-#message.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-@media (min-width: 700px) {
-
-  body {
-    max-width: 1100px;
-    margin: auto;
-  }
-
-  .anime-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .bottom-nav {
-    max-width: 1100px;
-    margin: auto;
-  }
-}
-/* صور أغلفة الأنمي */
-
-.anime-cover {
-  position: relative;
-  overflow: hidden;
-}
 
 .anime-cover img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+  display:
+    block;
+
 }
+
+
+.anime-cover::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.75),
+      transparent 55%
+    );
+
+  pointer-events:
+    none;
+
+}
+
 
 .anime-cover span {
-  position: relative;
-  z-index: 2;
-  text-shadow: 0 3px 10px #000;
+
+  position:
+    absolute;
+
+  bottom:
+    12px;
+
+  right:
+    12px;
+
+  left:
+    12px;
+
+  z-index:
+    2;
+
+  font-weight:
+    900;
+
+  font-size:
+    17px;
+
+  text-shadow:
+    0 3px 10px #000;
+
 }
 
-.anime-cover.image-error {
-  background:
-    radial-gradient(
-      circle,
-      rgba(183,71,220,.65),
-      transparent 40%
-    ),
-    #15101c;
+
+.anime-info {
+
+  padding:
+    12px;
+
 }
+
+
+.anime-info h3 {
+
+  font-size:
+    15px;
+
+  margin-bottom:
+    6px;
+
+}
+
+
+.anime-info p {
+
+  color:
+    var(--text-soft);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.5;
+
+}
+
+
+/* =====================================================
+   Public Domain
+===================================================== */
+
+.legal-notice {
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  gap:
+    10px;
+
+  padding:
+    13px;
+
+  margin-bottom:
+    14px;
+
+  background:
+    rgba(183,71,220,.08);
+
+  border:
+    1px solid
+    rgba(183,71,220,.18);
+
+  border-radius:
+    14px;
+
+}
+
+
+.legal-notice span {
+
+  font-size:
+    20px;
+
+}
+
+
+.legal-notice p {
+
+  color:
+    #bdb5c4;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.7;
+
+}
+
+
+/* =====================================================
+   الصفحات الداخلية
+===================================================== */
+
+.page {
+
+  min-height:
+    calc(100vh - 160px);
+
+}
+
+
+.hidden {
+
+  display:
+    none !important;
+
+}
+
+
+/* =====================================================
+   زر العودة
+===================================================== */
+
+.back-button {
+
+  border:
+    0;
+
+  background:
+    var(--surface-2);
+
+  color:
+    white;
+
+  padding:
+    11px 16px;
+
+  border-radius:
+    12px;
+
+  cursor:
+    pointer;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.back-button:hover {
+
+  background:
+    var(--purple);
+
+}
+
+
+/* =====================================================
+   تفاصيل الأنمي
+===================================================== */
+
+.anime-detail {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    150px 1fr;
+
+  gap:
+    18px;
+
+  margin-bottom:
+    30px;
+
+}
+
 
 .detail-cover {
-  position: relative;
-  overflow: hidden;
-  background: #15101c;
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  width:
+    150px;
+
+  aspect-ratio:
+    3 / 4;
+
+  border-radius:
+    18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2a1532,
+      #100c14
+    );
+
+  border:
+    1px solid var(--border);
+
 }
+
 
 .detail-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    cover;
+
+  display:
+    block;
+
 }
 
-.fallback-cover {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  text-align: center;
-  font-weight: 900;
-  font-size: 20px;
+
+.detail-cover .fallback-cover {
+
+  display:
+    none;
+
+}
+
+
+.detail-cover.image-error .fallback-cover {
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  text-align:
+    center;
+
+  padding:
+    10px;
+
   background:
-    radial-gradient(
-      circle,
-      rgba(183,71,220,.6),
-      transparent 45%
-    ),
-    #15101c;
+    linear-gradient(
+      135deg,
+      #3a1545,
+      #120d17
+    );
+
+  font-weight:
+    900;
+
+}
+
+
+.detail-info h2 {
+
+  font-size:
+    25px;
+
+  margin:
+    6px 0 10px;
+
+}
+
+
+.detail-info p {
+
+  color:
+    var(--text-soft);
+
+  line-height:
+    1.8;
+
+  font-size:
+    13px;
+
+}
+
+
+/* =====================================================
+   التصنيفات
+===================================================== */
+
+.tags {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    6px;
+
+  margin-bottom:
+    12px;
+
+}
+
+
+.tags span {
+
+  padding:
+    5px 9px;
+
+  background:
+    rgba(183,71,220,.12);
+
+  border:
+    1px solid
+    rgba(183,71,220,.2);
+
+  border-radius:
+    20px;
+
+  color:
+    var(--purple-light);
+
+  font-size:
+    10px;
+
+}
+
+
+.detail-badge {
+
+  display:
+    inline-block;
+
+  color:
+    var(--purple-light);
+
+  font-size:
+    11px;
+
+  font-weight:
+    bold;
+
+}
+
+
+/* =====================================================
+   زر قائمتي
+===================================================== */
+
+.favorite-button {
+
+  margin-top:
+    14px;
+
+  border:
+    1px solid
+    rgba(183,71,220,.35);
+
+  background:
+    rgba(183,71,220,.12);
+
+  color:
+    white;
+
+  padding:
+    10px 13px;
+
+  border-radius:
+    12px;
+
+  cursor:
+    pointer;
+
+}
+
+
+.favorite-button:hover {
+
+  background:
+    var(--purple);
+
+}
+
+
+/* =====================================================
+   الحلقات
+===================================================== */
+
+.episodes-section {
+
+  margin-top:
+    20px;
+
+}
+
+
+.episode-list {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    9px;
+
+}
+
+
+.episode {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    12px;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    15px;
+
+  padding:
+    12px;
+
+  cursor:
+    pointer;
+
+  transition:
+    .2s ease;
+
+}
+
+
+.episode:hover {
+
+  border-color:
+    rgba(183,71,220,.45);
+
+  background:
+    var(--surface-2);
+
+}
+
+
+.episode-number {
+
+  width:
+    40px;
+
+  height:
+    40px;
+
+  flex-shrink:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    12px;
+
+  background:
+    rgba(183,71,220,.15);
+
+  color:
+    var(--purple-light);
+
+  font-weight:
+    bold;
+
+}
+
+
+.episode-info {
+
+  flex:
+    1;
+
+  min-width:
+    0;
+
+}
+
+
+.episode-info strong {
+
+  display:
+    block;
+
+  font-size:
+    13px;
+
+  margin-bottom:
+    5px;
+
+}
+
+
+.episode-info small {
+
+  display:
+    block;
+
+  color:
+    #8e8795;
+
+  font-size:
+    10px;
+
+  overflow:
+    hidden;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+
+}
+
+
+.episode > span {
+
+  color:
+    var(--purple-light);
+
+  font-size:
+    18px;
+
+}
+
+
+/* =====================================================
+   مشغل الفيديو
+===================================================== */
+
+.player-container {
+
+  width:
+    100%;
+
+  background:
+    #000;
+
+  border-radius:
+    18px;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid var(--border);
+
+  box-shadow:
+    0 15px 40px
+    rgba(0,0,0,.45);
+
+}
+
+
+.video-player {
+
+  width:
+    100%;
+
+  display:
+    block;
+
+  background:
+    #000;
+
+  aspect-ratio:
+    16 / 9;
+
+}
+
+
+.player-title {
+
+  margin-top:
+    18px;
+
+  font-size:
+    20px;
+
+}
+
+
+.player-note {
+
+  color:
+    #8e8795;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.7;
+
+  margin-top:
+    8px;
+
+}
+
+
+/* =====================================================
+   القائمة الشخصية
+===================================================== */
+
+.my-list-page .anime-grid {
+
+  margin-top:
+    10px;
+
+}
+
+
+/* =====================================================
+   رسالة
+===================================================== */
+
+.message {
+
+  position:
+    fixed;
+
+  bottom:
+    95px;
+
+  left:
+    50%;
+
+  transform:
+    translateX(-50%) translateY(20px);
+
+  background:
+    #201927;
+
+  border:
+    1px solid
+    rgba(183,71,220,.35);
+
+  color:
+    white;
+
+  padding:
+    12px 18px;
+
+  border-radius:
+    13px;
+
+  font-size:
+    13px;
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+
+  transition:
+    .25s ease;
+
+  z-index:
+    1000;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.4);
+
+}
+
+
+.message.show {
+
+  opacity:
+    1;
+
+  transform:
+    translateX(-50%) translateY(0);
+
+}
+
+
+/* =====================================================
+   رسالة فارغة
+===================================================== */
+
+.empty-message {
+
+  text-align:
+    center;
+
+  padding:
+    35px 15px;
+
+  color:
+    #99919f;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    18px;
+
+  grid-column:
+    1 / -1;
+
+}
+
+
+.empty-message button {
+
+  margin-top:
+    15px;
+
+  border:
+    0;
+
+  background:
+    var(--purple);
+
+  color:
+    white;
+
+  padding:
+    10px 18px;
+
+  border-radius:
+    12px;
+
+  cursor:
+    pointer;
+
+}
+
+
+/* =====================================================
+   التنقل السفلي
+===================================================== */
+
+.bottom-nav {
+
+  position:
+    fixed;
+
+  bottom:
+    0;
+
+  left:
+    50%;
+
+  transform:
+    translateX(-50%);
+
+  width:
+    min(700px, 100%);
+
+  height:
+    72px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  background:
+    rgba(12,10,16,.94);
+
+  backdrop-filter:
+    blur(20px);
+
+  border-top:
+    1px solid var(--border);
+
+  z-index:
+    200;
+
+  padding-bottom:
+    env(safe-area-inset-bottom);
+
+}
+
+
+.nav-button {
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    #77717e;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    3px;
+
+  cursor:
+    pointer;
+
+  transition:
+    .2s ease;
+
+}
+
+
+.nav-button span {
+
+  font-size:
+    22px;
+
+}
+
+
+.nav-button small {
+
+  font-size:
+    10px;
+
+}
+
+
+.nav-button:hover,
+.nav-button.active {
+
+  color:
+    var(--purple-light);
+
+}
+
+
+/* =====================================================
+   الجوال
+===================================================== */
+
+@media (max-width: 520px) {
+
+  main {
+
+    padding:
+      14px;
+
+  }
+
+
+  .topbar {
+
+    padding:
+      0 14px;
+
+  }
+
+
+  .hero {
+
+    min-height:
+      280px;
+
+  }
+
+
+  .hero-content {
+
+    padding:
+      22px;
+
+  }
+
+
+  .hero-content h2 {
+
+    font-size:
+      30px;
+
+  }
+
+
+  .anime-detail {
+
+    grid-template-columns:
+      120px 1fr;
+
+    gap:
+      13px;
+
+  }
+
+
+  .detail-cover {
+
+    width:
+      120px;
+
+  }
+
+
+  .detail-info h2 {
+
+    font-size:
+      20px;
+
+  }
+
+
+  .quick-menu {
+
+    gap:
+      6px;
+
+  }
+
+
+  .quick-menu button {
+
+    min-height:
+      74px;
+
+  }
+
+
+  .quick-menu b {
+
+    font-size:
+      9px;
+
+  }
+
+}
+
+
+/* =====================================================
+   الشاشات الصغيرة جدًا
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .anime-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:
+      8px;
+
+  }
+
+
+  .anime-detail {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .detail-cover {
+
+    width:
+      150px;
+
+    margin:
+      auto;
+
+  }
+
+
+  .detail-info {
+
+    text-align:
+      center;
+
+  }
+
+
+  .tags {
+
+    justify-content:
+      center;
+
+  }
+
+}
+
+
+/* =====================================================
+   شاشات الكمبيوتر
+===================================================== */
+
+@media (min-width: 701px) {
+
+  body {
+
+    background:
+      radial-gradient(
+        circle at center,
+        #18101c,
+        #050408 70%
+      );
+
+  }
+
+
+  .app {
+
+    border-left:
+      1px solid var(--border);
+
+    border-right:
+      1px solid var(--border);
+
+    box-shadow:
+      0 0 80px
+      rgba(0,0,0,.5);
+
+  }
+
 }
