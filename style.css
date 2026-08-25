@@ -1,343 +1,541 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #08070c;
+  --card: #121019;
+  --card2: #1a1622;
+  --purple: #b747dc;
+  --purple-dark: #7d2caf;
+  --text: #ffffff;
+  --muted: #a9a3b1;
+  --border: rgba(255,255,255,.08);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  padding-bottom: 85px;
-  background: #08070c;
-  color: white;
-  font-family: Arial, Tahoma, sans-serif;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(183,71,220,.13), transparent 35%),
+    var(--bg);
+  color: var(--text);
+  font-family: Arial, "Tahoma", sans-serif;
+  min-height: 100vh;
+  padding-bottom: 82px;
 }
 
+/* الشريط العلوي */
+
 .topbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: 65px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px;
-  background: rgba(10, 8, 14, .95);
-  border-bottom: 1px solid #211c27;
+  padding: 0 18px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(8,7,12,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
 }
 
-.topbar h1 {
-  margin: 0;
-  font-size: 20px;
+.logo {
+  font-size: 22px;
+  font-weight: 700;
 }
 
-.topbar h1 span {
-  color: #c04bea;
+.logo span {
+  color: #fff;
 }
 
-.icon,
-.premium {
+.logo strong {
+  color: var(--purple);
+}
+
+.icon-btn,
+.premium-btn {
+  border: 0;
+  color: #fff;
+  cursor: pointer;
   width: 42px;
   height: 42px;
-  border: 0;
-  border-radius: 13px;
-  background: #17131e;
-  color: white;
-  font-size: 21px;
+  border-radius: 14px;
+  font-size: 22px;
+  background: var(--card2);
 }
 
-.premium {
-  color: #d66cff;
+.premium-btn {
+  color: #ffd76a;
 }
 
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 18px 14px;
-}
+/* البحث */
 
-.search {
+.search-box {
+  margin: 18px;
   height: 50px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
-  gap: 10px;
   padding: 0 15px;
-  margin-bottom: 18px;
-  border-radius: 16px;
-  background: #141119;
+  gap: 10px;
 }
 
-.search span {
-  font-size: 25px;
-  color: #aaa;
+.search-box span {
+  color: var(--purple);
+  font-size: 26px;
 }
 
-.search input {
+.search-box input {
   width: 100%;
+  background: transparent;
   border: 0;
   outline: 0;
-  background: transparent;
   color: white;
-  font-size: 14px;
+  font-size: 15px;
 }
 
+.search-box input::placeholder {
+  color: #77717f;
+}
+
+/* البطل */
+
 .hero {
-  min-height: 245px;
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 18px;
+  min-height: 370px;
+  margin: 0 14px;
+  border-radius: 25px;
   overflow: hidden;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #591879, #17101f);
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(8,7,12,.98), rgba(8,7,12,.55), rgba(8,7,12,.1)),
+    linear-gradient(135deg, #34134d, #111018 60%, #09080c);
+  border: 1px solid var(--border);
+}
+
+.hero::after {
+  content: "GANG";
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
+  font-size: 100px;
+  font-weight: 900;
+  color: rgba(255,255,255,.025);
+  pointer-events: none;
 }
 
 .hero-content {
-  padding: 28px;
+  position: relative;
+  z-index: 2;
+  padding: 65px 25px 30px;
+  max-width: 500px;
 }
 
-.hero-content small {
-  color: #db8cff;
+.badge {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: rgba(183,71,220,.18);
+  color: #d88af0;
+  border: 1px solid rgba(183,71,220,.35);
+  font-size: 12px;
+  margin-bottom: 14px;
 }
 
-.hero-content h2 {
-  margin: 8px 0;
-  font-size: 28px;
+.hero h1 {
+  font-size: 58px;
+  margin-bottom: 10px;
 }
 
-.hero-content p {
-  color: #bbb;
+.hero p {
+  color: #c1bac9;
+  line-height: 1.8;
+  font-size: 15px;
 }
 
-.hero-content button {
-  padding: 13px 20px;
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.watch-btn,
+.info-btn,
+.favorite-btn {
   border: 0;
+  cursor: pointer;
   border-radius: 13px;
-  background: #b747dc;
+  padding: 13px 18px;
   color: white;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-.quick {
+.watch-btn {
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  box-shadow: 0 8px 25px rgba(183,71,220,.25);
+}
+
+.info-btn,
+.favorite-btn {
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--border);
+}
+
+/* القائمة السريعة */
+
+.quick-menu {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 9px;
-  margin-bottom: 28px;
+  padding: 18px 14px;
 }
 
-.quick button {
-  min-height: 75px;
-  border: 1px solid #211c27;
-  border-radius: 15px;
-  background: #131018;
+.quick-menu button {
+  border: 1px solid var(--border);
+  background: var(--card);
   color: white;
+  border-radius: 15px;
+  min-height: 78px;
+  cursor: pointer;
 }
 
-.quick b {
+.quick-menu span {
   display: block;
-  margin-top: 7px;
-  color: #aaa;
-  font-size: 9px;
+  font-size: 23px;
+  margin-bottom: 6px;
 }
 
-.section-header {
+.quick-menu small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* الأقسام */
+
+.anime-section {
+  padding: 8px 14px 22px;
+}
+
+.section-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 14px;
 }
 
-.section-header h2 {
-  font-size: 18px;
+.section-title h2 {
+  font-size: 19px;
 }
 
-.section-header a {
-  color: #c04bea;
-  text-decoration: none;
-  font-size: 11px;
+.section-title button {
+  border: 0;
+  background: transparent;
+  color: var(--purple);
+  cursor: pointer;
 }
+
+/* البطاقات */
 
 .anime-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
 }
 
 .anime-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: 16px;
-  background: #131018;
-  border: 1px solid #211c27;
+  cursor: pointer;
+  transition: transform .2s, border-color .2s;
 }
 
-.anime-image {
-  position: relative;
+.anime-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(183,71,220,.4);
+}
+
+.anime-cover {
   aspect-ratio: 2 / 3;
-}
-
-.anime-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.anime-overlay {
-  position: absolute;
-  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,.5);
-  opacity: 0;
-  font-size: 30px;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(183,71,220,.5), transparent 28%),
+    linear-gradient(145deg, #271134, #0c0b10);
 }
 
-.anime-card:hover .anime-overlay {
-  opacity: 1;
+.anime-cover span {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  transform: rotate(-8deg);
 }
 
 .anime-info {
-  padding: 10px;
+  padding: 11px;
 }
 
 .anime-info h3 {
-  margin: 0 0 8px;
-  font-size: 13px;
+  font-size: 14px;
+  margin-bottom: 6px;
 }
 
-.anime-meta {
+.anime-info p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* صفحات التطبيق */
+
+.anime-page,
+.player-page,
+.my-list-page {
+  padding: 18px 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.back-btn {
+  border: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.anime-detail {
   display: flex;
-  justify-content: space-between;
-  color: #999;
-  font-size: 9px;
+  gap: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 15px;
 }
 
-.anime-meta span:first-child {
-  color: #ffc45c;
+.detail-cover {
+  width: 125px;
+  min-width: 125px;
+  height: 185px;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
-.anime-info small {
+.gang-cover {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle, rgba(183,71,220,.65), transparent 35%),
+    #15101c;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.detail-info h1 {
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+.detail-info p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 12px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.tags span {
+  font-size: 10px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(183,71,220,.12);
+  color: #d89aeb;
+}
+
+.favorite-btn {
+  margin-top: 8px;
+  width: 100%;
+}
+
+/* الحلقات */
+
+.episodes {
+  margin-top: 25px;
+}
+
+.episodes h2 {
+  margin-bottom: 12px;
+}
+
+.episode {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 9px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.episode-number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: rgba(183,71,220,.15);
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.episode-info {
+  flex: 1;
+}
+
+.episode-info strong {
   display: block;
-  margin-top: 7px;
-  color: #777;
+  margin-bottom: 4px;
 }
+
+.episode-info small {
+  color: var(--muted);
+}
+
+/* المشغل */
+
+.player-page h2 {
+  margin-bottom: 15px;
+}
+
+.video-container {
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.video-container video {
+  width: 100%;
+  display: block;
+  max-height: 70vh;
+}
+
+.video-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+/* التنقل السفلي */
 
 .bottom-nav {
   position: fixed;
-  right: 0;
   bottom: 0;
+  right: 0;
   left: 0;
-  z-index: 200;
   height: 70px;
+  z-index: 100;
+  background: rgba(12,10,16,.94);
+  backdrop-filter: blur(18px);
+  border-top: 1px solid var(--border);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: rgba(12,9,16,.97);
-  border-top: 1px solid #211c27;
 }
 
 .bottom-nav button {
   border: 0;
   background: transparent;
-  color: #777;
-  font-size: 20px;
+  color: #77717f;
+  cursor: pointer;
 }
 
-.bottom-nav button small {
+.bottom-nav button.active,
+.bottom-nav button:hover {
+  color: var(--purple);
+}
+
+.bottom-nav span {
   display: block;
-  font-size: 8px;
+  font-size: 22px;
 }
 
-.bottom-nav .active {
-  color: #c04bea;
+.bottom-nav small {
+  font-size: 10px;
 }
+
+/* الرسائل */
 
 #message {
   position: fixed;
-  inset: 0;
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  background: rgba(0,0,0,.75);
+  left: 50%;
+  bottom: 90px;
+  transform: translateX(-50%) translateY(20px);
+  background: #201a28;
+  border: 1px solid rgba(183,71,220,.35);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 13px;
   opacity: 0;
-  visibility: hidden;
-  transition: .2s;
+  pointer-events: none;
+  transition: .25s;
+  z-index: 200;
 }
 
 #message.show {
   opacity: 1;
-  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
-.anime-popup {
-  position: relative;
-  width: min(100%, 430px);
-  max-height: 90vh;
-  overflow-y: auto;
-  border-radius: 24px;
-  background: #15111b;
-}
-
-.anime-popup > img {
-  width: 100%;
-  max-height: 310px;
-  object-fit: cover;
-}
-
-.anime-popup > div {
-  padding: 20px;
-}
-
-.anime-popup button {
-  width: 100%;
-  margin-top: 9px;
-  padding: 13px;
-  border: 0;
-  border-radius: 12px;
-  background: #a83dcc;
-  color: white;
-  font-weight: bold;
-}
-
-.popup-close {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 38px !important;
-  height: 38px;
-  padding: 0 !important;
-  border-radius: 50% !important;
-  background: rgba(0,0,0,.7) !important;
-}
-
-#toast {
-  position: fixed;
-  right: 50%;
-  bottom: 90px;
-  z-index: 1000;
-  transform: translateX(50%);
-  padding: 12px 18px;
-  border-radius: 14px;
-  background: #211b27;
-  color: white;
-  opacity: 0;
-  transition: .2s;
-}
-
-#toast.show {
-  opacity: 1;
-}
-
-@media (max-width: 390px) {
-  .quick {
-    gap: 6px;
-  }
-
-  .anime-grid {
-    gap: 8px;
-  }
-}
+/* الشاشات الكبيرة */
 
 @media (min-width: 700px) {
+
+  body {
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .topbar {
+    border-radius: 0 0 20px 20px;
+  }
+
+  .hero {
+    min-height: 430px;
+  }
+
   .anime-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .quick-menu {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .bottom-nav {
+    max-width: 1100px;
+    margin: auto;
   }
 }
