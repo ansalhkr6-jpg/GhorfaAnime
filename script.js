@@ -1,1610 +1,1984 @@
-/* =========================================================
-   غرفة الأنمي - GhorfaAnime
-   النسخة الأساسية:
-   - Gang
-   - Shadow System
-   - Public Domain
-   - الحلقات
-   - المشغل
-   - البحث
-   - قائمتي
-========================================================= */
+/* =====================================================
+   غرفة الأنمي
+   GhorfaAnime
+   Main JavaScript
+===================================================== */
 
 
-/* =========================================================
+/* =====================================================
    بيانات الأنمي
-========================================================= */
+===================================================== */
 
 const animeData = {
 
-  /* =========================
-     Gang
-  ========================= */
+    /* =================================================
+       GANG
+    ================================================= */
 
-  gang: {
-    id: "gang",
-    title: "Gang",
-    description:
-      "طالب غامض يبدأ رحلة جديدة ويكتشف قوة تغير حياته بالكامل.",
+    gang: {
 
-    genre: [
-      "أكشن",
-      "شونين",
-      "غموض"
-    ],
+        id: "gang",
 
-    image: "images/gang.jpg",
+        title: "Gang",
 
-    section: "popular",
+        titleArabic: "Gang",
 
-    episodes: [
-
-      {
-        number: 1,
-        title: "البداية",
-        description:
-          "بداية رحلة Gang.",
-
-        /*
-          ضع هنا رابط فيديو تملك حق بثه.
-          مثال:
-          video: "videos/gang-01.mp4"
-        */
-
-        video: ""
-      },
-
-      {
-        number: 2,
-        title: "القوة الجديدة",
-        description:
-          "يبدأ Gang في اكتشاف قدراته.",
-
-        video: ""
-      },
-
-      {
-        number: 3,
-        title: "الاختبار",
-        description:
-          "مواجهة جديدة تنتظر Gang.",
-
-        video: ""
-      }
-
-    ]
-  },
-
-
-  /* =========================
-     Shadow System
-  ========================= */
-
-  shadow: {
-    id: "shadow",
-
-    title: "Shadow System",
-
-    description:
-      "شاب يكتشف نظامًا غامضًا يمنحه قدرات غير عادية.",
-
-    genre: [
-      "أكشن",
-      "فانتازيا",
-      "غموض"
-    ],
-
-    image: "images/shadow-system.jpg",
-
-    section: "popular",
-
-    episodes: [
-
-      {
-        number: 1,
-        title: "النظام",
+        year: 2026,
 
         description:
-          "ظهور النظام الغامض.",
+            "قصة Gang، شاب غامض يمتلك قوة ونظامًا خاصًا يغير حياته ويقوده إلى عالم مليء بالأسرار والتحديات.",
 
-        video: ""
-      },
+        genre: [
+            "أكشن",
+            "شونين",
+            "خيال"
+        ],
 
-      {
-        number: 2,
-        title: "المهمة الأولى",
+        image:
+            "images/gang.jpg",
 
-        description:
-          "يبدأ الاختبار الحقيقي.",
+        section:
+            "popular",
 
-        video: ""
-      }
+        license:
+            "Original",
 
-    ]
-  },
+        episodes: [
+
+            {
+                number: 1,
+
+                title:
+                    "البداية",
+
+                description:
+                    "بداية قصة Gang وظهور النظام.",
+
+                video:
+                    "videos/gang-01.mp4"
+            },
+
+            {
+                number: 2,
+
+                title:
+                    "النظام",
+
+                description:
+                    "Gang يبدأ باكتشاف قدرات النظام.",
+
+                video:
+                    "videos/gang-02.mp4"
+            }
+
+        ]
+
+    },
 
 
-  /* =====================================================
-     PUBLIC DOMAIN
-     ===================================================== */
+    /* =================================================
+       SHADOW SYSTEM
+    ================================================= */
 
-  ponsuke: {
+    shadowSystem: {
 
-    id: "ponsuke",
-
-    title: "Spring Comes to Ponsuke",
-
-    titleArabic: "ربيع بونسوكي",
-
-    year: 1934,
-
-    description:
-      "رسوم متحركة يابانية قصيرة من عام 1934.",
-
-    genre: [
-      "Public Domain",
-      "كلاسيكي",
-      "رسوم متحركة"
-    ],
-
-    image:
-      "images/ponsuke.jpg",
-
-    section:
-      "public-domain",
-
-    source:
-      "Wikimedia Commons / Japanese Animated Film Classics",
-
-    license:
-      "Public Domain",
-
-    episodes: [
-
-      {
-        number: 1,
+        id:
+            "shadow-system",
 
         title:
-          "Spring Comes to Ponsuke",
+            "Shadow System",
+
+        titleArabic:
+            "Shadow System",
+
+        year:
+            2026,
 
         description:
-          "الفيلم القصير الكامل.",
+            "عالم غامض يظهر فيه نظام الظلال ويمنح صاحبه قدرات غير عادية.",
 
-        /*
-          اتركه فارغًا حتى تضع نسخة
-          لديك حق استخدامها.
-        */
+        genre: [
 
-        video: ""
-      }
+            "أكشن",
 
-    ]
-  }
+            "خيال",
+
+            "غموض"
+
+        ],
+
+        image:
+            "images/shadow-system.jpg",
+
+        section:
+            "popular",
+
+        license:
+            "Original",
+
+        episodes: [
+
+            {
+
+                number: 1,
+
+                title:
+                    "ظهور النظام",
+
+                description:
+                    "ظهور Shadow System لأول مرة.",
+
+                video:
+                    "videos/shadow-01.mp4"
+
+            }
+
+        ]
+
+    },
+
+
+    /* =================================================
+       SPRING COMES TO PONSUKE
+       Public Domain
+    ================================================= */
+
+    ponsuke: {
+
+        id:
+            "ponsuke",
+
+        title:
+            "Spring Comes to Ponsuke",
+
+        titleArabic:
+            "ربيع بونسوكي",
+
+        year:
+            1934,
+
+        description:
+            "رسوم متحركة يابانية قصيرة من عام 1934.",
+
+        genre: [
+
+            "Public Domain",
+
+            "كلاسيكي",
+
+            "رسوم متحركة"
+
+        ],
+
+        image:
+            "images/ponsuke.jpg",
+
+        section:
+            "public-domain",
+
+        license:
+            "Public Domain",
+
+        source:
+            "Wikimedia Commons",
+
+        episodes: [
+
+            {
+
+                number:
+                    1,
+
+                title:
+                    "الفيلم الكامل",
+
+                description:
+                    "Spring Comes to Ponsuke",
+
+                video:
+                    "videos/ponsuke.webm"
+
+            }
+
+        ]
+
+    },
+
+
+    /* =================================================
+       THE DONKEY
+       Public Domain
+    ================================================= */
+
+    donkey: {
+
+        id:
+            "donkey",
+
+        title:
+            "The Donkey",
+
+        titleArabic:
+            "الحمار",
+
+        year:
+            1930,
+
+        description:
+            "رسوم متحركة يابانية قصيرة من عام 1930.",
+
+        genre: [
+
+            "Public Domain",
+
+            "كلاسيكي",
+
+            "رسوم متحركة"
+
+        ],
+
+        image:
+            "images/donkey.jpg",
+
+        section:
+            "public-domain",
+
+        license:
+            "Public Domain",
+
+        source:
+            "Wikimedia Commons",
+
+        episodes: [
+
+            {
+
+                number:
+                    1,
+
+                title:
+                    "الفيلم الكامل",
+
+                description:
+                    "The Donkey",
+
+                video:
+                    "videos/donkey.ogv"
+
+            }
+
+        ]
+
+    },
+
+
+    /* =================================================
+       AT THE CIRCUS
+       Public Domain
+    ================================================= */
+
+    circus: {
+
+        id:
+            "circus",
+
+        title:
+            "At the Circus",
+
+        titleArabic:
+            "في السيرك",
+
+        year:
+            1931,
+
+        description:
+            "رسوم متحركة يابانية قصيرة من عام 1931.",
+
+        genre: [
+
+            "Public Domain",
+
+            "كلاسيكي",
+
+            "رسوم متحركة"
+
+        ],
+
+        image:
+            "images/circus.jpg",
+
+        section:
+            "public-domain",
+
+        license:
+            "Public Domain",
+
+        source:
+            "Wikimedia Commons",
+
+        episodes: [
+
+            {
+
+                number:
+                    1,
+
+                title:
+                    "الفيلم الكامل",
+
+                description:
+                    "At the Circus",
+
+                video:
+                    "videos/circus.webm"
+
+            }
+
+        ]
+
+    },
+
+
+    /* =================================================
+       RASCAL RACOON
+       Public Domain
+    ================================================= */
+
+    rascalRacoon: {
+
+        id:
+            "rascal-racoon",
+
+        title:
+            "Rascal Racoon",
+
+        titleArabic:
+            "الثعلب المشاغب",
+
+        year:
+            1933,
+
+        description:
+            "رسوم متحركة يابانية قصيرة من عام 1933.",
+
+        genre: [
+
+            "Public Domain",
+
+            "كلاسيكي",
+
+            "رسوم متحركة"
+
+        ],
+
+        image:
+            "images/rascal-racoon.jpg",
+
+        section:
+            "public-domain",
+
+        license:
+            "Public Domain",
+
+        source:
+            "Wikimedia Commons",
+
+        episodes: [
+
+            {
+
+                number:
+                    1,
+
+                title:
+                    "الفيلم الكامل",
+
+                description:
+                    "Rascal Racoon",
+
+                video:
+                    "videos/rascal-racoon.ogv"
+
+            }
+
+        ]
+
+    }
 
 };
 
 
-/* =========================================================
-   الحالة العامة
-========================================================= */
+/* =====================================================
+   المتغيرات
+===================================================== */
 
 let currentAnime = null;
 
-let favoriteList =
-  JSON.parse(
-    localStorage.getItem("favoriteAnime") || "[]"
-  );
+let currentEpisode = null;
+
+let favorites =
+    JSON.parse(
+        localStorage.getItem(
+            "ghorfaAnimeFavorites"
+        )
+    ) || [];
 
 
-/* =========================================================
-   تشغيل الموقع
-========================================================= */
+/* =====================================================
+   عند تحميل الصفحة
+===================================================== */
 
 document.addEventListener(
-  "DOMContentLoaded",
-  function () {
+    "DOMContentLoaded",
+    function () {
 
-    renderAnimeCards();
+        renderPopular();
 
-    updateFavoriteButton();
+        renderPublicDomain();
 
-    setupSearch();
+        setupSearch();
 
-  }
+        updateFavoriteButton();
+
+    }
 );
 
 
-/* =========================================================
-   البحث
-========================================================= */
+/* =====================================================
+   الحصول على كل الأنميات
+===================================================== */
 
-function setupSearch() {
+function getAllAnime() {
 
-  const input =
-    document.getElementById("searchInput");
-
-  if (!input) return;
-
-  input.addEventListener(
-    "input",
-    function () {
-
-      searchAnime(
-        this.value
-      );
-
-    }
-  );
-
-}
-
-
-function searchAnime(query) {
-
-  query =
-    query
-      .trim()
-      .toLowerCase();
-
-
-  const cards =
-    document.querySelectorAll(
-      ".anime-card"
+    return Object.values(
+        animeData
     );
 
-
-  cards.forEach(
-    function (card) {
-
-      const text =
-        card.textContent
-          .toLowerCase();
-
-
-      if (
-        query === "" ||
-        text.includes(query)
-      ) {
-
-        card.style.display = "";
-
-      } else {
-
-        card.style.display =
-          "none";
-
-      }
-
-    }
-  );
-
 }
 
 
-/* =========================================================
-   إنشاء بطاقات الأنمي
-========================================================= */
+/* =====================================================
+   إنشاء بطاقة الأنمي
+===================================================== */
 
 function createAnimeCard(anime) {
 
-  return `
+    const card =
+        document.createElement("article");
 
-    <article
-      class="anime-card"
-      onclick="openAnime('${anime.id}')"
-    >
+    card.className =
+        "anime-card";
 
-      <div class="anime-cover">
 
-        <img
-          src="${anime.image}"
-          alt="${anime.title}"
-          onerror="
-            this.style.display='none';
-            this.parentElement.classList.add('image-error');
-          "
-        >
+    card.onclick =
+        function () {
 
-        <span>
-          ${anime.titleArabic || anime.title}
-        </span>
+            openAnime(
+                anime.id
+            );
 
-      </div>
+        };
 
-      <div class="anime-info">
 
-        <h3>
-          ${anime.titleArabic || anime.title}
-        </h3>
+    const cover =
+        document.createElement("div");
 
-        <p>
-          ${anime.genre.join(" • ")}
-        </p>
+    cover.className =
+        "anime-cover";
 
-      </div>
 
-    </article>
+    const image =
+        document.createElement("img");
 
-  `;
+    image.src =
+        anime.image;
+
+    image.alt =
+        anime.titleArabic;
+
+
+    image.onerror =
+        function () {
+
+            this.style.display =
+                "none";
+
+        };
+
+
+    const title =
+        document.createElement("span");
+
+    title.textContent =
+        anime.titleArabic;
+
+
+    cover.appendChild(
+        image
+    );
+
+    cover.appendChild(
+        title
+    );
+
+
+    const info =
+        document.createElement("div");
+
+    info.className =
+        "anime-info";
+
+
+    const h3 =
+        document.createElement("h3");
+
+    h3.textContent =
+        anime.titleArabic;
+
+
+    const description =
+        document.createElement("p");
+
+    description.textContent =
+        anime.description;
+
+
+    info.appendChild(
+        h3
+    );
+
+    info.appendChild(
+        description
+    );
+
+
+    card.appendChild(
+        cover
+    );
+
+    card.appendChild(
+        info
+    );
+
+
+    return card;
 
 }
 
 
-/* =========================================================
-   عرض الأنميات
-========================================================= */
+/* =====================================================
+   عرض الأكثر مشاهدة
+===================================================== */
 
-function renderAnimeCards() {
+function renderPopular() {
 
-  const popularGrid =
-    document.getElementById(
-      "animeGrid"
+    const grid =
+        document.getElementById(
+            "animeGrid"
+        );
+
+
+    if (!grid)
+        return;
+
+
+    grid.innerHTML =
+        "";
+
+
+    const popular =
+        getAllAnime()
+            .filter(
+                anime =>
+                    anime.section ===
+                    "popular"
+            );
+
+
+    if (
+        popular.length ===
+        0
+    ) {
+
+        showEmpty(
+            grid,
+            "لا توجد أنميات حاليًا."
+        );
+
+        return;
+
+    }
+
+
+    popular.forEach(
+        function (anime) {
+
+            grid.appendChild(
+                createAnimeCard(
+                    anime
+                )
+            );
+
+        }
     );
-
-  const newGrid =
-    document.getElementById(
-      "newGrid"
-    );
-
-
-  const animeList =
-    Object.values(animeData);
-
-
-  /*
-    الأنميات العادية
-  */
-
-  const popularAnime =
-    animeList.filter(
-      anime =>
-        anime.section === "popular"
-    );
-
-
-  /*
-    Public Domain
-  */
-
-  const publicDomainAnime =
-    animeList.filter(
-      anime =>
-        anime.section === "public-domain"
-    );
-
-
-  if (popularGrid) {
-
-    popularGrid.innerHTML =
-      popularAnime
-        .map(createAnimeCard)
-        .join("");
-
-  }
-
-
-  if (newGrid) {
-
-    newGrid.innerHTML =
-      publicDomainAnime
-        .map(createAnimeCard)
-        .join("");
-
-  }
-
-
-  /*
-    إذا أضفت قسمًا خاصًا باسم
-    publicDomainGrid في HTML
-  */
-
-  const publicGrid =
-    document.getElementById(
-      "publicDomainGrid"
-    );
-
-
-  if (publicGrid) {
-
-    publicGrid.innerHTML =
-      publicDomainAnime
-        .map(createAnimeCard)
-        .join("");
-
-  }
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   عرض Public Domain
+===================================================== */
+
+function renderPublicDomain() {
+
+    const grid =
+        document.getElementById(
+            "newGrid"
+        );
+
+
+    if (!grid)
+        return;
+
+
+    grid.innerHTML =
+        "";
+
+
+    const publicDomain =
+        getAllAnime()
+            .filter(
+                anime =>
+                    anime.section ===
+                    "public-domain"
+            );
+
+
+    if (
+        publicDomain.length ===
+        0
+    ) {
+
+        showEmpty(
+            grid,
+            "لا توجد أعمال حاليًا."
+        );
+
+        return;
+
+    }
+
+
+    publicDomain.forEach(
+        function (anime) {
+
+            grid.appendChild(
+                createAnimeCard(
+                    anime
+                )
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
    فتح صفحة الأنمي
-========================================================= */
+===================================================== */
 
 function openAnime(id) {
 
-  const anime =
-    animeData[id];
+    const anime =
+        animeData[id];
 
 
-  if (!anime) return;
+    if (!anime)
+        return;
 
 
-  currentAnime =
-    id;
+    currentAnime =
+        anime;
 
 
-  /*
-    إخفاء الأقسام الرئيسية
-  */
+    hideAllPages();
 
-  document.querySelectorAll(
-    "main > section"
-  ).forEach(
-    function (section) {
 
-      if (
-        !section.classList.contains(
-          "anime-page"
-        ) &&
-        !section.classList.contains(
-          "player-page"
-        ) &&
-        !section.classList.contains(
-          "my-list-page"
-        )
-      ) {
-
-        section.classList.add(
-          "hidden"
+    const page =
+        document.getElementById(
+            "animePage"
         );
 
-      }
+
+    if (!page)
+        return;
+
+
+    page.classList.remove(
+        "hidden"
+    );
+
+
+    const title =
+        document.getElementById(
+            "animeTitle"
+        );
+
+
+    if (title) {
+
+        title.textContent =
+            anime.titleArabic;
 
     }
-  );
 
 
-  /*
-    صفحة الأنمي
-  */
+    const description =
+        document.getElementById(
+            "animeDescription"
+        );
 
-  const animePage =
-    document.getElementById(
-      "animePage"
+
+    if (description) {
+
+        description.textContent =
+            anime.description;
+
+    }
+
+
+    renderTags(
+        anime
     );
 
 
-  if (animePage) {
-
-    animePage.classList.remove(
-      "hidden"
-    );
-
-  }
-
-
-  const playerPage =
-    document.getElementById(
-      "playerPage"
+    renderDetailImage(
+        anime
     );
 
 
-  if (playerPage) {
-
-    playerPage.classList.add(
-      "hidden"
-    );
-
-  }
-
-
-  /*
-    العنوان
-  */
-
-  const title =
-    document.getElementById(
-      "animeTitle"
+    renderEpisodes(
+        anime
     );
 
 
-  if (title) {
-
-    title.textContent =
-      anime.titleArabic ||
-      anime.title;
-
-  }
+    updateFavoriteButton();
 
 
-  /*
-    الوصف
-  */
-
-  const description =
-    document.getElementById(
-      "animeDescription"
+    window.scrollTo(
+        0,
+        0
     );
-
-
-  if (description) {
-
-    description.textContent =
-      anime.description;
-
-  }
-
-
-  /*
-    الصورة
-  */
-
-  const cover =
-    document.querySelector(
-      ".detail-cover"
-    );
-
-
-  if (cover) {
-
-    cover.innerHTML = `
-
-      <img
-        src="${anime.image}"
-        alt="${anime.title}"
-        onerror="
-          this.style.display='none';
-          this.parentElement.classList.add('image-error');
-        "
-      >
-
-      <div class="fallback-cover">
-        ${anime.titleArabic || anime.title}
-      </div>
-
-    `;
-
-  }
-
-
-  /*
-    التصنيفات
-  */
-
-  renderGenres(anime);
-
-
-  /*
-    الحلقات
-  */
-
-  renderEpisodes(anime);
-
-
-  /*
-    زر قائمتي
-  */
-
-  updateFavoriteButton();
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   صورة صفحة التفاصيل
+===================================================== */
+
+function renderDetailImage(anime) {
+
+    const container =
+        document.querySelector(
+            ".detail-cover"
+        );
+
+
+    if (!container)
+        return;
+
+
+    container.innerHTML =
+        "";
+
+
+    const image =
+        document.createElement(
+            "img"
+        );
+
+
+    image.src =
+        anime.image;
+
+    image.alt =
+        anime.titleArabic;
+
+
+    image.onerror =
+        function () {
+
+            container.innerHTML =
+                '<div class="fallback-cover">' +
+                escapeHtml(
+                    anime.titleArabic
+                ) +
+                "</div>";
+
+        };
+
+
+    container.appendChild(
+        image
+    );
+
+}
+
+
+/* =====================================================
    التصنيفات
-========================================================= */
+===================================================== */
 
-function renderGenres(anime) {
+function renderTags(anime) {
 
-  const tags =
-    document.querySelector(
-      ".tags"
+    const tags =
+        document.querySelector(
+            ".tags"
+        );
+
+
+    if (!tags)
+        return;
+
+
+    tags.innerHTML =
+        "";
+
+
+    anime.genre.forEach(
+        function (genre) {
+
+            const tag =
+                document.createElement(
+                    "span"
+                );
+
+            tag.textContent =
+                genre;
+
+            tags.appendChild(
+                tag
+            );
+
+        }
     );
-
-
-  if (!tags) return;
-
-
-  tags.innerHTML =
-    anime.genre
-      .map(
-        genre =>
-          `<span>${genre}</span>`
-      )
-      .join("");
 
 }
 
 
-/* =========================================================
+/* =====================================================
    عرض الحلقات
-========================================================= */
+===================================================== */
 
 function renderEpisodes(anime) {
 
-  const list =
-    document.getElementById(
-      "episodeList"
+    const list =
+        document.getElementById(
+            "episodeList"
+        );
+
+
+    if (!list)
+        return;
+
+
+    list.innerHTML =
+        "";
+
+
+    anime.episodes.forEach(
+        function (episode) {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "episode";
+
+
+            item.onclick =
+                function () {
+
+                    playEpisode(
+                        anime,
+                        episode
+                    );
+
+                };
+
+
+            const number =
+                document.createElement(
+                    "div"
+                );
+
+
+            number.className =
+                "episode-number";
+
+
+            number.textContent =
+                episode.number;
+
+
+            const info =
+                document.createElement(
+                    "div"
+                );
+
+
+            info.className =
+                "episode-info";
+
+
+            const strong =
+                document.createElement(
+                    "strong"
+                );
+
+
+            strong.textContent =
+                episode.title;
+
+
+            const small =
+                document.createElement(
+                    "small"
+                );
+
+
+            small.textContent =
+                episode.description;
+
+
+            info.appendChild(
+                strong
+            );
+
+            info.appendChild(
+                small
+            );
+
+
+            const play =
+                document.createElement(
+                    "span"
+                );
+
+
+            play.textContent =
+                "▶";
+
+
+            item.appendChild(
+                number
+            );
+
+            item.appendChild(
+                info
+            );
+
+            item.appendChild(
+                play
+            );
+
+
+            list.appendChild(
+                item
+            );
+
+        }
     );
-
-
-  if (!list) return;
-
-
-  if (
-    !anime.episodes ||
-    anime.episodes.length === 0
-  ) {
-
-    list.innerHTML = `
-
-      <p class="empty-message">
-        لا توجد حلقات متاحة حاليًا.
-      </p>
-
-    `;
-
-    return;
-
-  }
-
-
-  list.innerHTML =
-    anime.episodes
-      .map(
-        episode => `
-
-          <div
-            class="episode"
-            onclick="
-              playEpisode(
-                '${anime.id}',
-                ${episode.number}
-              )
-            "
-          >
-
-            <div class="episode-number">
-              ${episode.number}
-            </div>
-
-            <div class="episode-info">
-
-              <strong>
-                الحلقة
-                ${episode.number}
-                — ${episode.title}
-              </strong>
-
-              <small>
-                ${episode.description}
-              </small>
-
-            </div>
-
-            <span>
-              ▶
-            </span>
-
-          </div>
-
-        `
-      )
-      .join("");
 
 }
 
 
-/* =========================================================
+/* =====================================================
    تشغيل الحلقة
-========================================================= */
+===================================================== */
 
 function playEpisode(
-  animeId,
-  episodeNumber
+    anime,
+    episode
 ) {
 
-  const anime =
-    animeData[animeId];
+    currentAnime =
+        anime;
+
+    currentEpisode =
+        episode;
 
 
-  if (!anime) return;
+    hideAllPages();
 
 
-  const episode =
-    anime.episodes.find(
-      item =>
-        item.number ===
-        episodeNumber
+    const page =
+        document.getElementById(
+            "playerPage"
+        );
+
+
+    if (!page)
+        return;
+
+
+    page.classList.remove(
+        "hidden"
     );
 
 
-  if (!episode) return;
+    const video =
+        document.getElementById(
+            "videoPlayer"
+        );
 
 
-  currentAnime =
-    animeId;
+    const title =
+        document.getElementById(
+            "playerTitle"
+        );
 
 
-  const animePage =
-    document.getElementById(
-      "animePage"
-    );
+    if (title) {
 
-
-  const playerPage =
-    document.getElementById(
-      "playerPage"
-    );
-
-
-  const video =
-    document.getElementById(
-      "videoPlayer"
-    );
-
-
-  /*
-    إخفاء صفحة التفاصيل
-  */
-
-  if (animePage) {
-
-    animePage.classList.add(
-      "hidden"
-    );
-
-  }
-
-
-  /*
-    إظهار المشغل
-  */
-
-  if (playerPage) {
-
-    playerPage.classList.remove(
-      "hidden"
-    );
-
-  }
-
-
-  /*
-    عنوان الحلقة
-  */
-
-  const playerTitle =
-    document.getElementById(
-      "playerTitle"
-    );
-
-
-  if (playerTitle) {
-
-    playerTitle.textContent =
-      `${anime.titleArabic || anime.title}
-       - الحلقة ${episode.number}`;
-
-  }
-
-
-  /*
-    الفيديو
-  */
-
-  if (
-    episode.video &&
-    episode.video.trim() !== ""
-  ) {
-
-    if (video) {
-
-      video.src =
-        episode.video;
-
-      video.load();
-
-      video.play().catch(
-        function () {
-          /*
-            بعض المتصفحات تمنع
-            التشغيل التلقائي.
-          */
-        }
-      );
-
-    }
-
-  } else {
-
-    if (video) {
-
-      video.pause();
-
-      video.removeAttribute(
-        "src"
-      );
-
-      video.load();
+        title.textContent =
+            anime.titleArabic +
+            " - " +
+            episode.title;
 
     }
 
 
-    showMessage(
-      "الفيديو غير مضاف لهذه الحلقة بعد."
-    );
+    if (!video)
+        return;
 
-  }
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-}
-
-
-/* =========================================================
-   إغلاق صفحة الأنمي
-========================================================= */
-
-function closeAnime() {
-
-  const animePage =
-    document.getElementById(
-      "animePage"
-    );
-
-
-  if (animePage) {
-
-    animePage.classList.add(
-      "hidden"
-    );
-
-  }
-
-
-  showHomeSections();
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-}
-
-
-/* =========================================================
-   إغلاق المشغل
-========================================================= */
-
-function closePlayer() {
-
-  const video =
-    document.getElementById(
-      "videoPlayer"
-    );
-
-
-  if (video) {
 
     video.pause();
 
-    video.removeAttribute(
-      "src"
-    );
+
+    video.src =
+        episode.video;
+
 
     video.load();
 
-  }
+
+    video.onerror =
+        function () {
+
+            showMessage(
+                "تعذر تحميل الفيديو. تأكد من وجود الملف والمسار."
+            );
+
+        };
 
 
-  const playerPage =
-    document.getElementById(
-      "playerPage"
+    video.play()
+        .catch(
+            function () {
+
+                /*
+                 المتصفح قد يمنع التشغيل
+                 التلقائي، وفي هذه الحالة
+                 المستخدم يضغط زر التشغيل.
+                */
+
+            }
+        );
+
+
+    window.scrollTo(
+        0,
+        0
     );
 
-
-  if (playerPage) {
-
-    playerPage.classList.add(
-      "hidden"
-    );
-
-  }
+}
 
 
-  if (currentAnime) {
+/* =====================================================
+   العودة من المشغل
+===================================================== */
 
-    const animePage =
-      document.getElementById(
-        "animePage"
-      );
+function closePlayer() {
+
+    const video =
+        document.getElementById(
+            "videoPlayer"
+        );
 
 
-    if (animePage) {
+    if (video) {
 
-      animePage.classList.remove(
-        "hidden"
-      );
+        video.pause();
+
+        video.removeAttribute(
+            "src"
+        );
+
+        video.load();
 
     }
 
-  } else {
+
+    if (currentAnime) {
+
+        openAnime(
+            currentAnime.id
+        );
+
+    }
+    else {
+
+        goHome();
+
+    }
+
+}
+
+
+/* =====================================================
+   إغلاق صفحة الأنمي
+===================================================== */
+
+function closeAnime() {
+
+    currentAnime =
+        null;
 
     goHome();
 
-  }
-
 }
 
 
-/* =========================================================
-   إظهار الأقسام الرئيسية
-========================================================= */
-
-function showHomeSections() {
-
-  document.querySelectorAll(
-    "main > section"
-  ).forEach(
-    function (section) {
-
-      if (
-        !section.classList.contains(
-          "anime-page"
-        ) &&
-        !section.classList.contains(
-          "player-page"
-        ) &&
-        !section.classList.contains(
-          "my-list-page"
-        )
-      ) {
-
-        section.classList.remove(
-          "hidden"
-        );
-
-      }
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   الرئيسية
-========================================================= */
+/* =====================================================
+   الصفحة الرئيسية
+===================================================== */
 
 function goHome() {
 
-  const animePage =
-    document.getElementById(
-      "animePage"
-    );
+    hideAllPages();
 
 
-  const playerPage =
-    document.getElementById(
-      "playerPage"
-    );
+    const main =
+        document.querySelector(
+            "main"
+        );
 
 
-  const myListPage =
-    document.getElementById(
-      "myListPage"
-    );
+    if (main) {
 
+        main.scrollIntoView({
+            behavior: "smooth"
+        });
 
-  if (animePage) {
-
-    animePage.classList.add(
-      "hidden"
-    );
-
-  }
-
-
-  if (playerPage) {
-
-    playerPage.classList.add(
-      "hidden"
-    );
-
-  }
-
-
-  if (myListPage) {
-
-    myListPage.classList.add(
-      "hidden"
-    );
-
-  }
-
-
-  showHomeSections();
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+    }
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   إخفاء الصفحات
+===================================================== */
+
+function hideAllPages() {
+
+    const pages =
+        document.querySelectorAll(
+            ".page"
+        );
+
+
+    pages.forEach(
+        function (page) {
+
+            page.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
    البحث
-========================================================= */
+===================================================== */
+
+function setupSearch() {
+
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
+
+
+    if (!input)
+        return;
+
+
+    input.addEventListener(
+        "input",
+        function () {
+
+            searchAnime(
+                this.value
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   تنفيذ البحث
+===================================================== */
+
+function searchAnime(query) {
+
+    query =
+        query
+            .trim()
+            .toLowerCase();
+
+
+    const popularGrid =
+        document.getElementById(
+            "animeGrid"
+        );
+
+
+    const publicGrid =
+        document.getElementById(
+            "newGrid"
+        );
+
+
+    if (
+        query.length ===
+        0
+    ) {
+
+        renderPopular();
+
+        renderPublicDomain();
+
+        return;
+
+    }
+
+
+    const results =
+        getAllAnime()
+            .filter(
+                function (anime) {
+
+                    const text =
+                        (
+
+                            anime.title +
+                            " " +
+                            anime.titleArabic +
+                            " " +
+                            anime.description +
+                            " " +
+                            anime.genre.join(" ")
+
+                        ).toLowerCase();
+
+
+                    return text.includes(
+                        query
+                    );
+
+                }
+            );
+
+
+    if (popularGrid) {
+
+        popularGrid.innerHTML =
+            "";
+
+    }
+
+
+    if (publicGrid) {
+
+        publicGrid.innerHTML =
+            "";
+
+    }
+
+
+    if (
+        results.length ===
+        0
+    ) {
+
+        if (popularGrid) {
+
+            showEmpty(
+                popularGrid,
+                "لم نجد أنمي مطابقًا لبحثك."
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    results.forEach(
+        function (anime) {
+
+            if (
+                anime.section ===
+                "popular"
+            ) {
+
+                if (popularGrid) {
+
+                    popularGrid.appendChild(
+                        createAnimeCard(
+                            anime
+                        )
+                    );
+
+                }
+
+            }
+            else {
+
+                if (publicGrid) {
+
+                    publicGrid.appendChild(
+                        createAnimeCard(
+                            anime
+                        )
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   التركيز على البحث
+===================================================== */
 
 function focusSearch() {
 
-  goHome();
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
 
 
-  const input =
-    document.getElementById(
-      "searchInput"
-    );
+    if (!input)
+        return;
 
-
-  if (input) {
 
     input.focus();
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+
+    input.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
     });
 
-  }
-
 }
 
 
-/* =========================================================
-   قائمتي
-========================================================= */
-
-function toggleFavorite() {
-
-  if (!currentAnime) {
-
-    showMessage(
-      "افتح أنمي أولًا."
-    );
-
-    return;
-
-  }
-
-
-  if (
-    favoriteList.includes(
-      currentAnime
-    )
-  ) {
-
-    favoriteList =
-      favoriteList.filter(
-        id =>
-          id !== currentAnime
-      );
-
-
-    showMessage(
-      "تمت إزالة الأنمي من قائمتك."
-    );
-
-  } else {
-
-    favoriteList.push(
-      currentAnime
-    );
-
-
-    showMessage(
-      "تمت إضافة الأنمي إلى قائمتك ❤️"
-    );
-
-  }
-
-
-  localStorage.setItem(
-    "favoriteAnime",
-    JSON.stringify(
-      favoriteList
-    )
-  );
-
-
-  updateFavoriteButton();
-
-}
-
-
-/* =========================================================
-   تحديث زر قائمتي
-========================================================= */
-
-function updateFavoriteButton() {
-
-  const button =
-    document.getElementById(
-      "favoriteBtn"
-    );
-
-
-  if (!button) return;
-
-
-  if (!currentAnime) {
-
-    button.textContent =
-      "♡ أضف إلى قائمتي";
-
-    return;
-
-  }
-
-
-  const isFavorite =
-    favoriteList.includes(
-      currentAnime
-    );
-
-
-  button.textContent =
-    isFavorite
-      ? "♥ في قائمتي"
-      : "♡ أضف إلى قائمتي";
-
-}
-
-
-/* =========================================================
-   عرض قائمتي
-========================================================= */
-
-function showMyList() {
-
-  /*
-    إخفاء الصفحات
-  */
-
-  document.querySelectorAll(
-    "main > section"
-  ).forEach(
-    function (section) {
-
-      section.classList.add(
-        "hidden"
-      );
-
-    }
-  );
-
-
-  const myListPage =
-    document.getElementById(
-      "myListPage"
-    );
-
-
-  if (myListPage) {
-
-    myListPage.classList.remove(
-      "hidden"
-    );
-
-  }
-
-
-  const content =
-    document.getElementById(
-      "myListContent"
-    );
-
-
-  if (!content) return;
-
-
-  /*
-    القائمة فارغة
-  */
-
-  if (
-    favoriteList.length === 0
-  ) {
-
-    content.innerHTML = `
-
-      <div class="empty-message">
-
-        <div style="font-size:50px;">
-          ♡
-        </div>
-
-        <p>
-          قائمتك فارغة حاليًا.
-        </p>
-
-        <button
-          onclick="goHome()"
-        >
-          اكتشف الأنميات
-        </button>
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  /*
-    عرض المفضلة
-  */
-
-  content.innerHTML =
-    favoriteList
-      .map(
-        function (id) {
-
-          const anime =
-            animeData[id];
-
-
-          if (!anime) return "";
-
-
-          return createAnimeCard(
-            anime
-          );
-
-        }
-      )
-      .join("");
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-}
-
-
-/* =========================================================
-   إغلاق قائمتي
-========================================================= */
-
-function closeMyList() {
-
-  const page =
-    document.getElementById(
-      "myListPage"
-    );
-
-
-  if (page) {
-
-    page.classList.add(
-      "hidden"
-    );
-
-  }
-
-
-  showHomeSections();
-
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-}
-
-
-/* =========================================================
-   رسالة صغيرة للمستخدم
-========================================================= */
-
-function showMessage(text) {
-
-  const message =
-    document.getElementById(
-      "message"
-    );
-
-
-  if (!message) {
-
-    alert(text);
-
-    return;
-
-  }
-
-
-  message.textContent =
-    text;
-
-
-  message.classList.add(
-    "show"
-  );
-
-
-  clearTimeout(
-    window.messageTimer
-  );
-
-
-  window.messageTimer =
-    setTimeout(
-      function () {
-
-        message.classList.remove(
-          "show"
-        );
-
-      },
-      2200
-    );
-
-}
-
-
-/* =========================================================
-   زر شاهد الآن
-========================================================= */
-
-function watchNow() {
-
-  openAnime("gang");
-
-}
-
-
-/* =========================================================
-   أزرار الصفحة الرئيسية
-========================================================= */
+/* =====================================================
+   الأكثر مشاهدة
+===================================================== */
 
 function showPopular() {
 
-  goHome();
-
-  const section =
-    document.getElementById(
-      "animeGrid"
-    );
+    hideAllPages();
 
 
-  if (section) {
-
-    section.scrollIntoView({
-      behavior: "smooth"
-    });
-
-  }
-
-}
+    const section =
+        document.getElementById(
+            "popularSection"
+        );
 
 
-function showNewAnime() {
+    if (section) {
 
-  goHome();
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
 
-  const section =
-    document.getElementById(
-      "newGrid"
-    );
-
-
-  if (section) {
-
-    section.scrollIntoView({
-      behavior: "smooth"
-    });
-
-  }
+    }
 
 }
 
+
+/* =====================================================
+   Public Domain
+===================================================== */
 
 function showPublicDomain() {
 
-  goHome();
-
-  const section =
-    document.getElementById(
-      "newGrid"
-    );
+    hideAllPages();
 
 
-  if (section) {
+    const section =
+        document.getElementById(
+            "publicDomainSection"
+        );
 
-    section.scrollIntoView({
-      behavior: "smooth"
-    });
 
-  }
+    if (section) {
+
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   الأنميات الجديدة
+===================================================== */
+
+function showNewAnime() {
+
+    showPublicDomain();
+
+}
+
+
+/* =====================================================
    التصنيفات
-========================================================= */
+===================================================== */
 
 function showCategories() {
 
-  showMessage(
-    "التصنيفات ستكون متاحة قريبًا."
-  );
+    showMessage(
+        "التصنيفات: أكشن • شونين • خيال • كلاسيكي"
+    );
 
 }
 
 
-/* =========================================================
-   الحساب
-========================================================= */
+/* =====================================================
+   شاهد الآن
+===================================================== */
 
-function showAccount() {
+function watchNow() {
 
-  showMessage(
-    "قسم الحساب سيكون متاحًا قريبًا."
-  );
+    if (
+        animeData.gang &&
+        animeData.gang.episodes.length
+    ) {
+
+        openAnime(
+            "gang"
+        );
+
+        return;
+
+    }
+
+
+    showMessage(
+        "لا توجد حلقات متاحة حاليًا."
+    );
 
 }
 
 
-/* =========================================================
-   توافق أسماء الدوال القديمة
-========================================================= */
+/* =====================================================
+   قائمتي
+===================================================== */
 
 function myList() {
 
-  showMyList();
+    hideAllPages();
+
+
+    const page =
+        document.getElementById(
+            "myListPage"
+        );
+
+
+    if (!page)
+        return;
+
+
+    page.classList.remove(
+        "hidden"
+    );
+
+
+    renderMyList();
+
+
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
-ponsuke: {
-    id: "ponsuke",
-    title: "Spring Comes to Ponsuke",
-    titleArabic: "ربيع بونسوكي",
-    year: 1934,
 
-    description:
-        "رسوم متحركة يابانية قصيرة من عام 1934.",
 
-    genre: [
-        "Public Domain",
-        "كلاسيكي",
-        "رسوم متحركة"
-    ],
+/* =====================================================
+   عرض قائمتي
+===================================================== */
 
-    image: "images/ponsuke.jpg",
+function renderMyList() {
 
-    section: "public-domain",
+    const container =
+        document.getElementById(
+            "myListContent"
+        );
 
-    license: "Public Domain",
 
-    episodes: [
-        {
-            number: 1,
-            title: "الفيلم الكامل",
-            description: "Spring Comes to Ponsuke",
-            video: "videos/ponsuke.webm"
+    if (!container)
+        return;
+
+
+    container.innerHTML =
+        "";
+
+
+    const items =
+        favorites
+            .map(
+                id =>
+                    animeData[id]
+            )
+            .filter(
+                Boolean
+            );
+
+
+    if (
+        items.length ===
+        0
+    ) {
+
+        showEmpty(
+            container,
+            "قائمتك فارغة حاليًا."
+        );
+
+        return;
+
+    }
+
+
+    items.forEach(
+        function (anime) {
+
+            container.appendChild(
+                createAnimeCard(
+                    anime
+                )
+            );
+
         }
-    ]
-},
+    );
 
-donkey: {
-    id: "donkey",
-    title: "The Donkey",
-    titleArabic: "الحمار",
-    year: 1930,
-
-    description:
-        "رسوم متحركة يابانية قصيرة من عام 1930.",
-
-    genre: [
-        "Public Domain",
-        "كلاسيكي",
-        "رسوم متحركة"
-    ],
-
-    image: "images/donkey.jpg",
-
-    section: "public-domain",
-
-    license: "Public Domain",
-
-    episodes: [
-        {
-            number: 1,
-            title: "الفيلم الكامل",
-            description: "The Donkey",
-            video: "videos/donkey.ogv"
-        }
-    ]
-},
-
-circus: {
-    id: "circus",
-    title: "At the Circus",
-    titleArabic: "في السيرك",
-    year: 1931,
-
-    description:
-        "رسوم متحركة يابانية قصيرة من عام 1931.",
-
-    genre: [
-        "Public Domain",
-        "كلاسيكيات",
-        "رسوم متحركة"
-    ],
-
-    image: "images/circus.jpg",
-
-    section: "public-domain",
-
-    license: "Public Domain",
-
-    episodes: [
-        {
-            number: 1,
-            title: "الفيلم الكامل",
-            description: "At the Circus",
-            video: "videos/circus.webm"
-        }
-    ]
-},
-
-rascalRacoon: {
-    id: "rascal-racoon",
-    title: "Rascal Racoon",
-    titleArabic: "الثعلب المشاغب",
-    year: 1933,
-
-    description:
-        "رسوم متحركة يابانية قصيرة من عام 1933.",
-
-    genre: [
-        "Public Domain",
-        "كلاسيكي",
-        "رسوم متحركة"
-    ],
-
-    image: "images/rascal-racoon.jpg",
-
-    section: "public-domain",
-
-    license: "Public Domain",
-
-    episodes: [
-        {
-            number: 1,
-            title: "الفيلم الكامل",
-            description: "Rascal Racoon",
-            video: "videos/rascal-racoon.ogv"
-        }
-    ]
 }
+
+
+/* =====================================================
+   إغلاق قائمتي
+===================================================== */
+
+function closeMyList() {
+
+    goHome();
+
+}
+
+
+/* =====================================================
+   إضافة / إزالة المفضلة
+===================================================== */
+
+function toggleFavorite() {
+
+    if (!currentAnime)
+        return;
+
+
+    const id =
+        currentAnime.id;
+
+
+    const index =
+        favorites.indexOf(
+            id
+        );
+
+
+    if (
+        index ===
+        -1
+    ) {
+
+        favorites.push(
+            id
+        );
+
+        showMessage(
+            "تمت إضافة الأنمي إلى قائمتك ❤️"
+        );
+
+    }
+    else {
+
+        favorites.splice(
+            index,
+            1
+        );
+
+        showMessage(
+            "تمت إزالة الأنمي من قائمتك."
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "ghorfaAnimeFavorites",
+        JSON.stringify(
+            favorites
+        )
+    );
+
+
+    updateFavoriteButton();
+
+}
+
+
+/* =====================================================
+   تحديث زر المفضلة
+===================================================== */
+
+function updateFavoriteButton() {
+
+    const button =
+        document.getElementById(
+            "favoriteBtn"
+        );
+
+
+    if (!button)
+        return;
+
+
+    if (!currentAnime) {
+
+        button.textContent =
+            "♡ أضف إلى قائمتي";
+
+        return;
+
+    }
+
+
+    const exists =
+        favorites.includes(
+            currentAnime.id
+        );
+
+
+    if (exists) {
+
+        button.textContent =
+            "♥ إزالة من قائمتي";
+
+    }
+    else {
+
+        button.textContent =
+            "♡ أضف إلى قائمتي";
+
+    }
+
+}
+
+
+/* =====================================================
+   الحساب
+===================================================== */
+
+function showAccount() {
+
+    showMessage(
+        "صفحة الحساب ستكون متاحة في الإصدار القادم."
+    );
+
+}
+
+
+/* =====================================================
+   الرسائل
+===================================================== */
+
+function showMessage(text) {
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    if (!message)
+        return;
+
+
+    message.textContent =
+        text;
+
+
+    message.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        showMessage.timer
+    );
+
+
+    showMessage.timer =
+        setTimeout(
+            function () {
+
+                message.classList.remove(
+                    "show"
+                );
+
+            },
+            2500
+        );
+
+}
+
+
+/* =====================================================
+   رسالة فارغة
+===================================================== */
+
+function showEmpty(
+    container,
+    text
+) {
+
+    container.innerHTML =
+        "";
+
+
+    const element =
+        document.createElement(
+            "div"
+        );
+
+
+    element.className =
+        "empty-message";
+
+
+    element.textContent =
+        text;
+
+
+    container.appendChild(
+        element
+    );
+
+}
+
+
+/* =====================================================
+   حماية النص
+===================================================== */
+
+function escapeHtml(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        text;
+
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   التحكم في أزرار المتصفح
+===================================================== */
+
+window.addEventListener(
+    "keydown",
+    function (event) {
+
+        /*
+         ESC لإغلاق المشغل
+        */
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            const player =
+                document.getElementById(
+                    "playerPage"
+                );
+
+
+            if (
+                player &&
+                !player.classList.contains(
+                    "hidden"
+                )
+            ) {
+
+                closePlayer();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   حفظ آخر أنمي تمت مشاهدته
+===================================================== */
+
+function saveLastWatched(
+    anime,
+    episode
+) {
+
+    if (!anime || !episode)
+        return;
+
+
+    const data = {
+
+        animeId:
+            anime.id,
+
+        episodeNumber:
+            episode.number,
+
+        timestamp:
+            Date.now()
+
+    };
+
+
+    localStorage.setItem(
+        "ghorfaAnimeLastWatched",
+        JSON.stringify(
+            data
+        )
+    );
+
+}
+
+
+/* =====================================================
+   تحديث playEpisode لحفظ آخر مشاهدة
+===================================================== */
+
+const originalPlayEpisode =
+    playEpisode;
+
+
+/*
+   نستخدم wrapper حتى لا نكرر
+   وظيفة تشغيل الفيديو.
+*/
+
+playEpisode =
+    function (
+        anime,
+        episode
+    ) {
+
+        saveLastWatched(
+            anime,
+            episode
+        );
+
+
+        originalPlayEpisode(
+            anime,
+            episode
+        );
+
+    };
+
+
+/* =====================================================
+   الحصول على آخر مشاهدة
+===================================================== */
+
+function getLastWatched() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "ghorfaAnimeLastWatched"
+            )
+        );
+
+    }
+    catch (
+        error
+    ) {
+
+        return null;
+
+    }
+
+}
+
+
+/* =====================================================
+   Console
+===================================================== */
+
+console.log(
+    "GhorfaAnime loaded successfully."
+);
+
+console.log(
+    "Anime count:",
+    getAllAnime().length
+);
