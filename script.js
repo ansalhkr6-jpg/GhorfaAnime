@@ -1485,3 +1485,126 @@ function myList() {
   showMyList();
 
 }
+ponsuke: {
+    id: "ponsuke",
+    title: "Spring Comes to Ponsuke",
+    titleArabic: "ربيع بونسوكي",
+    year: 1934,
+
+    description:
+        "رسوم متحركة يابانية قصيرة من عام 1934.",
+
+    genre: [
+        "Public Domain",
+        "كلاسيكي",
+        "رسوم متحركة"
+    ],
+
+    image: "images/ponsuke.jpg",
+
+    section: "public-domain",
+
+    license: "Public Domain",
+
+    episodes: [
+        {
+            number: 1,
+            title: "الفيلم الكامل",
+            description: "Spring Comes to Ponsuke",
+            video: "videos/ponsuke.webm"
+        }
+    ]
+},
+
+donkey: {
+    id: "donkey",
+    title: "The Donkey",
+    titleArabic: "الحمار",
+    year: 1930,
+
+    description:
+        "رسوم متحركة يابانية قصيرة من عام 1930.",
+
+    genre: [
+        "Public Domain",
+        "كلاسيكي",
+        "رسوم متحركة"
+    ],
+
+    image: "images/donkey.jpg",
+
+    section: "public-domain",
+
+    license: "Public Domain",
+
+    episodes: [
+        {
+            number: 1,
+            title: "الفيلم الكامل",
+            description: "The Donkey",
+            video: "videos/donkey.ogv"
+        }
+    ]
+},
+
+circus: {
+    id: "circus",
+    title: "At the Circus",
+    titleArabic: "في السيرك",
+    year: 1931,
+
+    description:
+        "رسوم متحركة يابانية قصيرة من عام 1931.",
+
+    genre: [
+        "Public Domain",
+        "كلاسيكيات",
+        "رسوم متحركة"
+    ],
+
+    image: "images/circus.jpg",
+
+    section: "public-domain",
+
+    license: "Public Domain",
+
+    episodes: [
+        {
+            number: 1,
+            title: "الفيلم الكامل",
+            description: "At the Circus",
+            video: "videos/circus.webm"
+        }
+    ]
+},
+
+rascalRacoon: {
+    id: "rascal-racoon",
+    title: "Rascal Racoon",
+    titleArabic: "الثعلب المشاغب",
+    year: 1933,
+
+    description:
+        "رسوم متحركة يابانية قصيرة من عام 1933.",
+
+    genre: [
+        "Public Domain",
+        "كلاسيكي",
+        "رسوم متحركة"
+    ],
+
+    image: "images/rascal-racoon.jpg",
+
+    section: "public-domain",
+
+    license: "Public Domain",
+
+    episodes: [
+        {
+            number: 1,
+            title: "الفيلم الكامل",
+            description: "Rascal Racoon",
+            video: "videos/rascal-racoon.ogv"
+        }
+    ]
+}
