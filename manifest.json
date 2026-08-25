@@ -3,9 +3,23 @@
   "short_name": "غرفة الأنمي",
   "description": "تطبيق غرفة الأنمي لمشاهدة ومتابعة الأنمي",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#08070c",
   "theme_color": "#b747dc",
   "orientation": "portrait",
-  "icons": []
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": [
+    "entertainment",
+    "video"
+  ],
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
