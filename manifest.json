@@ -1,0 +1,11 @@
+{
+  "name": "غرفة الأنمي",
+  "short_name": "غرفة الأنمي",
+  "description": "تطبيق غرفة الأنمي لمشاهدة ومتابعة الأنمي",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08070c",
+  "theme_color": "#b747dc",
+  "orientation": "portrait",
+  "icons": []
+}
