@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>غرفة الأنمي</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- لون التطبيق -->
+  <meta name="theme-color" content="#b747dc">
 </head>
 
 <body>
@@ -21,18 +32,27 @@
 
   <div class="search">
     <span>⌕</span>
-    <input id="searchInput" type="search" placeholder="ابحث عن أنمي...">
+
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="ابحث عن أنمي..."
+    >
   </div>
 
   <section class="hero">
     <div class="hero-content">
+
       <small>الحلقة الجديدة</small>
+
       <h2>اكتشف عالم الأنمي</h2>
+
       <p>شاهد، تابع، واستمتع</p>
 
       <button onclick="watchNow()">
         ▶ شاهد الآن
       </button>
+
     </div>
   </section>
 
@@ -110,7 +130,23 @@
 
 <div id="message"></div>
 
+<!-- JavaScript -->
 <script src="script.js"></script>
+
+<!-- Service Worker -->
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(() => {
+          console.log("Service Worker registered");
+        })
+        .catch((error) => {
+          console.log("Service Worker error:", error);
+        });
+    });
+  }
+</script>
 
 </body>
 </html>
