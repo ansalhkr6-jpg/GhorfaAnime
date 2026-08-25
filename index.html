@@ -1,128 +1,233 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8b35d6">
+  <meta name="description" content="غرفة الأنمي - شاهد وتابع أنمياتك المفضلة">
 
   <title>غرفة الأنمي</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json">
-
-  <!-- لون التطبيق -->
-  <meta name="theme-color" content="#b747dc">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header class="topbar">
-  <button class="icon" onclick="showMessage('القائمة')">☰</button>
+  <button class="icon-btn" onclick="showMessage('القائمة')">☰</button>
 
-  <h1>غرفة <span>الأنمي</span></h1>
+  <div class="logo">
+    <span>غرفة</span>
+    <strong>الأنمي</strong>
+  </div>
 
-  <button class="premium" onclick="showMessage('الاشتراك المميز')">♛</button>
+  <button class="premium-btn" onclick="showMessage('الاشتراك المميز')">
+    ♛
+  </button>
 </header>
 
 <main>
 
-  <div class="search">
+  <!-- البحث -->
+  <div class="search-box">
     <span>⌕</span>
-
     <input
       id="searchInput"
       type="search"
       placeholder="ابحث عن أنمي..."
+      autocomplete="off"
     >
   </div>
 
+  <!-- البطل -->
   <section class="hero">
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
+      <span class="badge">أنمي أصلي</span>
 
-      <small>الحلقة الجديدة</small>
+      <h1>Gang</h1>
 
-      <h2>اكتشف عالم الأنمي</h2>
+      <p>
+        طالب غامض يبدأ رحلة جديدة بقوة لا يعرف حدودها.
+      </p>
 
-      <p>شاهد، تابع، واستمتع</p>
+      <div class="hero-buttons">
+        <button class="watch-btn" onclick="openAnime('gang')">
+          ▶ شاهد الآن
+        </button>
 
-      <button onclick="watchNow()">
-        ▶ شاهد الآن
-      </button>
-
+        <button class="info-btn" onclick="openAnime('gang')">
+          ＋ التفاصيل
+        </button>
+      </div>
     </div>
   </section>
 
-  <div class="quick">
+  <!-- التصنيفات السريعة -->
+  <section class="quick-menu">
 
-    <button onclick="showMessage('الأكثر مشاهدة')">
-      🔥
-      <b>الأكثر مشاهدة</b>
+    <button onclick="scrollToSection('popular')">
+      <span>🔥</span>
+      <small>الأكثر مشاهدة</small>
     </button>
 
-    <button onclick="showMessage('الأنميات الجديدة')">
-      ✨
-      <b>الأنميات الجديدة</b>
+    <button onclick="scrollToSection('new')">
+      <span>✨</span>
+      <small>الجديدة</small>
     </button>
 
-    <button onclick="showMessage('أكمل المشاهدة')">
-      ▶
-      <b>أكمل المشاهدة</b>
+    <button onclick="showMyList()">
+      <span>♡</span>
+      <small>قائمتي</small>
     </button>
 
     <button onclick="showMessage('التصنيفات')">
-      ▦
-      <b>التصنيفات</b>
+      <span>▦</span>
+      <small>التصنيفات</small>
     </button>
 
-  </div>
+  </section>
 
-  <section>
+  <!-- الأكثر مشاهدة -->
+  <section class="anime-section" id="popular">
 
-    <div class="section-header">
-      <a href="#" onclick="return false;">عرض الكل</a>
-      <h2>الأكثر مشاهدة</h2>
+    <div class="section-title">
+      <h2>🔥 الأكثر مشاهدة</h2>
+      <button onclick="showMessage('عرض الكل')">عرض الكل</button>
     </div>
 
     <div id="animeGrid" class="anime-grid"></div>
 
   </section>
 
-  <section>
+  <!-- الجديدة -->
+  <section class="anime-section" id="new">
 
-    <div class="section-header">
-      <a href="#" onclick="return false;">عرض الكل</a>
-      <h2>الأنميات الجديدة</h2>
+    <div class="section-title">
+      <h2>✨ الأنميات الجديدة</h2>
+      <button onclick="showMessage('عرض الكل')">عرض الكل</button>
     </div>
 
     <div id="newGrid" class="anime-grid"></div>
 
   </section>
 
+  <!-- صفحة التفاصيل -->
+  <section id="animePage" class="anime-page hidden">
+
+    <button class="back-btn" onclick="closeAnime()">
+      → العودة
+    </button>
+
+    <div class="anime-detail">
+
+      <div class="detail-cover">
+        <div class="gang-cover">GANG</div>
+      </div>
+
+      <div class="detail-info">
+
+        <span class="badge">أنمي أصلي</span>
+
+        <h1 id="animeTitle">Gang</h1>
+
+        <p id="animeDescription">
+          طالب غامض يبدأ رحلة جديدة ويكتشف أن حياته لن تبقى كما كانت.
+        </p>
+
+        <div class="tags">
+          <span>أكشن</span>
+          <span>شونين</span>
+          <span>غموض</span>
+        </div>
+
+        <button class="watch-btn" onclick="playEpisode(1)">
+          ▶ الحلقة 1
+        </button>
+
+        <button id="favoriteBtn" class="favorite-btn" onclick="toggleFavorite()">
+          ♡ أضف إلى قائمتي
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="episodes">
+
+      <h2>الحلقات</h2>
+
+      <div id="episodeList"></div>
+
+    </div>
+
+  </section>
+
+  <!-- مشغل الفيديو -->
+  <section id="playerPage" class="player-page hidden">
+
+    <button class="back-btn" onclick="closePlayer()">
+      → العودة
+    </button>
+
+    <h2 id="playerTitle">Gang - الحلقة 1</h2>
+
+    <div class="video-container">
+
+      <video
+        id="videoPlayer"
+        controls
+        playsinline
+        preload="metadata"
+      >
+        <p>متصفحك لا يدعم تشغيل الفيديو.</p>
+      </video>
+
+    </div>
+
+    <p class="video-note">
+      ضع رابط فيديو تملك حق استخدامه داخل ملف script.js.
+    </p>
+
+  </section>
+
+  <!-- قائمتي -->
+  <section id="myListPage" class="my-list-page hidden">
+
+    <button class="back-btn" onclick="closeMyList()">
+      → العودة
+    </button>
+
+    <h2>♡ قائمتي</h2>
+
+    <div id="myListContent"></div>
+
+  </section>
+
 </main>
 
+<!-- التنقل السفلي -->
 <nav class="bottom-nav">
 
-  <button class="active" onclick="location.reload()">
-    ⌂
+  <button class="active" onclick="goHome()">
+    <span>⌂</span>
     <small>الرئيسية</small>
   </button>
 
-  <button onclick="document.getElementById('searchInput').focus()">
-    ⌕
+  <button onclick="focusSearch()">
+    <span>⌕</span>
     <small>بحث</small>
   </button>
 
-  <button onclick="myList()">
-    ♡
+  <button onclick="showMyList()">
+    <span>♡</span>
     <small>قائمتي</small>
   </button>
 
   <button onclick="showMessage('الحساب')">
-    ♙
+    <span>♙</span>
     <small>حسابي</small>
   </button>
 
@@ -130,20 +235,14 @@
 
 <div id="message"></div>
 
-<!-- JavaScript -->
 <script src="script.js"></script>
 
-<!-- Service Worker -->
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("./service-worker.js")
-        .then(() => {
-          console.log("Service Worker registered");
-        })
-        .catch((error) => {
-          console.log("Service Worker error:", error);
-        });
+        .then(() => console.log("Service Worker registered"))
+        .catch(error => console.log("Service Worker error:", error));
     });
   }
 </script>
