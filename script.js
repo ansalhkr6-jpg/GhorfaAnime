@@ -1,302 +1,362 @@
-const animeList = [
-  {
-    id: 1,
-    title: "هجوم العمالقة",
-    en: "Attack on Titan",
-    genre: "أكشن",
-    rating: 4.8,
-    episodes: 89,
-    image: "https://cdn.myanimelist.net/images/anime/10/47347.jpg"
-  },
-  {
-    id: 2,
-    title: "جوجوتسو كايسن",
-    en: "Jujutsu Kaisen",
-    genre: "أكشن",
-    rating: 4.7,
-    episodes: 47,
-    image: "https://cdn.myanimelist.net/images/anime/1171/109222.jpg"
-  },
-  {
-    id: 3,
-    title: "قاتل الشياطين",
-    en: "Demon Slayer",
-    genre: "أكشن",
-    rating: 4.9,
-    episodes: 63,
-    image: "https://cdn.myanimelist.net/images/anime/1286/99889.jpg"
-  },
-  {
-    id: 4,
-    title: "بلو لوك",
-    en: "Blue Lock",
-    genre: "رياضة",
-    rating: 4.6,
-    episodes: 38,
-    image: "https://cdn.myanimelist.net/images/anime/1258/126929.jpg"
-  },
-  {
-    id: 5,
-    title: "ناروتو",
-    en: "Naruto",
-    genre: "مغامرة",
-    rating: 4.8,
-    episodes: 220,
-    image: "https://cdn.myanimelist.net/images/anime/13/17405.jpg"
-  },
-  {
-    id: 6,
-    title: "ون بيس",
-    en: "One Piece",
-    genre: "مغامرة",
-    rating: 4.9,
-    episodes: 1100,
-    image: "https://cdn.myanimelist.net/images/anime/6/73245.jpg"
+const animeData = {
+  gang: {
+    id: "gang",
+    title: "Gang",
+    description:
+      "طالب غامض يبدأ رحلة جديدة ويكتشف أن حياته لن تبقى كما كانت.",
+    genre: ["أكشن", "شونين", "غموض"],
+
+    episodes: [
+      {
+        number: 1,
+        title: "البداية",
+        description: "بداية قصة Gang.",
+        video: ""
+      },
+      {
+        number: 2,
+        title: "القوة الجديدة",
+        description: "يبدأ Gang في اكتشاف قدراته.",
+        video: ""
+      },
+      {
+        number: 3,
+        title: "الاختبار",
+        description: "مواجهة جديدة تنتظر Gang.",
+        video: ""
+      }
+    ]
   }
-];
+};
 
-function getSaved() {
-  return JSON.parse(
-    localStorage.getItem("ghorfaAnimeList") || "[]"
-  );
-}
+let currentAnime = null;
+let favorite = localStorage.getItem("gangFavorite") === "true";
 
-function saveList(list) {
-  localStorage.setItem(
-    "ghorfaAnimeList",
-    JSON.stringify(list)
-  );
-}
+document.addEventListener("DOMContentLoaded", () => {
+  renderAnimeCards();
+  renderEpisodes();
+  updateFavoriteButton();
 
-function createCard(anime) {
-  return `
-    <article class="anime-card" onclick="details(${anime.id})">
+  const search = document.getElementById("searchInput");
 
-      <div class="anime-image">
+  if (search) {
+    search.addEventListener("input", searchAnime);
+  }
+});
 
-        <img
-          src="${anime.image}"
-          alt="${anime.title}"
-          loading="lazy">
+function renderAnimeCards() {
 
-        <div class="anime-overlay">
-          ▶
-        </div>
-
+  const cards = `
+    <article class="anime-card" onclick="openAnime('gang')">
+      <div class="anime-cover">
+        <span>GANG</span>
       </div>
 
       <div class="anime-info">
-
-        <h3>${anime.title}</h3>
-
-        <div class="anime-meta">
-          <span>⭐ ${anime.rating}</span>
-          <span>${anime.episodes} حلقة</span>
-        </div>
-
-        <small>${anime.genre}</small>
-
+        <h3>Gang</h3>
+        <p>أكشن • شونين • غموض</p>
       </div>
-
     </article>
   `;
-}
-
-function renderAnime(list = animeList) {
 
   const grid = document.getElementById("animeGrid");
   const newGrid = document.getElementById("newGrid");
 
-  if (!grid || !newGrid) return;
-
-  grid.innerHTML = list
-    .slice(0, 3)
-    .map(createCard)
-    .join("");
-
-  newGrid.innerHTML = list
-    .slice(3)
-    .map(createCard)
-    .join("");
+  if (grid) grid.innerHTML = cards;
+  if (newGrid) newGrid.innerHTML = cards;
 }
 
-function details(id) {
+function openAnime(id) {
 
-  const anime = animeList.find(a => a.id === id);
+  const anime = animeData[id];
 
   if (!anime) return;
 
-  const saved = getSaved().includes(id);
+  currentAnime = id;
 
-  const message = document.getElementById("message");
+  document.querySelectorAll(
+    "main > section:not(.anime-page):not(.player-page):not(.my-list-page)"
+  ).forEach(section => {
+    section.classList.add("hidden");
+  });
 
-  message.innerHTML = `
-    <div class="anime-popup">
+  document.getElementById("animePage").classList.remove("hidden");
+  document.getElementById("playerPage").classList.add("hidden");
+  document.getElementById("myListPage").classList.add("hidden");
 
-      <button
-        class="popup-close"
-        onclick="closePopup()">
-        ✕
-      </button>
+  document.getElementById("animeTitle").textContent = anime.title;
+  document.getElementById("animeDescription").textContent = anime.description;
 
-      <img
-        src="${anime.image}"
-        alt="${anime.title}">
+  renderEpisodes();
+  updateFavoriteButton();
 
-      <div>
-
-        <h2>${anime.title}</h2>
-
-        <p>${anime.en}</p>
-        <p>⭐ التقييم: ${anime.rating}</p>
-        <p>📺 الحلقات: ${anime.episodes}</p>
-        <p>🎭 التصنيف: ${anime.genre}</p>
-
-        <button onclick="watchNow()">
-          ▶ شاهد الآن
-        </button>
-
-        <button onclick="toggleSaved(${id})">
-          ${saved ? "💔 إزالة من قائمتي" : "❤️ أضف إلى قائمتي"}
-        </button>
-
-      </div>
-
-    </div>
-  `;
-
-  message.classList.add("show");
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
 
-function toggleSaved(id) {
+function closeAnime() {
 
-  let list = getSaved();
+  document.getElementById("animePage").classList.add("hidden");
 
-  if (list.includes(id)) {
-    list = list.filter(x => x !== id);
-    showMessage("تمت إزالة الأنمي من قائمتك");
+  document.querySelectorAll(
+    "main > section:not(.anime-page):not(.player-page):not(.my-list-page)"
+  ).forEach(section => {
+    section.classList.remove("hidden");
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function renderEpisodes() {
+
+  const list = document.getElementById("episodeList");
+
+  if (!list) return;
+
+  const anime = animeData.gang;
+
+  list.innerHTML = anime.episodes.map(episode => `
+    <div class="episode" onclick="playEpisode(${episode.number})">
+
+      <div class="episode-number">
+        ${episode.number}
+      </div>
+
+      <div class="episode-info">
+        <strong>الحلقة ${episode.number} — ${episode.title}</strong>
+        <small>${episode.description}</small>
+      </div>
+
+      <span>▶</span>
+
+    </div>
+  `).join("");
+}
+
+function playEpisode(number) {
+
+  const anime = animeData.gang;
+
+  const episode = anime.episodes.find(
+    item => item.number === number
+  );
+
+  if (!episode) return;
+
+  const playerPage = document.getElementById("playerPage");
+  const video = document.getElementById("videoPlayer");
+
+  document.getElementById("animePage").classList.add("hidden");
+  document.getElementById("playerPage").classList.remove("hidden");
+
+  document.getElementById("playerTitle").textContent =
+    `${anime.title} - الحلقة ${episode.number}`;
+
+  if (episode.video) {
+
+    video.src = episode.video;
+    video.load();
+
   } else {
-    list.push(id);
-    showMessage("تمت إضافة الأنمي إلى قائمتك ❤️");
+
+    video.removeAttribute("src");
+    video.load();
+
+    showMessage("أضف رابط فيديو قانوني للحلقة أولًا");
   }
 
-  saveList(list);
-  closePopup();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
 
-function myList() {
+function closePlayer() {
 
-  const ids = getSaved();
+  const video = document.getElementById("videoPlayer");
 
-  const list = animeList.filter(
-    anime => ids.includes(anime.id)
+  video.pause();
+  video.removeAttribute("src");
+  video.load();
+
+  document.getElementById("playerPage").classList.add("hidden");
+
+  if (currentAnime) {
+    document.getElementById("animePage").classList.remove("hidden");
+  } else {
+    goHome();
+  }
+}
+
+function toggleFavorite() {
+
+  favorite = !favorite;
+
+  localStorage.setItem(
+    "gangFavorite",
+    favorite
   );
 
-  const message = document.getElementById("message");
+  updateFavoriteButton();
 
-  message.innerHTML = `
-    <div class="anime-popup">
-
-      <button
-        class="popup-close"
-        onclick="closePopup()">
-        ✕
-      </button>
-
-      <div>
-
-        <h2>❤️ قائمتي</h2>
-
-        ${
-          list.length
-            ? `<div class="anime-grid">
-                ${list.map(createCard).join("")}
-               </div>`
-            : `
-              <p style="text-align:center;padding:30px">
-                قائمتك فارغة حاليًا
-              </p>
-            `
-        }
-
-      </div>
-
-    </div>
-  `;
-
-  message.classList.add("show");
-}
-
-function watchNow() {
-
-  const anime = animeList[0];
-
-  alert(
-    "سيتم تشغيل الحلقة من نظام المشاهدة لاحقًا."
+  showMessage(
+    favorite
+      ? "تمت إضافة Gang إلى قائمتك ❤️"
+      : "تمت إزالة Gang من قائمتك"
   );
 }
 
-function closePopup() {
+function updateFavoriteButton() {
 
-  const message = document.getElementById("message");
+  const button = document.getElementById("favoriteBtn");
 
-  message.classList.remove("show");
+  if (!button) return;
 
-  setTimeout(() => {
-    message.innerHTML = "";
-  }, 200);
+  button.textContent = favorite
+    ? "♥ في قائمتي"
+    : "♡ أضف إلى قائمتي";
+}
+
+function showMyList() {
+
+  document.querySelectorAll(
+    "main > section:not(.anime-page):not(.player-page):not(.my-list-page)"
+  ).forEach(section => {
+    section.classList.add("hidden");
+  });
+
+  document.getElementById("animePage").classList.add("hidden");
+  document.getElementById("playerPage").classList.add("hidden");
+  document.getElementById("myListPage").classList.remove("hidden");
+
+  const content = document.getElementById("myListContent");
+
+  if (favorite) {
+
+    content.innerHTML = `
+      <article class="anime-card" onclick="openAnime('gang')">
+
+        <div class="anime-cover">
+          <span>GANG</span>
+        </div>
+
+        <div class="anime-info">
+          <h3>Gang</h3>
+          <p>في قائمتك ❤️</p>
+        </div>
+
+      </article>
+    `;
+
+  } else {
+
+    content.innerHTML = `
+      <p style="color:#a9a3b1;padding:20px 0;">
+        قائمتك فارغة حاليًا.
+      </p>
+    `;
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function closeMyList() {
+
+  document.getElementById("myListPage").classList.add("hidden");
+
+  document.querySelectorAll(
+    "main > section:not(.anime-page):not(.player-page):not(.my-list-page)"
+  ).forEach(section => {
+    section.classList.remove("hidden");
+  });
+}
+
+function goHome() {
+
+  document.getElementById("animePage").classList.add("hidden");
+  document.getElementById("playerPage").classList.add("hidden");
+  document.getElementById("myListPage").classList.add("hidden");
+
+  document.querySelectorAll(
+    "main > section:not(.anime-page):not(.player-page):not(.my-list-page)"
+  ).forEach(section => {
+    section.classList.remove("hidden");
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function focusSearch() {
+
+  goHome();
+
+  const input = document.getElementById("searchInput");
+
+  if (input) {
+    input.focus();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+}
+
+function scrollToSection(id) {
+
+  goHome();
+
+  const section = document.getElementById(id);
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+}
+
+function searchAnime(event) {
+
+  const query = event.target.value
+    .trim()
+    .toLowerCase();
+
+  const cards = document.querySelectorAll(".anime-card");
+
+  cards.forEach(card => {
+
+    const text = card.textContent.toLowerCase();
+
+    card.style.display =
+      !query || text.includes(query)
+        ? ""
+        : "none";
+  });
 }
 
 function showMessage(text) {
 
-  const toast = document.getElementById("toast");
+  const message = document.getElementById("message");
 
-  if (!toast) {
+  if (!message) return;
 
-    const newToast = document.createElement("div");
+  message.textContent = text;
+  message.classList.add("show");
 
-    newToast.id = "toast";
+  clearTimeout(window.messageTimer);
 
-    document.body.appendChild(newToast);
-  }
-
-  const box = document.getElementById("toast");
-
-  box.textContent = text;
-
-  box.classList.add("show");
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer = setTimeout(() => {
-    box.classList.remove("show");
-  }, 2000);
+  window.messageTimer = setTimeout(() => {
+    message.classList.remove("show");
+  }, 2200);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  renderAnime();
-
-  const search =
-    document.getElementById("searchInput");
-
-  search.addEventListener("input", () => {
-
-    const value =
-      search.value.trim().toLowerCase();
-
-    if (!value) {
-      renderAnime();
-      return;
-    }
-
-    const results = animeList.filter(anime =>
-      anime.title.toLowerCase().includes(value) ||
-      anime.en.toLowerCase().includes(value) ||
-      anime.genre.toLowerCase().includes(value)
-    );
-
-    renderAnime(results);
-  });
-
-});
