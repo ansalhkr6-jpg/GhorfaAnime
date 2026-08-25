@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#8b35d6">
+  <meta name="theme-color" content="#b747dc">
   <meta name="description" content="غرفة الأنمي - شاهد وتابع أنمياتك المفضلة">
 
   <title>غرفة الأنمي</title>
@@ -22,50 +22,29 @@
     <strong>الأنمي</strong>
   </div>
 
-  <button class="premium-btn" onclick="showMessage('الاشتراك المميز')">
-    ♛
-  </button>
+  <button class="premium-btn" onclick="showMessage('الاشتراك المميز')">♛</button>
 </header>
 
 <main>
 
-  <!-- البحث -->
   <div class="search-box">
     <span>⌕</span>
-    <input
-      id="searchInput"
-      type="search"
-      placeholder="ابحث عن أنمي..."
-      autocomplete="off"
-    >
+    <input id="searchInput" type="search" placeholder="ابحث عن أنمي...">
   </div>
 
-  <!-- البطل -->
   <section class="hero">
-    <div class="hero-overlay"></div>
-
     <div class="hero-content">
       <span class="badge">أنمي أصلي</span>
-
       <h1>Gang</h1>
-
-      <p>
-        طالب غامض يبدأ رحلة جديدة بقوة لا يعرف حدودها.
-      </p>
+      <p>طالب غامض يبدأ رحلة جديدة بقوة لا يعرف حدودها.</p>
 
       <div class="hero-buttons">
-        <button class="watch-btn" onclick="openAnime('gang')">
-          ▶ شاهد الآن
-        </button>
-
-        <button class="info-btn" onclick="openAnime('gang')">
-          ＋ التفاصيل
-        </button>
+        <button class="watch-btn" onclick="openAnime('gang')">▶ شاهد الآن</button>
+        <button class="info-btn" onclick="openAnime('gang')">＋ التفاصيل</button>
       </div>
     </div>
   </section>
 
-  <!-- التصنيفات السريعة -->
   <section class="quick-menu">
 
     <button onclick="scrollToSection('popular')">
@@ -90,36 +69,27 @@
 
   </section>
 
-  <!-- الأكثر مشاهدة -->
   <section class="anime-section" id="popular">
-
     <div class="section-title">
       <h2>🔥 الأكثر مشاهدة</h2>
       <button onclick="showMessage('عرض الكل')">عرض الكل</button>
     </div>
 
     <div id="animeGrid" class="anime-grid"></div>
-
   </section>
 
-  <!-- الجديدة -->
   <section class="anime-section" id="new">
-
     <div class="section-title">
       <h2>✨ الأنميات الجديدة</h2>
       <button onclick="showMessage('عرض الكل')">عرض الكل</button>
     </div>
 
     <div id="newGrid" class="anime-grid"></div>
-
   </section>
 
-  <!-- صفحة التفاصيل -->
   <section id="animePage" class="anime-page hidden">
 
-    <button class="back-btn" onclick="closeAnime()">
-      → العودة
-    </button>
+    <button class="back-btn" onclick="closeAnime()">→ العودة</button>
 
     <div class="anime-detail">
 
@@ -156,49 +126,35 @@
     </div>
 
     <div class="episodes">
-
       <h2>الحلقات</h2>
-
       <div id="episodeList"></div>
-
     </div>
 
   </section>
 
-  <!-- مشغل الفيديو -->
   <section id="playerPage" class="player-page hidden">
 
-    <button class="back-btn" onclick="closePlayer()">
-      → العودة
-    </button>
+    <button class="back-btn" onclick="closePlayer()">→ العودة</button>
 
     <h2 id="playerTitle">Gang - الحلقة 1</h2>
 
     <div class="video-container">
 
-      <video
-        id="videoPlayer"
-        controls
-        playsinline
-        preload="metadata"
-      >
+      <video id="videoPlayer" controls playsinline preload="metadata">
         <p>متصفحك لا يدعم تشغيل الفيديو.</p>
       </video>
 
     </div>
 
     <p class="video-note">
-      ضع رابط فيديو تملك حق استخدامه داخل ملف script.js.
+      يمكنك لاحقًا وضع رابط فيديو تملك حق استخدامه داخل script.js.
     </p>
 
   </section>
 
-  <!-- قائمتي -->
   <section id="myListPage" class="my-list-page hidden">
 
-    <button class="back-btn" onclick="closeMyList()">
-      → العودة
-    </button>
+    <button class="back-btn" onclick="closeMyList()">→ العودة</button>
 
     <h2>♡ قائمتي</h2>
 
@@ -208,7 +164,6 @@
 
 </main>
 
-<!-- التنقل السفلي -->
 <nav class="bottom-nav">
 
   <button class="active" onclick="goHome()">
@@ -238,13 +193,13 @@
 <script src="script.js"></script>
 
 <script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./service-worker.js")
-        .then(() => console.log("Service Worker registered"))
-        .catch(error => console.log("Service Worker error:", error));
-    });
-  }
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("Service Worker registered"))
+      .catch(error => console.log("Service Worker error:", error));
+  });
+}
 </script>
 
 </body>
