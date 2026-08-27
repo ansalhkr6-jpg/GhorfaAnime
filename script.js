@@ -1477,4 +1477,4 @@ function escapeHTML(
     );
 
 }
-```
+
