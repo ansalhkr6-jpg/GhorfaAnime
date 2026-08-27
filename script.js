@@ -6,17 +6,22 @@
 
 
 /* =====================================================
-   بيانات الأنميات
+   الأنميات
    ===================================================== */
 
 const animeList = [
 
   {
     id: "gang",
+
     title: "Gang",
-    description: "قصة Gang وبداية ظهور النظام.",
-    image: "icon-512.png",
-    category: "popular",
+
+    description:
+      "بداية قصة Gang وظهور النظام الغامض.",
+
+    category: "أكشن",
+
+    section: "popular",
 
     episodes: [
 
@@ -31,11 +36,27 @@ const animeList = [
             type: "youtube",
 
             /*
-              هذا رابط اختبار من YouTube.
-              يجب أن يكون الفيديو مسموحًا بتضمينه.
+              فيديو اختبار.
+              يجب أن يكون الفيديو نفسه يسمح بالتضمين.
             */
 
             videoId: "_CLEPlpV85w"
+          }
+
+        ]
+      },
+
+      {
+        number: 2,
+        title: "ظهور النظام",
+
+        servers: [
+
+          {
+            name: "YouTube",
+            type: "youtube",
+
+            videoId: ""
           }
 
         ]
@@ -47,10 +68,15 @@ const animeList = [
 
   {
     id: "shadow",
+
     title: "Shadow System",
-    description: "نظام غامض يظهر في عالم مليء بالأسرار.",
-    image: "icon-512.png",
-    category: "popular",
+
+    description:
+      "نظام غامض يغير حياة البطل.",
+
+    category: "غموض",
+
+    section: "popular",
 
     episodes: [
 
@@ -64,10 +90,89 @@ const animeList = [
             name: "YouTube",
             type: "youtube",
 
-            /*
-              ضع هنا VIDEO ID لفيديو
-              يسمح صاحبه بالتضمين.
-            */
+            videoId: ""
+          }
+
+        ]
+      },
+
+      {
+        number: 2,
+        title: "القوة الجديدة",
+
+        servers: [
+
+          {
+            name: "YouTube",
+            type: "youtube",
+
+            videoId: ""
+          }
+
+        ]
+      }
+
+    ]
+  },
+
+
+  {
+    id: "anime3",
+
+    title: "Anime Room Original",
+
+    description:
+      "عمل تجريبي داخل غرفة الأنمي.",
+
+    category: "فانتازيا",
+
+    section: "new",
+
+    episodes: [
+
+      {
+        number: 1,
+        title: "البداية",
+
+        servers: [
+
+          {
+            name: "YouTube",
+            type: "youtube",
+
+            videoId: ""
+          }
+
+        ]
+      }
+
+    ]
+  },
+
+
+  {
+    id: "anime4",
+
+    title: "Mystery World",
+
+    description:
+      "عالم غامض مليء بالأسرار.",
+
+    category: "غموض",
+
+    section: "new",
+
+    episodes: [
+
+      {
+        number: 1,
+        title: "الباب الغامض",
+
+        servers: [
+
+          {
+            name: "YouTube",
+            type: "youtube",
 
             videoId: ""
           }
@@ -83,106 +188,159 @@ const animeList = [
 
 /* =====================================================
    قائمة المستخدم
-   ===================================================== */
+===================================================== */
 
-let myListData =
-  JSON.parse(
-    localStorage.getItem("ghorfaAnimeList") || "[]"
-  );
+let myListData = [];
+
+try {
+
+  myListData =
+    JSON.parse(
+      localStorage.getItem(
+        "ghorfaAnimeList"
+      ) || "[]"
+    );
+
+} catch {
+
+  myListData = [];
+
+}
 
 
 /* =====================================================
    عناصر الصفحة
-   ===================================================== */
+===================================================== */
 
 const animeGrid =
-  document.getElementById("animeGrid");
+  document.getElementById(
+    "animeGrid"
+  );
 
 const newGrid =
-  document.getElementById("newGrid");
+  document.getElementById(
+    "newGrid"
+  );
 
 const myListGrid =
-  document.getElementById("myListGrid");
+  document.getElementById(
+    "myListGrid"
+  );
 
 const searchInput =
-  document.getElementById("searchInput");
+  document.getElementById(
+    "searchInput"
+  );
 
 const playerSection =
-  document.getElementById("playerSection");
+  document.getElementById(
+    "playerSection"
+  );
 
 const videoPlayer =
-  document.getElementById("videoPlayer");
+  document.getElementById(
+    "videoPlayer"
+  );
 
 const serverContainer =
-  document.getElementById("serverContainer");
+  document.getElementById(
+    "serverContainer"
+  );
 
 const playerAnime =
-  document.getElementById("playerAnime");
+  document.getElementById(
+    "playerAnime"
+  );
 
 const playerTitle =
-  document.getElementById("playerTitle");
+  document.getElementById(
+    "playerTitle"
+  );
 
 
 /* =====================================================
-   تشغيل الصفحة
-   ===================================================== */
+   تشغيل
+===================================================== */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    renderAnime();
-
-    renderNewAnime();
-
-    renderMyList();
-
-  }
-);
+renderAll();
 
 
 /* =====================================================
-   إنشاء بطاقة الأنمي
-   ===================================================== */
+   عرض كل شيء
+===================================================== */
+
+function renderAll() {
+
+  renderPopular(animeList);
+
+  renderNew(animeList);
+
+  renderMyList();
+
+}
+
+
+/* =====================================================
+   بطاقة الأنمي
+===================================================== */
 
 function createAnimeCard(anime) {
 
-  const isInList =
-    myListData.includes(anime.id);
+  const inList =
+    myListData.includes(
+      anime.id
+    );
+
 
   return `
 
     <article class="anime-card">
 
-      <img
-        class="anime-image"
-        src="${anime.image}"
-        alt="${anime.title}"
-        loading="lazy"
-      >
+      <div class="anime-cover">
+
+        <div>
+
+          <strong>
+            ${escapeHTML(anime.title)}
+          </strong>
+
+          <small>
+            ${escapeHTML(anime.category)}
+          </small>
+
+        </div>
+
+      </div>
+
 
       <div class="anime-info">
 
         <h3>
-          ${anime.title}
+          ${escapeHTML(anime.title)}
         </h3>
 
         <p>
-          ${anime.description}
+          ${escapeHTML(anime.description)}
         </p>
+
 
         <button
           class="watch-btn"
-          onclick="openAnime('${anime.id}')"
-        >
+          onclick="openAnime('${anime.id}')">
+
           ▶ الحلقات
+
         </button>
+
 
         <button
           class="list-btn"
-          onclick="toggleMyList('${anime.id}')"
-        >
-          ${isInList ? "♥ في قائمتي" : "♡ أضف لقائمتي"}
+          onclick="toggleMyList('${anime.id}')">
+
+          ${inList
+            ? "♥ في قائمتي"
+            : "♡ أضف لقائمتي"}
+
         </button>
 
       </div>
@@ -194,44 +352,60 @@ function createAnimeCard(anime) {
 
 
 /* =====================================================
-   عرض الأنميات
-   ===================================================== */
+   الأكثر مشاهدة
+===================================================== */
 
-function renderAnime(list = animeList) {
+function renderPopular(list) {
 
-  const popular =
+  const items =
     list.filter(
       anime =>
-        anime.category === "popular"
+        anime.section === "popular"
     );
+
 
   animeGrid.innerHTML =
-    popular.length
-      ? popular.map(createAnimeCard).join("")
-      : `<div class="empty">لا توجد نتائج</div>`;
+    items.length
 
-}
+      ? items
+          .map(createAnimeCard)
+          .join("")
 
-
-function renderNewAnime(list = animeList) {
-
-  const newest =
-    list.filter(
-      anime =>
-        anime.category === "new"
-    );
-
-  newGrid.innerHTML =
-    newest.length
-      ? newest.map(createAnimeCard).join("")
-      : `<div class="empty">لا توجد أنميات جديدة حاليًا</div>`;
-
+      : `<div class="empty">
+           لا توجد نتائج
+         </div>`;
 }
 
 
 /* =====================================================
-   فتح قائمة الحلقات
-   ===================================================== */
+   الجديد
+===================================================== */
+
+function renderNew(list) {
+
+  const items =
+    list.filter(
+      anime =>
+        anime.section === "new"
+    );
+
+
+  newGrid.innerHTML =
+    items.length
+
+      ? items
+          .map(createAnimeCard)
+          .join("")
+
+      : `<div class="empty">
+           لا توجد نتائج
+         </div>`;
+}
+
+
+/* =====================================================
+   فتح الأنمي
+===================================================== */
 
 function openAnime(animeId) {
 
@@ -241,7 +415,15 @@ function openAnime(animeId) {
         item.id === animeId
     );
 
-  if (!anime) return;
+
+  if (!anime) {
+
+    showMessage(
+      "الأنمي غير موجود"
+    );
+
+    return;
+  }
 
 
   playerAnime.textContent =
@@ -261,11 +443,6 @@ function openAnime(animeId) {
   serverContainer.innerHTML = "";
 
 
-  playerSection.classList.remove(
-    "hidden"
-  );
-
-
   /*
     إنشاء أزرار الحلقات
   */
@@ -274,16 +451,19 @@ function openAnime(animeId) {
     episode => {
 
       const button =
-        document.createElement("button");
+        document.createElement(
+          "button"
+        );
 
       button.className =
         "server-btn";
 
       button.textContent =
-        `الحلقة ${episode.number}`;
+        `▶ الحلقة ${episode.number}`;
+
 
       button.onclick =
-        () => {
+        function() {
 
           showEpisode(
             anime,
@@ -292,11 +472,17 @@ function openAnime(animeId) {
 
         };
 
+
       serverContainer.appendChild(
         button
       );
 
     }
+  );
+
+
+  playerSection.classList.remove(
+    "hidden"
   );
 
 
@@ -310,12 +496,15 @@ function openAnime(animeId) {
 
 /* =====================================================
    تشغيل الحلقة
-   ===================================================== */
+===================================================== */
 
 function showEpisode(
   anime,
   episode
 ) {
+
+  playerAnime.textContent =
+    anime.title;
 
   playerTitle.textContent =
     `الحلقة ${episode.number} — ${episode.title}`;
@@ -325,14 +514,16 @@ function showEpisode(
 
 
   /*
-    إنشاء أزرار السيرفرات
+    إنشاء السيرفرات
   */
 
   episode.servers.forEach(
     (server, index) => {
 
       const button =
-        document.createElement("button");
+        document.createElement(
+          "button"
+        );
 
       button.className =
         "server-btn";
@@ -352,11 +543,11 @@ function showEpisode(
 
 
       button.onclick =
-        () => {
+        function() {
 
           document
             .querySelectorAll(
-              ".server-btn"
+              "#serverContainer .server-btn"
             )
             .forEach(
               btn =>
@@ -365,9 +556,11 @@ function showEpisode(
                 )
             );
 
+
           button.classList.add(
             "active"
           );
+
 
           loadServer(
             server
@@ -385,10 +578,13 @@ function showEpisode(
 
 
   /*
-    تشغيل السيرفر الأول
+    تشغيل أول سيرفر
   */
 
-  if (episode.servers.length > 0) {
+  if (
+    episode.servers &&
+    episode.servers.length
+  ) {
 
     loadServer(
       episode.servers[0]
@@ -408,7 +604,9 @@ function showEpisode(
 
   localStorage.setItem(
     "lastEpisode",
-    episode.number
+    String(
+      episode.number
+    )
   );
 
 }
@@ -416,25 +614,21 @@ function showEpisode(
 
 /* =====================================================
    تحميل السيرفر
-   ===================================================== */
+===================================================== */
 
 function loadServer(server) {
 
-  if (
-    !server ||
-    !server.type
-  ) {
+  if (!server) {
 
     showMessage(
       "السيرفر غير متاح"
     );
 
     return;
-
   }
 
 
-  /* YouTube Embed */
+  /* YouTube */
 
   if (
     server.type === "youtube"
@@ -443,29 +637,29 @@ function loadServer(server) {
     if (!server.videoId) {
 
       videoPlayer.innerHTML = `
+
         <div class="player-placeholder">
-          لا يوجد فيديو مرتبط بهذه الحلقة حاليًا
+
+          هذه الحلقة لم يتم ربطها بفيديو
+          متاح للتضمين بعد.
+
         </div>
+
       `;
 
       return;
-
     }
 
-
-    /*
-      مشغل YouTube الرسمي
-    */
 
     videoPlayer.innerHTML = `
 
       <iframe
 
-        src="https://www.youtube.com/embed/${encodeURIComponent(server.videoId)}"
+        src="https://www.youtube.com/embed/${encodeURIComponent(
+          server.videoId
+        )}"
 
-        title="مشغل غرفة الأنمي"
-
-        loading="lazy"
+        title="غرفة الأنمي"
 
         allow="
           accelerometer;
@@ -486,19 +680,17 @@ function loadServer(server) {
     `;
 
     return;
-
   }
 
 
-  /*
-    يمكن إضافة أنواع رسمية أخرى مستقبلًا
-    إذا كانت المنصة توفر Embed رسميًا.
-  */
-
   videoPlayer.innerHTML = `
+
     <div class="player-placeholder">
-      نوع السيرفر غير مدعوم حاليًا
+
+      نوع السيرفر غير مدعوم
+
     </div>
+
   `;
 
 }
@@ -506,11 +698,11 @@ function loadServer(server) {
 
 /* =====================================================
    البحث
-   ===================================================== */
+===================================================== */
 
 searchInput.addEventListener(
   "input",
-  function () {
+  function() {
 
     const query =
       this.value
@@ -520,47 +712,112 @@ searchInput.addEventListener(
 
     if (!query) {
 
-      renderAnime();
+      renderPopular(
+        animeList
+      );
 
-      renderNewAnime();
+      renderNew(
+        animeList
+      );
 
       return;
-
     }
 
 
     const results =
       animeList.filter(
-        anime =>
+        anime => {
 
-          anime.title
-            .toLowerCase()
-            .includes(query)
+          const title =
+            anime.title
+              .toLowerCase();
 
-          ||
+          const description =
+            anime.description
+              .toLowerCase();
 
-          anime.description
-            .toLowerCase()
-            .includes(query)
+          const category =
+            anime.category
+              .toLowerCase();
+
+
+          return (
+
+            title.includes(query)
+
+            ||
+
+            description.includes(query)
+
+            ||
+
+            category.includes(query)
+
+          );
+
+        }
       );
 
 
-    renderAnime(results);
+    renderPopular(
+      results
+    );
 
-    renderNewAnime(results);
+    renderNew(
+      results
+    );
 
   }
 );
 
 
 /* =====================================================
-   قائمتي
-   ===================================================== */
+   التصنيفات
+===================================================== */
 
-function toggleMyList(animeId) {
+function filterCategory(
+  category
+) {
+
+  const results =
+    animeList.filter(
+      anime =>
+        anime.category === category
+    );
+
+
+  renderPopular(
+    results
+  );
+
+  renderNew(
+    results
+  );
+
+
+  document
+    .getElementById(
+      "popular"
+    )
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   قائمتي
+===================================================== */
+
+function toggleMyList(
+  animeId
+) {
 
   const index =
-    myListData.indexOf(animeId);
+    myListData.indexOf(
+      animeId
+    );
 
 
   if (index === -1) {
@@ -595,18 +852,18 @@ function toggleMyList(animeId) {
   );
 
 
-  renderAnime();
-
-  renderNewAnime();
-
-  renderMyList();
+  renderAll();
 
 }
 
 
+/* =====================================================
+   عرض قائمتي
+===================================================== */
+
 function renderMyList() {
 
-  const list =
+  const items =
     animeList.filter(
       anime =>
         myListData.includes(
@@ -615,7 +872,7 @@ function renderMyList() {
     );
 
 
-  if (!list.length) {
+  if (!items.length) {
 
     myListGrid.innerHTML = `
       <div class="empty">
@@ -624,21 +881,20 @@ function renderMyList() {
     `;
 
     return;
-
   }
 
 
   myListGrid.innerHTML =
-    list.map(
-      createAnimeCard
-    ).join("");
+    items
+      .map(createAnimeCard)
+      .join("");
 
 }
 
 
 /* =====================================================
-   عرض قائمتي
-   ===================================================== */
+   فتح قائمتي
+===================================================== */
 
 function showMyList() {
 
@@ -646,7 +902,8 @@ function showMyList() {
     .getElementById(
       "myListSection"
     )
-    .style.display = "block";
+    .style.display =
+      "block";
 
 
   document
@@ -662,7 +919,7 @@ function showMyList() {
 
 /* =====================================================
    إغلاق المشغل
-   ===================================================== */
+===================================================== */
 
 function closePlayer() {
 
@@ -671,17 +928,22 @@ function closePlayer() {
   );
 
 
-  videoPlayer.innerHTML =
-    `<div class="player-placeholder">
+  videoPlayer.innerHTML = `
+    <div class="player-placeholder">
       اختر حلقة للمشاهدة
-    </div>`;
+    </div>
+  `;
+
+
+  serverContainer.innerHTML =
+    "";
 
 }
 
 
 /* =====================================================
    الرئيسية
-   ===================================================== */
+===================================================== */
 
 function goHome() {
 
@@ -689,7 +951,8 @@ function goHome() {
     .getElementById(
       "myListSection"
     )
-    .style.display = "none";
+    .style.display =
+      "none";
 
 
   closePlayer();
@@ -716,7 +979,9 @@ function scrollToAnime() {
 }
 
 
-function showSection(id) {
+function showSection(
+  id
+) {
 
   document
     .getElementById(id)
@@ -741,7 +1006,7 @@ function focusSearch() {
 
 /* =====================================================
    أكمل المشاهدة
-   ===================================================== */
+===================================================== */
 
 function continueWatching() {
 
@@ -795,7 +1060,7 @@ function continueWatching() {
 
 
   setTimeout(
-    () => {
+    function() {
 
       showEpisode(
         anime,
@@ -803,17 +1068,19 @@ function continueWatching() {
       );
 
     },
-    200
+    150
   );
 
 }
 
 
 /* =====================================================
-   رسائل
-   ===================================================== */
+   الرسائل
+===================================================== */
 
-function showMessage(text) {
+function showMessage(
+  text
+) {
 
   const message =
     document.getElementById(
@@ -835,13 +1102,46 @@ function showMessage(text) {
 
   window.messageTimer =
     setTimeout(
-      () => {
+      function() {
 
         message.style.display =
           "none";
 
       },
       2200
+    );
+
+}
+
+
+/* =====================================================
+   حماية النصوص
+===================================================== */
+
+function escapeHTML(
+  text
+) {
+
+  return String(text)
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
     );
 
 }
