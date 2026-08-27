@@ -1,26 +1,24 @@
 
 /* =====================================================
-   غرفة الأنمي
-   Anime Room
+   غرفة الأنمي - script.js
    ===================================================== */
 
 
 /* =====================================================
-   الأنميات
+   بيانات الأنميات
    ===================================================== */
 
 const animeList = [
 
+  /* =========================
+     Gang
+  ========================= */
+
   {
     id: "gang",
-
     title: "Gang",
-
-    description:
-      "بداية قصة Gang وظهور النظام الغامض.",
-
+    description: "بداية قصة Gang وظهور النظام الغامض.",
     category: "أكشن",
-
     section: "popular",
 
     episodes: [
@@ -30,19 +28,11 @@ const animeList = [
         title: "البداية",
 
         servers: [
-
           {
             name: "YouTube",
             type: "youtube",
-
-            /*
-              فيديو اختبار.
-              يجب أن يكون الفيديو نفسه يسمح بالتضمين.
-            */
-
             videoId: "_CLEPlpV85w"
           }
-
         ]
       },
 
@@ -51,14 +41,11 @@ const animeList = [
         title: "ظهور النظام",
 
         servers: [
-
           {
             name: "YouTube",
             type: "youtube",
-
             videoId: ""
           }
-
         ]
       }
 
@@ -66,16 +53,15 @@ const animeList = [
   },
 
 
+  /* =========================
+     Shadow System
+  ========================= */
+
   {
     id: "shadow",
-
     title: "Shadow System",
-
-    description:
-      "نظام غامض يغير حياة البطل.",
-
+    description: "نظام غامض يغير حياة البطل.",
     category: "غموض",
-
     section: "popular",
 
     episodes: [
@@ -85,14 +71,11 @@ const animeList = [
         title: "ظهور النظام",
 
         servers: [
-
           {
             name: "YouTube",
             type: "youtube",
-
             videoId: ""
           }
-
         ]
       },
 
@@ -101,14 +84,11 @@ const animeList = [
         title: "القوة الجديدة",
 
         servers: [
-
           {
             name: "YouTube",
             type: "youtube",
-
             videoId: ""
           }
-
         ]
       }
 
@@ -116,16 +96,201 @@ const animeList = [
   },
 
 
+  /* =========================
+     Solo Leveling
+  ========================= */
+
+  {
+    id: "solo-leveling",
+    title: "Solo Leveling",
+    description:
+      "سون جينوو يبدأ رحلته من أضعف صياد إلى أقوى صياد.",
+    category: "أكشن",
+    section: "popular",
+
+    episodes: [
+
+      {
+        number: 1,
+        title: "أنا معتاد على هذا",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 2,
+        title: "لو كانت لدي فرصة أخرى",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 3,
+        title: "إنها تشبه اللعبة",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 4,
+        title: "يجب أن أصبح أقوى",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 5,
+        title: "صفقة جيدة جدًا",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 6,
+        title: "الصيد الحقيقي يبدأ",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 7,
+        title: "لنرَ إلى أي حد يمكنني الوصول",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 8,
+        title: "هذا محبط",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 9,
+        title: "كنت تخفي مهاراتك",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 10,
+        title: "هل هذه نزهة؟",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 11,
+        title: "فارس يحمي عرشًا فارغًا",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 12,
+        title: "انهض",
+
+        servers: [
+          {
+            name: "المصدر الرسمي",
+            type: "external",
+            url:
+              "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      }
+
+    ]
+  },
+
+
+  /* =========================
+     Anime Room Original
+  ========================= */
+
   {
     id: "anime3",
-
     title: "Anime Room Original",
-
-    description:
-      "عمل تجريبي داخل غرفة الأنمي.",
-
+    description: "عمل تجريبي داخل غرفة الأنمي.",
     category: "فانتازيا",
-
     section: "new",
 
     episodes: [
@@ -135,14 +300,11 @@ const animeList = [
         title: "البداية",
 
         servers: [
-
           {
             name: "YouTube",
             type: "youtube",
-
             videoId: ""
           }
-
         ]
       }
 
@@ -150,16 +312,15 @@ const animeList = [
   },
 
 
+  /* =========================
+     Mystery World
+  ========================= */
+
   {
     id: "anime4",
-
     title: "Mystery World",
-
-    description:
-      "عالم غامض مليء بالأسرار.",
-
+    description: "عالم غامض مليء بالأسرار.",
     category: "غموض",
-
     section: "new",
 
     episodes: [
@@ -169,14 +330,11 @@ const animeList = [
         title: "الباب الغامض",
 
         servers: [
-
           {
             name: "YouTube",
             type: "youtube",
-
             videoId: ""
           }
-
         ]
       }
 
@@ -188,7 +346,7 @@ const animeList = [
 
 /* =====================================================
    قائمة المستخدم
-===================================================== */
+   ===================================================== */
 
 let myListData = [];
 
@@ -196,12 +354,14 @@ try {
 
   myListData =
     JSON.parse(
-      localStorage.getItem(
-        "ghorfaAnimeList"
-      ) || "[]"
+      localStorage.getItem("ghorfaAnimeList") || "[]"
     );
 
-} catch {
+  if (!Array.isArray(myListData)) {
+    myListData = [];
+  }
+
+} catch (error) {
 
   myListData = [];
 
@@ -210,64 +370,53 @@ try {
 
 /* =====================================================
    عناصر الصفحة
-===================================================== */
+   ===================================================== */
 
 const animeGrid =
-  document.getElementById(
-    "animeGrid"
-  );
+  document.getElementById("animeGrid");
 
 const newGrid =
-  document.getElementById(
-    "newGrid"
-  );
+  document.getElementById("newGrid");
 
 const myListGrid =
-  document.getElementById(
-    "myListGrid"
-  );
+  document.getElementById("myListGrid");
 
 const searchInput =
-  document.getElementById(
-    "searchInput"
-  );
+  document.getElementById("searchInput");
 
 const playerSection =
-  document.getElementById(
-    "playerSection"
-  );
+  document.getElementById("playerSection");
 
 const videoPlayer =
-  document.getElementById(
-    "videoPlayer"
-  );
+  document.getElementById("videoPlayer");
 
 const serverContainer =
-  document.getElementById(
-    "serverContainer"
-  );
+  document.getElementById("serverContainer");
 
 const playerAnime =
-  document.getElementById(
-    "playerAnime"
-  );
+  document.getElementById("playerAnime");
 
 const playerTitle =
-  document.getElementById(
-    "playerTitle"
-  );
+  document.getElementById("playerTitle");
 
 
 /* =====================================================
-   تشغيل
-===================================================== */
+   بدء التطبيق
+   ===================================================== */
 
-renderAll();
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    renderAll();
+
+  }
+);
 
 
 /* =====================================================
-   عرض كل شيء
-===================================================== */
+   عرض كل الأقسام
+   ===================================================== */
 
 function renderAll() {
 
@@ -281,15 +430,13 @@ function renderAll() {
 
 
 /* =====================================================
-   بطاقة الأنمي
-===================================================== */
+   إنشاء بطاقة الأنمي
+   ===================================================== */
 
 function createAnimeCard(anime) {
 
   const inList =
-    myListData.includes(
-      anime.id
-    );
+    myListData.includes(anime.id);
 
 
   return `
@@ -337,9 +484,11 @@ function createAnimeCard(anime) {
           class="list-btn"
           onclick="toggleMyList('${anime.id}')">
 
-          ${inList
-            ? "♥ في قائمتي"
-            : "♡ أضف لقائمتي"}
+          ${
+            inList
+              ? "♥ في قائمتي"
+              : "♡ أضف لقائمتي"
+          }
 
         </button>
 
@@ -353,9 +502,14 @@ function createAnimeCard(anime) {
 
 /* =====================================================
    الأكثر مشاهدة
-===================================================== */
+   ===================================================== */
 
 function renderPopular(list) {
+
+  if (!animeGrid) {
+    return;
+  }
+
 
   const items =
     list.filter(
@@ -365,23 +519,30 @@ function renderPopular(list) {
 
 
   animeGrid.innerHTML =
-    items.length
+    items.length > 0
 
       ? items
           .map(createAnimeCard)
           .join("")
 
-      : `<div class="empty">
-           لا توجد نتائج
-         </div>`;
+      : `
+          <div class="empty">
+            لا توجد نتائج
+          </div>
+        `;
 }
 
 
 /* =====================================================
-   الجديد
-===================================================== */
+   الأنميات الجديدة
+   ===================================================== */
 
 function renderNew(list) {
+
+  if (!newGrid) {
+    return;
+  }
+
 
   const items =
     list.filter(
@@ -391,21 +552,23 @@ function renderNew(list) {
 
 
   newGrid.innerHTML =
-    items.length
+    items.length > 0
 
       ? items
           .map(createAnimeCard)
           .join("")
 
-      : `<div class="empty">
-           لا توجد نتائج
-         </div>`;
+      : `
+          <div class="empty">
+            لا توجد نتائج
+          </div>
+        `;
 }
 
 
 /* =====================================================
    فتح الأنمي
-===================================================== */
+   ===================================================== */
 
 function openAnime(animeId) {
 
@@ -422,6 +585,11 @@ function openAnime(animeId) {
       "الأنمي غير موجود"
     );
 
+    return;
+  }
+
+
+  if (!playerSection) {
     return;
   }
 
@@ -443,27 +611,24 @@ function openAnime(animeId) {
   serverContainer.innerHTML = "";
 
 
-  /*
-    إنشاء أزرار الحلقات
-  */
-
   anime.episodes.forEach(
-    episode => {
+    function (episode) {
 
       const button =
-        document.createElement(
-          "button"
-        );
+        document.createElement("button");
+
 
       button.className =
         "server-btn";
 
+
       button.textContent =
-        `▶ الحلقة ${episode.number}`;
+        "▶ الحلقة " +
+        episode.number;
 
 
       button.onclick =
-        function() {
+        function () {
 
           showEpisode(
             anime,
@@ -495,8 +660,8 @@ function openAnime(animeId) {
 
 
 /* =====================================================
-   تشغيل الحلقة
-===================================================== */
+   عرض الحلقة
+   ===================================================== */
 
 function showEpisode(
   anime,
@@ -507,23 +672,36 @@ function showEpisode(
     anime.title;
 
   playerTitle.textContent =
-    `الحلقة ${episode.number} — ${episode.title}`;
+    "الحلقة " +
+    episode.number +
+    " — " +
+    episode.title;
 
 
   serverContainer.innerHTML = "";
 
 
-  /*
-    إنشاء السيرفرات
-  */
+  if (
+    !episode.servers ||
+    episode.servers.length === 0
+  ) {
+
+    videoPlayer.innerHTML = `
+      <div class="player-placeholder">
+        لا يوجد سيرفر متاح لهذه الحلقة.
+      </div>
+    `;
+
+    return;
+  }
+
 
   episode.servers.forEach(
-    (server, index) => {
+    function (server, index) {
 
       const button =
-        document.createElement(
-          "button"
-        );
+        document.createElement("button");
+
 
       button.className =
         "server-btn";
@@ -539,21 +717,25 @@ function showEpisode(
 
 
       button.textContent =
-        `▶ ${server.name}`;
+        "▶ " +
+        server.name;
 
 
       button.onclick =
-        function() {
+        function () {
 
           document
             .querySelectorAll(
               "#serverContainer .server-btn"
             )
             .forEach(
-              btn =>
+              function (btn) {
+
                 btn.classList.remove(
                   "active"
-                )
+                );
+
+              }
             );
 
 
@@ -577,25 +759,12 @@ function showEpisode(
   );
 
 
-  /*
-    تشغيل أول سيرفر
-  */
-
-  if (
-    episode.servers &&
-    episode.servers.length
-  ) {
-
-    loadServer(
-      episode.servers[0]
-    );
-
-  }
+  loadServer(
+    episode.servers[0]
+  );
 
 
-  /*
-    حفظ آخر مشاهدة
-  */
+  /* حفظ آخر مشاهدة */
 
   localStorage.setItem(
     "lastAnime",
@@ -604,9 +773,7 @@ function showEpisode(
 
   localStorage.setItem(
     "lastEpisode",
-    String(
-      episode.number
-    )
+    String(episode.number)
   );
 
 }
@@ -614,7 +781,7 @@ function showEpisode(
 
 /* =====================================================
    تحميل السيرفر
-===================================================== */
+   ===================================================== */
 
 function loadServer(server) {
 
@@ -628,7 +795,9 @@ function loadServer(server) {
   }
 
 
-  /* YouTube */
+  /* =========================
+     YouTube
+     ========================= */
 
   if (
     server.type === "youtube"
@@ -637,14 +806,86 @@ function loadServer(server) {
     if (!server.videoId) {
 
       videoPlayer.innerHTML = `
-
         <div class="player-placeholder">
+          لا يوجد فيديو مرتبط بهذه الحلقة.
+        </div>
+      `;
 
-          هذه الحلقة لم يتم ربطها بفيديو
-          متاح للتضمين بعد.
+      return;
+    }
 
+
+    const youtubeUrl =
+      "https://www.youtube.com/watch?v=" +
+      encodeURIComponent(
+        server.videoId
+      );
+
+
+    videoPlayer.innerHTML = `
+
+      <div
+        class="player-placeholder"
+        style="
+          display:flex;
+          flex-direction:column;
+          gap:15px;
+          text-align:center;
+          padding:20px;
+        "
+      >
+
+        <div style="font-size:45px;">
+          ▶️
         </div>
 
+        <div>
+          فيديو متاح على YouTube
+        </div>
+
+        <button
+          onclick="window.open(
+            '${youtubeUrl}',
+            '_blank'
+          )"
+
+          style="
+            background:#b747dc;
+            color:white;
+            border:0;
+            border-radius:10px;
+            padding:12px 22px;
+            cursor:pointer;
+            font-weight:bold;
+          "
+        >
+
+          ▶ مشاهدة على YouTube
+
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+
+  /* =========================
+     مصدر رسمي خارجي
+     ========================= */
+
+  if (
+    server.type === "external"
+  ) {
+
+    if (!server.url) {
+
+      videoPlayer.innerHTML = `
+        <div class="player-placeholder">
+          الرابط غير متاح.
+        </div>
       `;
 
       return;
@@ -653,29 +894,47 @@ function loadServer(server) {
 
     videoPlayer.innerHTML = `
 
-      <iframe
-
-        src="https://www.youtube.com/embed/${encodeURIComponent(
-          server.videoId
-        )}"
-
-        title="غرفة الأنمي"
-
-        allow="
-          accelerometer;
-          autoplay;
-          clipboard-write;
-          encrypted-media;
-          gyroscope;
-          picture-in-picture;
-          web-share
+      <div
+        class="player-placeholder"
+        style="
+          display:flex;
+          flex-direction:column;
+          gap:15px;
+          text-align:center;
+          padding:20px;
         "
+      >
 
-        referrerpolicy="strict-origin-when-cross-origin"
+        <div style="font-size:45px;">
+          ▶️
+        </div>
 
-        allowfullscreen>
+        <div>
+          الحلقة متاحة على المصدر الرسمي
+        </div>
 
-      </iframe>
+        <button
+          onclick="window.open(
+            '${server.url}',
+            '_blank'
+          )"
+
+          style="
+            background:#b747dc;
+            color:white;
+            border:0;
+            border-radius:10px;
+            padding:12px 22px;
+            cursor:pointer;
+            font-weight:bold;
+          "
+        >
+
+          ▶ مشاهدة الحلقة رسميًا
+
+        </button>
+
+      </div>
 
     `;
 
@@ -683,11 +942,15 @@ function loadServer(server) {
   }
 
 
+  /* =========================
+     نوع غير معروف
+     ========================= */
+
   videoPlayer.innerHTML = `
 
     <div class="player-placeholder">
 
-      نوع السيرفر غير مدعوم
+      نوع السيرفر غير مدعوم.
 
     </div>
 
@@ -698,82 +961,83 @@ function loadServer(server) {
 
 /* =====================================================
    البحث
-===================================================== */
+   ===================================================== */
 
-searchInput.addEventListener(
-  "input",
-  function() {
+if (searchInput) {
 
-    const query =
-      this.value
-        .trim()
-        .toLowerCase();
+  searchInput.addEventListener(
+    "input",
+    function () {
+
+      const query =
+        this.value
+          .trim()
+          .toLowerCase();
 
 
-    if (!query) {
+      if (!query) {
+
+        renderPopular(
+          animeList
+        );
+
+        renderNew(
+          animeList
+        );
+
+        return;
+      }
+
+
+      const results =
+        animeList.filter(
+          function (anime) {
+
+            const title =
+              anime.title.toLowerCase();
+
+            const description =
+              anime.description.toLowerCase();
+
+            const category =
+              anime.category.toLowerCase();
+
+
+            return (
+
+              title.includes(query)
+
+              ||
+
+              description.includes(query)
+
+              ||
+
+              category.includes(query)
+
+            );
+
+          }
+        );
+
 
       renderPopular(
-        animeList
+        results
       );
 
       renderNew(
-        animeList
+        results
       );
 
-      return;
     }
+  );
 
-
-    const results =
-      animeList.filter(
-        anime => {
-
-          const title =
-            anime.title
-              .toLowerCase();
-
-          const description =
-            anime.description
-              .toLowerCase();
-
-          const category =
-            anime.category
-              .toLowerCase();
-
-
-          return (
-
-            title.includes(query)
-
-            ||
-
-            description.includes(query)
-
-            ||
-
-            category.includes(query)
-
-          );
-
-        }
-      );
-
-
-    renderPopular(
-      results
-    );
-
-    renderNew(
-      results
-    );
-
-  }
-);
+}
 
 
 /* =====================================================
    التصنيفات
-===================================================== */
+   ===================================================== */
 
 function filterCategory(
   category
@@ -795,20 +1059,26 @@ function filterCategory(
   );
 
 
-  document
-    .getElementById(
+  const popular =
+    document.getElementById(
       "popular"
-    )
-    .scrollIntoView({
+    );
+
+
+  if (popular) {
+
+    popular.scrollIntoView({
       behavior: "smooth"
     });
+
+  }
 
 }
 
 
 /* =====================================================
    قائمتي
-===================================================== */
+   ===================================================== */
 
 function toggleMyList(
   animeId
@@ -859,9 +1129,14 @@ function toggleMyList(
 
 /* =====================================================
    عرض قائمتي
-===================================================== */
+   ===================================================== */
 
 function renderMyList() {
+
+  if (!myListGrid) {
+    return;
+  }
+
 
   const items =
     animeList.filter(
@@ -893,35 +1168,43 @@ function renderMyList() {
 
 
 /* =====================================================
-   فتح قائمتي
-===================================================== */
+   إظهار قائمتي
+   ===================================================== */
 
 function showMyList() {
 
-  document
-    .getElementById(
+  const section =
+    document.getElementById(
       "myListSection"
-    )
-    .style.display =
-      "block";
+    );
 
 
-  document
-    .getElementById(
-      "myListSection"
-    )
-    .scrollIntoView({
-      behavior: "smooth"
-    });
+  if (!section) {
+    return;
+  }
+
+
+  section.style.display =
+    "block";
+
+
+  section.scrollIntoView({
+    behavior: "smooth"
+  });
 
 }
 
 
 /* =====================================================
    إغلاق المشغل
-===================================================== */
+   ===================================================== */
 
 function closePlayer() {
+
+  if (!playerSection) {
+    return;
+  }
+
 
   playerSection.classList.add(
     "hidden"
@@ -943,16 +1226,22 @@ function closePlayer() {
 
 /* =====================================================
    الرئيسية
-===================================================== */
+   ===================================================== */
 
 function goHome() {
 
-  document
-    .getElementById(
+  const myListSection =
+    document.getElementById(
       "myListSection"
-    )
-    .style.display =
+    );
+
+
+  if (myListSection) {
+
+    myListSection.style.display =
       "none";
+
+  }
 
 
   closePlayer();
@@ -966,35 +1255,63 @@ function goHome() {
 }
 
 
+/* =====================================================
+   زر شاهد الآن
+   ===================================================== */
+
 function scrollToAnime() {
 
-  document
-    .getElementById(
+  const popular =
+    document.getElementById(
       "popular"
-    )
-    .scrollIntoView({
+    );
+
+
+  if (popular) {
+
+    popular.scrollIntoView({
       behavior: "smooth"
     });
+
+  }
 
 }
 
 
-function showSection(
-  id
-) {
+/* =====================================================
+   الانتقال إلى قسم
+   ===================================================== */
 
-  document
-    .getElementById(id)
-    ?.scrollIntoView({
+function showSection(id) {
+
+  const section =
+    document.getElementById(id);
+
+
+  if (section) {
+
+    section.scrollIntoView({
       behavior: "smooth"
     });
 
+  }
+
 }
 
+
+/* =====================================================
+   البحث
+   ===================================================== */
 
 function focusSearch() {
 
+  if (!searchInput) {
+    return;
+  }
+
+
   searchInput.focus();
+
 
   window.scrollTo({
     top: 0,
@@ -1006,7 +1323,7 @@ function focusSearch() {
 
 /* =====================================================
    أكمل المشاهدة
-===================================================== */
+   ===================================================== */
 
 function continueWatching() {
 
@@ -1014,6 +1331,7 @@ function continueWatching() {
     localStorage.getItem(
       "lastAnime"
     );
+
 
   const episodeNumber =
     Number(
@@ -1030,7 +1348,6 @@ function continueWatching() {
     );
 
     return;
-
   }
 
 
@@ -1041,7 +1358,9 @@ function continueWatching() {
     );
 
 
-  if (!anime) return;
+  if (!anime) {
+    return;
+  }
 
 
   const episode =
@@ -1051,7 +1370,9 @@ function continueWatching() {
     );
 
 
-  if (!episode) return;
+  if (!episode) {
+    return;
+  }
 
 
   openAnime(
@@ -1060,7 +1381,7 @@ function continueWatching() {
 
 
   setTimeout(
-    function() {
+    function () {
 
       showEpisode(
         anime,
@@ -1076,7 +1397,7 @@ function continueWatching() {
 
 /* =====================================================
    الرسائل
-===================================================== */
+   ===================================================== */
 
 function showMessage(
   text
@@ -1088,8 +1409,14 @@ function showMessage(
     );
 
 
+  if (!message) {
+    return;
+  }
+
+
   message.textContent =
     text;
+
 
   message.style.display =
     "block";
@@ -1102,7 +1429,7 @@ function showMessage(
 
   window.messageTimer =
     setTimeout(
-      function() {
+      function () {
 
         message.style.display =
           "none";
@@ -1116,258 +1443,38 @@ function showMessage(
 
 /* =====================================================
    حماية النصوص
-===================================================== */
+   ===================================================== */
 
 function escapeHTML(
   text
 ) {
 
   return String(text)
+
     .replace(
       /&/g,
       "&amp;"
     )
+
     .replace(
       /</g,
       "&lt;"
     )
+
     .replace(
       />/g,
       "&gt;"
     )
+
     .replace(
       /"/g,
       "&quot;"
     )
+
     .replace(
       /'/g,
       "&#039;"
     );
 
 }
-];```js
-  {
-    id: "solo-leveling",
-
-    title: "Solo Leveling",
-
-    description:
-      "سون جينوو يبدأ رحلته من أضعف صياد إلى أقوى صياد.",
-
-    category: "أكشن",
-
-    section: "popular",
-
-    episodes: [
-
-      {
-        number: 1,
-        title: "أنا معتاد على هذا",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/watch/GZ7UVEN9K/im-used-to-it"
-          }
-        ]
-      },
-
-      {
-        number: 2,
-        title: "لو كانت لدي فرصة أخرى",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/watch/GE00320670ARSA/if-i-had-one-more-chance"
-          }
-        ]
-      },
-
-      {
-        number: 3,
-        title: "الأمر أشبه بلعبة",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
-          }
-        ]
-      },
-
-      {
-        number: 4,
-        title: "عليّ أن أزداد قوة",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
-          }
-        ]
-      },
-
-      {
-        number: 5,
-        title: "صفقة جيدة جدًا",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
-          }
-        ]
-      },
-
-      {
-        number: 6,
-        title: "الصيد الحقيقي يبدأ",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
-          }
-        ]
-      },
-
-      {
-        number: 7,
-        title: "لنرَ إلى أي حد يمكنني الوصول",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/watch/GE00320675PLPL/lets-see-how-far-i-can-go"
-          }
-        ]
-      },
-
-      {
-        number: 8,
-        title: "هذا محبط",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
-          }
-        ]
-      },
-
-      {
-        number: 9,
-        title: "كنت تخفي مهاراتك",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/watch/GE00320677ARSA/youve-been-hiding-your-skills"
-          }
-        ]
-      },
-
-      {
-        number: 10,
-        title: "هل هذه نزهة أم ماذا؟",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
-          }
-        ]
-      },
-
-      {
-        number: 11,
-        title: "فارس يحمي عرشًا فارغًا",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/watch/GD9UV37Z0/a-knight-who-defends-an-empty-throne"
-          }
-        ]
-      },
-
-      {
-        number: 12,
-        title: "انهض",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/watch/GQJUG3W0X/arise"
-          }
-        ]
-      },
-
-      {
-        number: 13,
-        title: "أنت لست من الدرجة هـ، أنت",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/watch/GN7UNK8MW/you-arent-e-rank-are-you"
-          }
-        ]
-      },
-
-      {
-        number: 14,
-        title: "أفترض أنك لا تعرف",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/watch/GN7UNKZ4N/i-suppose-you-arent-aware"
-          }
-        ]
-      },
-
-      {
-        number: 24,
-        title: "هل أنت ملك البشر؟",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/watch/GMKUEMGGD/are-you-the-king-of-humans"
-          }
-        ]
-      },
-
-      {
-        number: 25,
-        title: "إلى الهدف التالي",
-
-        servers: [
-          {
-            name: "Crunchyroll الرسمي",
-            type: "external",
-            url: "https://www.crunchyroll.com/ar/watch/GQJUM0523/on-to-the-next-target"
-          }
-        ]
-      }
-
-    ]
-  },
 ```
