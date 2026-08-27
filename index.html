@@ -1,6 +1,7 @@
 ```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
 
@@ -11,13 +12,11 @@
         content="#b747dc">
 
   <meta name="description"
-        content="غرفة الأنمي - شاهد وتابع حلقات الأنمي">
+        content="غرفة الأنمي - منصة لمتابعة الأنمي">
 
-  <link rel="manifest"
-        href="manifest.json">
+  <link rel="manifest" href="manifest.json">
 
-  <link rel="stylesheet"
-        href="style.css">
+  <link rel="stylesheet" href="style.css">
 
   <title>غرفة الأنمي</title>
 </head>
@@ -45,6 +44,8 @@
 
 <main>
 
+  <!-- البحث -->
+
   <div class="search">
 
     <span>⌕</span>
@@ -58,16 +59,18 @@
   </div>
 
 
+  <!-- الواجهة الرئيسية -->
+
   <section class="hero">
 
     <div class="hero-content">
 
-      <small>مرحبًا بك</small>
+      <small>مرحبًا بك في غرفة الأنمي</small>
 
       <h2>اكتشف عالم الأنمي</h2>
 
       <p>
-        شاهد الحلقات من المصادر الرسمية
+        شاهد وتابع أنمياتك المفضلة
       </p>
 
       <button onclick="scrollToAnime()">
@@ -78,6 +81,8 @@
 
   </section>
 
+
+  <!-- الاختصارات -->
 
   <div class="quick">
 
@@ -96,7 +101,7 @@
       <b>أكمل المشاهدة</b>
     </button>
 
-    <button onclick="showMessage('التصنيفات')">
+    <button onclick="showSection('categories')">
       <span>▦</span>
       <b>التصنيفات</b>
     </button>
@@ -116,13 +121,15 @@
       </button>
 
       <div>
+
         <small id="playerAnime">
-          الأنمي
+          غرفة الأنمي
         </small>
 
         <h2 id="playerTitle">
-          الحلقة
+          اختر حلقة
         </h2>
+
       </div>
 
     </div>
@@ -135,6 +142,11 @@
         اختر حلقة للمشاهدة
       </div>
 
+    </div>
+
+
+    <div class="player-note">
+      يتم تشغيل الفيديو من المصدر الخارجي الرسمي.
     </div>
 
 
@@ -153,16 +165,21 @@
 
       <h2>الأكثر مشاهدة</h2>
 
+      <span>عرض الكل</span>
+
     </div>
 
     <div id="animeGrid"
          class="anime-grid">
+
+      <!-- يتم ملؤه بواسطة JavaScript -->
+
     </div>
 
   </section>
 
 
-  <!-- الجديد -->
+  <!-- الأنميات الجديدة -->
 
   <section id="new">
 
@@ -170,16 +187,54 @@
 
       <h2>الأنميات الجديدة</h2>
 
+      <span>عرض الكل</span>
+
     </div>
 
     <div id="newGrid"
          class="anime-grid">
+
+      <!-- يتم ملؤه بواسطة JavaScript -->
+
     </div>
 
   </section>
 
 
-  <!-- قائمة المستخدم -->
+  <!-- التصنيفات -->
+
+  <section id="categories">
+
+    <div class="section-header">
+
+      <h2>التصنيفات</h2>
+
+    </div>
+
+    <div class="categories">
+
+      <button onclick="filterCategory('أكشن')">
+        ⚔ أكشن
+      </button>
+
+      <button onclick="filterCategory('فانتازيا')">
+        ✨ فانتازيا
+      </button>
+
+      <button onclick="filterCategory('مدرسي')">
+        🎒 مدرسي
+      </button>
+
+      <button onclick="filterCategory('غموض')">
+        🌑 غموض
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- قائمتي -->
 
   <section id="myListSection"
            class="my-list-section">
@@ -192,12 +247,15 @@
 
     <div id="myListGrid"
          class="anime-grid">
+
     </div>
 
   </section>
 
 </main>
 
+
+<!-- القائمة السفلية -->
 
 <nav class="bottom-nav">
 
