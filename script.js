@@ -1145,3 +1145,229 @@ function escapeHTML(
     );
 
 }
+];```js
+  {
+    id: "solo-leveling",
+
+    title: "Solo Leveling",
+
+    description:
+      "سون جينوو يبدأ رحلته من أضعف صياد إلى أقوى صياد.",
+
+    category: "أكشن",
+
+    section: "popular",
+
+    episodes: [
+
+      {
+        number: 1,
+        title: "أنا معتاد على هذا",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/watch/GZ7UVEN9K/im-used-to-it"
+          }
+        ]
+      },
+
+      {
+        number: 2,
+        title: "لو كانت لدي فرصة أخرى",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/watch/GE00320670ARSA/if-i-had-one-more-chance"
+          }
+        ]
+      },
+
+      {
+        number: 3,
+        title: "الأمر أشبه بلعبة",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 4,
+        title: "عليّ أن أزداد قوة",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 5,
+        title: "صفقة جيدة جدًا",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 6,
+        title: "الصيد الحقيقي يبدأ",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 7,
+        title: "لنرَ إلى أي حد يمكنني الوصول",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/watch/GE00320675PLPL/lets-see-how-far-i-can-go"
+          }
+        ]
+      },
+
+      {
+        number: 8,
+        title: "هذا محبط",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 9,
+        title: "كنت تخفي مهاراتك",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/watch/GE00320677ARSA/youve-been-hiding-your-skills"
+          }
+        ]
+      },
+
+      {
+        number: 10,
+        title: "هل هذه نزهة أم ماذا؟",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/series/GDKHZEJ0K/solo-leveling"
+          }
+        ]
+      },
+
+      {
+        number: 11,
+        title: "فارس يحمي عرشًا فارغًا",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/watch/GD9UV37Z0/a-knight-who-defends-an-empty-throne"
+          }
+        ]
+      },
+
+      {
+        number: 12,
+        title: "انهض",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/watch/GQJUG3W0X/arise"
+          }
+        ]
+      },
+
+      {
+        number: 13,
+        title: "أنت لست من الدرجة هـ، أنت",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/watch/GN7UNK8MW/you-arent-e-rank-are-you"
+          }
+        ]
+      },
+
+      {
+        number: 14,
+        title: "أفترض أنك لا تعرف",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/watch/GN7UNKZ4N/i-suppose-you-arent-aware"
+          }
+        ]
+      },
+
+      {
+        number: 24,
+        title: "هل أنت ملك البشر؟",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/watch/GMKUEMGGD/are-you-the-king-of-humans"
+          }
+        ]
+      },
+
+      {
+        number: 25,
+        title: "إلى الهدف التالي",
+
+        servers: [
+          {
+            name: "Crunchyroll الرسمي",
+            type: "external",
+            url: "https://www.crunchyroll.com/ar/watch/GQJUM0523/on-to-the-next-target"
+          }
+        ]
+      }
+
+    ]
+  },
+```
