@@ -1,1824 +1,408 @@
-/* =====================================================
-   غرفة الأنمي
-   GhorfaAnime
-===================================================== */
-
-
-/* =====================================================
-   المتغيرات
-===================================================== */
-
-:root {
-
-  --purple: #b747dc;
-  --purple-dark: #7b269b;
-  --purple-light: #d978f0;
-
-  --background: #08070c;
-  --surface: #121018;
-  --surface-2: #191520;
-  --surface-3: #211b29;
-
-  --text: #ffffff;
-  --text-soft: #bdb7c5;
-  --border: rgba(255,255,255,.08);
-
-  --danger: #ff4d6d;
-
-  --radius: 18px;
-
-}
-
-
-/* =====================================================
-   إعادة الضبط
-===================================================== */
-
+```css
 * {
-
   box-sizing: border-box;
-
   margin: 0;
-
   padding: 0;
-
 }
-
 
 html {
-
   scroll-behavior: smooth;
-
 }
-
 
 body {
-
-  font-family:
-    Arial,
-    "Tahoma",
-    sans-serif;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(183,71,220,.12),
-      transparent 35%
-    ),
-    var(--background);
-
-  color: var(--text);
-
-  min-height: 100vh;
-
-  direction: rtl;
-
-}
-
-
-/* =====================================================
-   التطبيق
-===================================================== */
-
-.app {
-
-  width: 100%;
-
-  max-width: 700px;
-
-  min-height: 100vh;
-
-  margin: auto;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.015),
-      transparent
-    );
-
+  background: #08070c;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
   padding-bottom: 90px;
-
 }
 
+button,
+input {
+  font: inherit;
+}
 
-/* =====================================================
-   الشريط العلوي
-===================================================== */
+button {
+  cursor: pointer;
+  border: 0;
+}
 
 .topbar {
-
   height: 70px;
-
+  background: rgba(8, 7, 12, .96);
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
-  padding:
-    0 18px;
-
+  padding: 0 18px;
   position: sticky;
-
   top: 0;
-
   z-index: 100;
-
-  background:
-    rgba(8,7,12,.88);
-
-  backdrop-filter:
-    blur(18px);
-
-  border-bottom:
-    1px solid var(--border);
-
+  border-bottom: 1px solid #211b29;
 }
 
-
-.logo {
-
+.topbar h1 {
   font-size: 22px;
-
-  font-weight: 900;
-
-  letter-spacing: -.5px;
-
 }
 
-
-.logo span {
-
-  color: #fff;
-
+.topbar h1 span {
+  color: #b747dc;
 }
 
-
-.logo strong {
-
-  color: var(--purple);
-
-}
-
-
-.icon-button,
+.icon,
 .premium {
-
   width: 42px;
-
   height: 42px;
-
-  border: 0;
-
-  border-radius: 14px;
-
-  background:
-    var(--surface-2);
-
+  border-radius: 13px;
+  background: #17131d;
   color: white;
-
-  font-size: 20px;
-
-  cursor: pointer;
-
-  transition:
-    .2s ease;
-
+  font-size: 22px;
 }
-
-
-.icon-button:hover,
-.premium:hover {
-
-  background:
-    var(--purple);
-
-  transform:
-    translateY(-2px);
-
-}
-
 
 .premium {
-
-  color:
-    var(--purple-light);
-
-  font-size: 22px;
-
+  color: #b747dc;
 }
-
-
-/* =====================================================
-   المحتوى
-===================================================== */
 
 main {
-
-  padding:
-    18px;
-
+  max-width: 900px;
+  margin: auto;
+  padding: 15px;
 }
 
-
-/* =====================================================
-   البحث
-===================================================== */
-
-.search-box {
-
-  width: 100%;
-
-  height: 52px;
-
+.search {
+  height: 48px;
+  background: #15121a;
+  border: 1px solid #29222f;
+  border-radius: 15px;
   display: flex;
-
   align-items: center;
-
-  gap: 10px;
-
-  background:
-    var(--surface);
-
-  border:
-    1px solid var(--border);
-
-  border-radius:
-    16px;
-
-  padding:
-    0 16px;
-
-  margin-bottom:
-    18px;
-
+  padding: 0 14px;
+  margin-bottom: 18px;
 }
 
-
-.search-icon {
-
-  color:
-    var(--purple-light);
-
-  font-size: 25px;
-
+.search span {
+  color: #b747dc;
+  font-size: 26px;
+  margin-left: 8px;
 }
 
-
-.search-box input {
-
-  flex: 1;
-
-  background:
-    transparent;
-
+.search input {
+  width: 100%;
+  background: transparent;
   border: 0;
-
-  outline: 0;
-
-  color:
-    white;
-
+  outline: none;
+  color: white;
   font-size: 15px;
-
-  text-align:
-    right;
-
 }
-
-
-.search-box input::placeholder {
-
-  color:
-    #77717e;
-
-}
-
-
-/* =====================================================
-   Hero
-===================================================== */
 
 .hero {
-
-  min-height:
-    300px;
-
-  position: relative;
-
+  min-height: 300px;
+  border-radius: 24px;
   overflow: hidden;
-
-  border-radius:
-    24px;
-
+  position: relative;
   display: flex;
-
   align-items: flex-end;
-
-  margin-bottom:
-    20px;
-
+  padding: 25px;
   background:
-
-    radial-gradient(
-      circle at 70% 25%,
-      rgba(183,71,220,.65),
-      transparent 30%
+    linear-gradient(
+      90deg,
+      rgba(8,7,12,.98),
+      rgba(8,7,12,.65),
+      rgba(8,7,12,.15)
     ),
-
     linear-gradient(
       135deg,
-      #24112e,
-      #0b0810 70%
+      #32133e,
+      #11101a
     );
-
-  border:
-    1px solid
-    rgba(183,71,220,.2);
-
+  border: 1px solid #302039;
 }
-
-
-.hero::before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-
-    linear-gradient(
-      135deg,
-      transparent 25%,
-      rgba(183,71,220,.12)
-    );
-
-}
-
-
-.hero-overlay {
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      0deg,
-      rgba(0,0,0,.9),
-      rgba(0,0,0,.1)
-    );
-
-}
-
 
 .hero-content {
-
-  position: relative;
-
-  z-index: 2;
-
-  padding:
-    28px;
-
+  max-width: 520px;
 }
 
-
-.hero-content small {
-
-  color:
-    var(--purple-light);
-
-  font-weight:
-    bold;
-
+.hero small {
+  color: #d47cf3;
 }
 
-
-.hero-content h2 {
-
-  font-size:
-    clamp(28px, 7vw, 46px);
-
-  margin:
-    8px 0;
-
+.hero h2 {
+  font-size: 34px;
+  margin: 8px 0;
 }
 
-
-.hero-content p {
-
-  color:
-    #c7c0cc;
-
-  margin-bottom:
-    20px;
-
+.hero p {
+  color: #c7c1ca;
+  margin-bottom: 18px;
 }
 
-
-.watch-button {
-
-  border: 0;
-
-  background:
-    var(--purple);
-
-  color:
-    white;
-
-  padding:
-    13px 22px;
-
-  border-radius:
-    13px;
-
-  font-weight:
-    bold;
-
-  cursor:
-    pointer;
-
-  box-shadow:
-    0 8px 25px
-    rgba(183,71,220,.3);
-
-  transition:
-    .2s ease;
-
+.hero button {
+  background: #b747dc;
+  color: white;
+  padding: 13px 22px;
+  border-radius: 12px;
+  font-weight: bold;
 }
 
-
-.watch-button:hover {
-
-  background:
-    var(--purple-light);
-
-  transform:
-    translateY(-2px);
-
+.quick {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 18px 0 30px;
 }
 
-
-/* =====================================================
-   القائمة السريعة
-===================================================== */
-
-.quick-menu {
-
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap:
-    9px;
-
-  margin-bottom:
-    28px;
-
+.quick button {
+  background: #141118;
+  color: white;
+  border: 1px solid #28212e;
+  border-radius: 16px;
+  padding: 14px 8px;
+  min-height: 80px;
 }
 
-
-.quick-menu button {
-
-  border:
-    1px solid var(--border);
-
-  background:
-    var(--surface);
-
-  color:
-    white;
-
-  border-radius:
-    15px;
-
-  min-height:
-    82px;
-
-  padding:
-    10px 5px;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    7px;
-
-  cursor:
-    pointer;
-
-  transition:
-    .2s ease;
-
+.quick span {
+  display: block;
+  font-size: 23px;
+  margin-bottom: 7px;
 }
 
-
-.quick-menu button:hover {
-
-  border-color:
-    rgba(183,71,220,.5);
-
-  background:
-    var(--surface-2);
-
-  transform:
-    translateY(-2px);
-
+.quick b {
+  font-size: 12px;
 }
 
-
-.quick-icon {
-
-  font-size:
-    23px;
-
+section {
+  margin-bottom: 35px;
 }
-
-
-.quick-menu b {
-
-  font-size:
-    11px;
-
-}
-
-
-/* =====================================================
-   عناوين الأقسام
-===================================================== */
-
-.content-section {
-
-  margin-bottom:
-    32px;
-
-}
-
 
 .section-header {
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
-
-  margin-bottom:
-    14px;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
-
 
 .section-header h2 {
-
-  font-size:
-    20px;
-
+  font-size: 21px;
 }
-
-
-.view-all {
-
-  border:
-    0;
-
-  background:
-    transparent;
-
-  color:
-    var(--purple-light);
-
-  cursor:
-    pointer;
-
-  font-size:
-    13px;
-
-}
-
-
-/* =====================================================
-   شبكة الأنمي
-===================================================== */
 
 .anime-grid {
-
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap:
-    13px;
-
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
 }
-
-
-/* =====================================================
-   بطاقة الأنمي
-===================================================== */
 
 .anime-card {
-
-  background:
-    var(--surface);
-
-  border:
-    1px solid var(--border);
-
-  border-radius:
-    var(--radius);
-
-  overflow:
-    hidden;
-
-  cursor:
-    pointer;
-
-  transition:
-    transform .2s ease,
-    border-color .2s ease;
-
+  background: #141118;
+  border: 1px solid #29222f;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: .2s;
 }
-
 
 .anime-card:hover {
-
-  transform:
-    translateY(-4px);
-
-  border-color:
-    rgba(183,71,220,.45);
-
+  transform: translateY(-4px);
+  border-color: #b747dc;
 }
 
-
-.anime-cover {
-
-  position:
-    relative;
-
-  width:
-    100%;
-
-  aspect-ratio:
-    3 / 4;
-
-  overflow:
-    hidden;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2a1532,
-      #100c14
-    );
-
+.anime-image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+  background: #211b27;
 }
-
-
-.anime-cover img {
-
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  width:
-    100%;
-
-  height:
-    100%;
-
-  object-fit:
-    cover;
-
-  display:
-    block;
-
-}
-
-
-.anime-cover::after {
-
-  content:
-    "";
-
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  background:
-    linear-gradient(
-      0deg,
-      rgba(0,0,0,.75),
-      transparent 55%
-    );
-
-  pointer-events:
-    none;
-
-}
-
-
-.anime-cover span {
-
-  position:
-    absolute;
-
-  bottom:
-    12px;
-
-  right:
-    12px;
-
-  left:
-    12px;
-
-  z-index:
-    2;
-
-  font-weight:
-    900;
-
-  font-size:
-    17px;
-
-  text-shadow:
-    0 3px 10px #000;
-
-}
-
 
 .anime-info {
-
-  padding:
-    12px;
-
+  padding: 10px;
 }
-
 
 .anime-info h3 {
-
-  font-size:
-    15px;
-
-  margin-bottom:
-    6px;
-
+  font-size: 14px;
+  margin-bottom: 5px;
 }
-
 
 .anime-info p {
-
-  color:
-    var(--text-soft);
-
-  font-size:
-    11px;
-
-  line-height:
-    1.5;
-
+  color: #aaa2b0;
+  font-size: 11px;
+  margin-bottom: 10px;
 }
 
-
-/* =====================================================
-   Public Domain
-===================================================== */
-
-.legal-notice {
-
-  display:
-    flex;
-
-  align-items:
-    flex-start;
-
-  gap:
-    10px;
-
-  padding:
-    13px;
-
-  margin-bottom:
-    14px;
-
-  background:
-    rgba(183,71,220,.08);
-
-  border:
-    1px solid
-    rgba(183,71,220,.18);
-
-  border-radius:
-    14px;
-
+.watch-btn,
+.list-btn {
+  width: 100%;
+  border-radius: 9px;
+  padding: 9px;
+  margin-top: 5px;
 }
 
-
-.legal-notice span {
-
-  font-size:
-    20px;
-
+.watch-btn {
+  background: #b747dc;
+  color: white;
 }
 
-
-.legal-notice p {
-
-  color:
-    #bdb5c4;
-
-  font-size:
-    11px;
-
-  line-height:
-    1.7;
-
+.list-btn {
+  background: #211b27;
+  color: #ddd;
 }
 
-
-/* =====================================================
-   الصفحات الداخلية
-===================================================== */
-
-.page {
-
-  min-height:
-    calc(100vh - 160px);
-
+.player-section {
+  background: #0e0c12;
+  border: 1px solid #302539;
+  border-radius: 20px;
+  padding: 12px;
+  margin-bottom: 30px;
 }
-
 
 .hidden {
-
-  display:
-    none !important;
-
+  display: none;
 }
 
-
-/* =====================================================
-   زر العودة
-===================================================== */
-
-.back-button {
-
-  border:
-    0;
-
-  background:
-    var(--surface-2);
-
-  color:
-    white;
-
-  padding:
-    11px 16px;
-
-  border-radius:
-    12px;
-
-  cursor:
-    pointer;
-
-  margin-bottom:
-    20px;
-
+.player-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
-
-.back-button:hover {
-
-  background:
-    var(--purple);
-
+.player-header button {
+  background: #211b27;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
 }
 
-
-/* =====================================================
-   تفاصيل الأنمي
-===================================================== */
-
-.anime-detail {
-
-  display:
-    grid;
-
-  grid-template-columns:
-    150px 1fr;
-
-  gap:
-    18px;
-
-  margin-bottom:
-    30px;
-
+.player-header small {
+  color: #b747dc;
 }
 
-
-.detail-cover {
-
-  position:
-    relative;
-
-  overflow:
-    hidden;
-
-  width:
-    150px;
-
-  aspect-ratio:
-    3 / 4;
-
-  border-radius:
-    18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #2a1532,
-      #100c14
-    );
-
-  border:
-    1px solid var(--border);
-
+.player-header h2 {
+  font-size: 17px;
+  margin-top: 4px;
 }
-
-
-.detail-cover img {
-
-  width:
-    100%;
-
-  height:
-    100%;
-
-  object-fit:
-    cover;
-
-  display:
-    block;
-
-}
-
-
-.detail-cover .fallback-cover {
-
-  display:
-    none;
-
-}
-
-
-.detail-cover.image-error .fallback-cover {
-
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  text-align:
-    center;
-
-  padding:
-    10px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #3a1545,
-      #120d17
-    );
-
-  font-weight:
-    900;
-
-}
-
-
-.detail-info h2 {
-
-  font-size:
-    25px;
-
-  margin:
-    6px 0 10px;
-
-}
-
-
-.detail-info p {
-
-  color:
-    var(--text-soft);
-
-  line-height:
-    1.8;
-
-  font-size:
-    13px;
-
-}
-
-
-/* =====================================================
-   التصنيفات
-===================================================== */
-
-.tags {
-
-  display:
-    flex;
-
-  flex-wrap:
-    wrap;
-
-  gap:
-    6px;
-
-  margin-bottom:
-    12px;
-
-}
-
-
-.tags span {
-
-  padding:
-    5px 9px;
-
-  background:
-    rgba(183,71,220,.12);
-
-  border:
-    1px solid
-    rgba(183,71,220,.2);
-
-  border-radius:
-    20px;
-
-  color:
-    var(--purple-light);
-
-  font-size:
-    10px;
-
-}
-
-
-.detail-badge {
-
-  display:
-    inline-block;
-
-  color:
-    var(--purple-light);
-
-  font-size:
-    11px;
-
-  font-weight:
-    bold;
-
-}
-
-
-/* =====================================================
-   زر قائمتي
-===================================================== */
-
-.favorite-button {
-
-  margin-top:
-    14px;
-
-  border:
-    1px solid
-    rgba(183,71,220,.35);
-
-  background:
-    rgba(183,71,220,.12);
-
-  color:
-    white;
-
-  padding:
-    10px 13px;
-
-  border-radius:
-    12px;
-
-  cursor:
-    pointer;
-
-}
-
-
-.favorite-button:hover {
-
-  background:
-    var(--purple);
-
-}
-
-
-/* =====================================================
-   الحلقات
-===================================================== */
-
-.episodes-section {
-
-  margin-top:
-    20px;
-
-}
-
-
-.episode-list {
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  gap:
-    9px;
-
-}
-
-
-.episode {
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    12px;
-
-  background:
-    var(--surface);
-
-  border:
-    1px solid var(--border);
-
-  border-radius:
-    15px;
-
-  padding:
-    12px;
-
-  cursor:
-    pointer;
-
-  transition:
-    .2s ease;
-
-}
-
-
-.episode:hover {
-
-  border-color:
-    rgba(183,71,220,.45);
-
-  background:
-    var(--surface-2);
-
-}
-
-
-.episode-number {
-
-  width:
-    40px;
-
-  height:
-    40px;
-
-  flex-shrink:
-    0;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  border-radius:
-    12px;
-
-  background:
-    rgba(183,71,220,.15);
-
-  color:
-    var(--purple-light);
-
-  font-weight:
-    bold;
-
-}
-
-
-.episode-info {
-
-  flex:
-    1;
-
-  min-width:
-    0;
-
-}
-
-
-.episode-info strong {
-
-  display:
-    block;
-
-  font-size:
-    13px;
-
-  margin-bottom:
-    5px;
-
-}
-
-
-.episode-info small {
-
-  display:
-    block;
-
-  color:
-    #8e8795;
-
-  font-size:
-    10px;
-
-  overflow:
-    hidden;
-
-  text-overflow:
-    ellipsis;
-
-  white-space:
-    nowrap;
-
-}
-
-
-.episode > span {
-
-  color:
-    var(--purple-light);
-
-  font-size:
-    18px;
-
-}
-
-
-/* =====================================================
-   مشغل الفيديو
-===================================================== */
-
-.player-container {
-
-  width:
-    100%;
-
-  background:
-    #000;
-
-  border-radius:
-    18px;
-
-  overflow:
-    hidden;
-
-  border:
-    1px solid var(--border);
-
-  box-shadow:
-    0 15px 40px
-    rgba(0,0,0,.45);
-
-}
-
 
 .video-player {
-
-  width:
-    100%;
-
-  display:
-    block;
-
-  background:
-    #000;
-
-  aspect-ratio:
-    16 / 9;
-
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: black;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
-
-.player-title {
-
-  margin-top:
-    18px;
-
-  font-size:
-    20px;
-
+.video-player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-
-.player-note {
-
-  color:
-    #8e8795;
-
-  font-size:
-    11px;
-
-  line-height:
-    1.7;
-
-  margin-top:
-    8px;
-
+.player-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
 }
 
-
-/* =====================================================
-   القائمة الشخصية
-===================================================== */
-
-.my-list-page .anime-grid {
-
-  margin-top:
-    10px;
-
+.servers {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
 }
 
-
-/* =====================================================
-   رسالة
-===================================================== */
-
-.message {
-
-  position:
-    fixed;
-
-  bottom:
-    95px;
-
-  left:
-    50%;
-
-  transform:
-    translateX(-50%) translateY(20px);
-
-  background:
-    #201927;
-
-  border:
-    1px solid
-    rgba(183,71,220,.35);
-
-  color:
-    white;
-
-  padding:
-    12px 18px;
-
-  border-radius:
-    13px;
-
-  font-size:
-    13px;
-
-  opacity:
-    0;
-
-  pointer-events:
-    none;
-
-  transition:
-    .25s ease;
-
-  z-index:
-    1000;
-
-  box-shadow:
-    0 10px 30px
-    rgba(0,0,0,.4);
-
+.server-btn {
+  background: #211b27;
+  color: #ddd;
+  border: 1px solid #352b3d;
+  border-radius: 10px;
+  padding: 10px 14px;
 }
 
-
-.message.show {
-
-  opacity:
-    1;
-
-  transform:
-    translateX(-50%) translateY(0);
-
+.server-btn.active {
+  background: #b747dc;
+  color: white;
 }
 
-
-/* =====================================================
-   رسالة فارغة
-===================================================== */
-
-.empty-message {
-
-  text-align:
-    center;
-
-  padding:
-    35px 15px;
-
-  color:
-    #99919f;
-
-  background:
-    var(--surface);
-
-  border:
-    1px solid var(--border);
-
-  border-radius:
-    18px;
-
-  grid-column:
-    1 / -1;
-
+.my-list-section {
+  display: none;
 }
 
-
-.empty-message button {
-
-  margin-top:
-    15px;
-
-  border:
-    0;
-
-  background:
-    var(--purple);
-
-  color:
-    white;
-
-  padding:
-    10px 18px;
-
-  border-radius:
-    12px;
-
-  cursor:
-    pointer;
-
+.empty {
+  background: #141118;
+  border: 1px solid #29222f;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  color: #888;
 }
-
-
-/* =====================================================
-   التنقل السفلي
-===================================================== */
 
 .bottom-nav {
-
-  position:
-    fixed;
-
-  bottom:
-    0;
-
-  left:
-    50%;
-
-  transform:
-    translateX(-50%);
-
-  width:
-    min(700px, 100%);
-
-  height:
-    72px;
-
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  background:
-    rgba(12,10,16,.94);
-
-  backdrop-filter:
-    blur(20px);
-
-  border-top:
-    1px solid var(--border);
-
-  z-index:
-    200;
-
-  padding-bottom:
-    env(safe-area-inset-bottom);
-
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: rgba(12, 10, 15, .97);
+  border-top: 1px solid #29222f;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  z-index: 200;
 }
 
-
-.nav-button {
-
-  border:
-    0;
-
-  background:
-    transparent;
-
-  color:
-    #77717e;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  gap:
-    3px;
-
-  cursor:
-    pointer;
-
-  transition:
-    .2s ease;
-
+.bottom-nav button {
+  background: transparent;
+  color: #888;
 }
 
-
-.nav-button span {
-
-  font-size:
-    22px;
-
+.bottom-nav button.active {
+  color: #b747dc;
 }
 
-
-.nav-button small {
-
-  font-size:
-    10px;
-
+.bottom-nav span {
+  display: block;
+  font-size: 22px;
 }
 
-
-.nav-button:hover,
-.nav-button.active {
-
-  color:
-    var(--purple-light);
-
+.bottom-nav small {
+  font-size: 10px;
 }
 
-
-/* =====================================================
-   الجوال
-===================================================== */
-
-@media (max-width: 520px) {
-
-  main {
-
-    padding:
-      14px;
-
-  }
-
-
-  .topbar {
-
-    padding:
-      0 14px;
-
-  }
-
-
-  .hero {
-
-    min-height:
-      280px;
-
-  }
-
-
-  .hero-content {
-
-    padding:
-      22px;
-
-  }
-
-
-  .hero-content h2 {
-
-    font-size:
-      30px;
-
-  }
-
-
-  .anime-detail {
-
-    grid-template-columns:
-      120px 1fr;
-
-    gap:
-      13px;
-
-  }
-
-
-  .detail-cover {
-
-    width:
-      120px;
-
-  }
-
-
-  .detail-info h2 {
-
-    font-size:
-      20px;
-
-  }
-
-
-  .quick-menu {
-
-    gap:
-      6px;
-
-  }
-
-
-  .quick-menu button {
-
-    min-height:
-      74px;
-
-  }
-
-
-  .quick-menu b {
-
-    font-size:
-      9px;
-
-  }
-
+.message {
+  position: fixed;
+  left: 50%;
+  bottom: 90px;
+  transform: translateX(-50%);
+  background: #b747dc;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: none;
+  z-index: 500;
 }
 
-
-/* =====================================================
-   الشاشات الصغيرة جدًا
-===================================================== */
-
-@media (max-width: 360px) {
+@media (max-width: 700px) {
 
   .anime-grid {
-
-    grid-template-columns:
-      1fr 1fr;
-
-    gap:
-      8px;
-
+    grid-template-columns: repeat(2, 1fr);
   }
 
-
-  .anime-detail {
-
-    grid-template-columns:
-      1fr;
-
+  .quick {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-
-  .detail-cover {
-
-    width:
-      150px;
-
-    margin:
-      auto;
-
+  .hero {
+    min-height: 270px;
   }
 
-
-  .detail-info {
-
-    text-align:
-      center;
-
+  .hero h2 {
+    font-size: 27px;
   }
-
-
-  .tags {
-
-    justify-content:
-      center;
-
-  }
-
 }
-
-
-/* =====================================================
-   شاشات الكمبيوتر
-===================================================== */
 
 @media (min-width: 701px) {
 
-  body {
-
-    background:
-      radial-gradient(
-        circle at center,
-        #18101c,
-        #050408 70%
-      );
-
-  }
-
-
-  .app {
-
-    border-left:
-      1px solid var(--border);
-
-    border-right:
-      1px solid var(--border);
-
-    box-shadow:
-      0 0 80px
-      rgba(0,0,0,.5);
-
+  .anime-card {
+    max-width: 220px;
   }
 
 }
+```
